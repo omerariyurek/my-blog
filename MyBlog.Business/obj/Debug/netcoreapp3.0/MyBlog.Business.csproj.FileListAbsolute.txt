@@ -1,0 +1,8 @@
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Business\bin\Debug\netcoreapp3.0\MyBlog.Business.deps.json
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Business\bin\Debug\netcoreapp3.0\MyBlog.Business.dll
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Business\bin\Debug\netcoreapp3.0\MyBlog.Business.pdb
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Business\obj\Debug\netcoreapp3.0\MyBlog.Business.csprojAssemblyReference.cache
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Business\obj\Debug\netcoreapp3.0\MyBlog.Business.AssemblyInfoInputs.cache
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Business\obj\Debug\netcoreapp3.0\MyBlog.Business.AssemblyInfo.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Business\obj\Debug\netcoreapp3.0\MyBlog.Business.dll
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Business\obj\Debug\netcoreapp3.0\MyBlog.Business.pdb

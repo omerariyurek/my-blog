@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.0": {
+      "MyBlog.Business/1.0.0": {
+        "runtime": {
+          "MyBlog.Business.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MyBlog.Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
