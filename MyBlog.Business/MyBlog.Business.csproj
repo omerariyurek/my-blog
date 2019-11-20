@@ -4,4 +4,10 @@
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyBlog.Core\MyBlog.Core.csproj" />
+    <ProjectReference Include="..\MyBlog.DataAccess\MyBlog.DataAccess.csproj" />
+    <ProjectReference Include="..\MyBlog.Entities\MyBlog.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
