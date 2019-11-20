@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using MyBlog.Business.Abstract;
 using MyBlog.Core.Utilities.Results.Abstract;
@@ -19,41 +20,30 @@ namespace MyBlog.Business.Concrete.Managers
 
 		public IDataResult<Post> GetById(int postId)
 		{
-			try
-			{
-				var post = _postDal.Get(x => x.PostId == postId);
-				return new SuccessDataResult<Post>(post);
-			}
-			catch
-			{
-				return new ErrorDataResult<Post>("Post getirilemedi!");
-			}
-			
+			return new SuccessDataResult<Post>(_postDal.Get(x => x.PostId == postId));
 		}
 
-		public IDataResult<List<Post>> GetAll()
+		public IDataResult<List<Post>> GetList()
 		{
-			throw new NotImplementedException();
-		}
-
-		public IDataResult<List<Post>> GetListByCategory(int categoryId)
-		{
-			throw new NotImplementedException();
+			return new SuccessDataResult<List<Post>>(_postDal.GetList().ToList());
 		}
 
 		public IResult Add(Post post)
 		{
-			throw new NotImplementedException();
+			_postDal.Add(post);
+			return new SuccessResult("Post başarıyla kaydedildi.");
 		}
 
 		public IResult Delete(Post post)
 		{
-			throw new NotImplementedException();
+			_postDal.Delete(post);
+			return new SuccessResult("Post başarıyla silindi.");
 		}
 
 		public IResult Update(Post post)
 		{
-			throw new NotImplementedException();
+			_postDal.Update(post);
+			return new SuccessResult("Post başarıyla güncellendi.");
 		}
 	}
 }

@@ -5,11 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Dtos\" />
+    <ProjectReference Include="..\MyBlog.Core\MyBlog.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyBlog.Core\MyBlog.Core.csproj" />
+    <Folder Include="Dtos\" />
   </ItemGroup>
 
 </Project>
