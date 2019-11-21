@@ -19,4 +19,8 @@
     <Folder Include="Areas\Administrator\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyBlog.Core\MyBlog.Core.csproj" />
+  </ItemGroup>
+
 </Project>
