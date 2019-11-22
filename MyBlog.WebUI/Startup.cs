@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,6 +20,17 @@ namespace MyBlog.WebUI
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddMvc();
+			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+				.AddCookie(options =>
+				{
+					options.LoginPath = "/Account/Login/";
+				});
+
+			services.AddHttpContextAccessor();
+			//services.AddMvc().AddFluentValidation(provider =>
+			//{
+			//	provider.ValidatorFactory = new 
+			//});
 			services.AddDependencyResolvers(new ICoreModule[]
 			{
 				new CoreModule()

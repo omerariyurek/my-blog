@@ -6,3 +6,12 @@ C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\bin\Debug\netcoreapp3.0\MyBlog.
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\obj\Debug\netcoreapp3.0\MyBlog.Core.dll
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\obj\Debug\netcoreapp3.0\MyBlog.Core.pdb
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\obj\Debug\netcoreapp3.0\MyBlog.Core.csprojAssemblyReference.cache
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.Cookies.dll
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.dll
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.Abstractions.dll
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.DataProtection.Abstractions.dll
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.Cookies.xml
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.xml
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.Authentication.Abstractions.xml
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\bin\Debug\netcoreapp3.0\Microsoft.AspNetCore.DataProtection.Abstractions.xml
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.Core\obj\Debug\netcoreapp3.0\MyBlog.Core.csproj.CopyComplete

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using MyBlog.Core.CrossCuttingConcerns.Caching.Abstract;
 using MyBlog.Core.CrossCuttingConcerns.Caching.Microsoft;
@@ -14,6 +15,8 @@ namespace MyBlog.Core.DependencyResolvers
 		{
 			services.AddMemoryCache();
 			services.AddSingleton<ICacheManager, MemoryCacheManager>();
+			services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 		}
 	}
 }
