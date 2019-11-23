@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 using MyBlog.Business.Abstract;
 using MyBlog.Core.Entities.Concrete;
 using MyBlog.Core.Utilities.Security.Web;
+using MyBlog.Entities.Dtos;
 
 namespace MyBlog.WebUI.Areas.Administrator.Controllers
 {
@@ -22,7 +23,14 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		//	_authService = authService;
 		//}
 
-		public async Task<IActionResult> Login()
+		[HttpGet]
+		public IActionResult Login()
+		{
+			return View();
+		}
+
+		[HttpPost]
+		public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
 		{
 			var user = new User
 			{

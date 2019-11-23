@@ -14,9 +14,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 	    [Authorize]
 	    public string Index()
 		{
-			var name = User.Claims.Where(c => c.Type == ClaimTypes.Name)
-				.Select(c => c.Value).SingleOrDefault();
-			return "geldin";
+			return HttpContext.User.Identity.Name;
         }
     }
 }

@@ -1,7 +1,36 @@
-﻿
+﻿@model MyBlog.Entities.Dtos.UserForLoginDto
 @{
-    ViewData["Title"] = "Login";
+    Layout = null;
 }
-
-<h1>Login</h1>
-
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Areas/Administrator/Content/styles/app.css" rel="stylesheet" />
+</head>
+<body>
+<div id="admin-login-wrapper">
+    <div class="login-form">
+        <div class="dash-logo">
+            <img src="~/Content/images/green-logo.png" />
+        </div>
+        @Html.ValidationSummary()
+        @using (Html.BeginForm())
+        {
+            <div class="form-group">
+                <label for="name">Username</label>
+                @Html.TextBoxFor(x => x.UserName, new { @name = "name" })
+                @Html.ValidationMessageFor(x => x.UserName)
+            </div>
+            <div class="form-group">
+                <label for="pass">Password</label>
+                @Html.PasswordFor(x=>x.Password,new{@name="pass"})
+                @Html.ValidationMessageFor(x => x.Password)
+            </div>
+            <button type="submit">Login</button>
+        }
+    </div>
+</div>
+</body>
+</html>

@@ -4,6 +4,8 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using Castle.DynamicProxy;
+using MyBlog.Core.Aspects.Autofac.Exception;
+using MyBlog.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
 
 namespace MyBlog.Core.Utilities.Interceptors.Autofac
 {
@@ -14,6 +16,7 @@ namespace MyBlog.Core.Utilities.Interceptors.Autofac
 			var classAttributes = type.GetCustomAttributes<MethodInterceptionBaseAttribute>(true).ToList();
 			var methodAttributes = type.GetMethod(method.Name).GetCustomAttributes<MethodInterceptionBaseAttribute>(true);
 			classAttributes.AddRange(methodAttributes);
+			classAttributes.Add(new ExceptionLogAspect(typeof(DatabaseLogger)));
 			return classAttributes.OrderBy(x => x.Priority).ToArray();
 		}
 	}
