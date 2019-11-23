@@ -17,7 +17,7 @@ namespace MyBlog.Core.Aspects.Autofac.Logging
 		{
 			if (loggerService.BaseType != typeof(LoggerServiceBase))
 			{
-				throw new Exception(AspectMessages.WrongLoggerType);
+				throw new System.Exception(AspectMessages.WrongLoggerType);
 			}
 			_loggerServiceBase = (LoggerServiceBase)Activator.CreateInstance(loggerService);
 		}

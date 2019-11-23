@@ -19,7 +19,6 @@ namespace MyBlog.Core.Aspects.Autofac.Exception
 			{
 				throw new System.Exception(AspectMessages.WrongLoggerType);
 			}
-
 			_loggerServiceBase = (LoggerServiceBase)Activator.CreateInstance(loggerService);
 		}
 		protected override void OnException(IInvocation invocation, System.Exception e)

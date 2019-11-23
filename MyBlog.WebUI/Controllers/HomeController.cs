@@ -26,5 +26,6 @@ namespace MyBlog.WebUI.Controllers
 			var posts = _postService.GetList();
 			return Ok(posts.Data);
 		}
+
 	}
 }

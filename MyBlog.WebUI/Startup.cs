@@ -42,6 +42,13 @@ namespace MyBlog.WebUI
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
+				app.UseExceptionHandler("/error");
+
+			}
+			else
+			{
+				app.UseExceptionHandler("/error");
+				app.UseHsts();
 			}
 			app.UseStaticFiles();
 			app.UseRouting();
