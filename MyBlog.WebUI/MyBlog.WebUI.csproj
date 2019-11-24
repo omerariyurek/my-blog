@@ -20,6 +20,7 @@
   <ItemGroup>
     <Folder Include="Areas\Administrator\Data\" />
     <Folder Include="Areas\Administrator\Models\" />
+    <Folder Include="images\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
 

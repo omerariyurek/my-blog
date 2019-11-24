@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MyBlog.Core.Entities.Abstract;
+﻿using MyBlog.Core.Entities.Abstract;
 
-namespace MyBlog.Entities.Dtos
+namespace MyBlog.Core.Entities.Dtos
 {
 	public class OperationClaimDto : IDto
 	{

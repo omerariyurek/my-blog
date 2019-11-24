@@ -19,13 +19,18 @@ namespace MyBlog.Business.DependencyResolvers.Autofac
 			builder.RegisterType<PostManager>().As<IPostService>();
 			builder.RegisterType<EfPostDal>().As<IPostDal>();
 
+			builder.RegisterType<UserManager>().As<IUserService>();
+			builder.RegisterType<EfUserDal>().As<IUserDal>();
+
+			builder.RegisterType<AuthManager>().As<IAuthService>();
+
 			var assembly = System.Reflection.Assembly.GetExecutingAssembly(); //current assembly
 			builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces().EnableInterfaceInterceptors(
 				new ProxyGenerationOptions()
 				{
 					Selector = new AspectInterceptorSelector()
 				}).SingleInstance();
-
+			
 
 
 		}

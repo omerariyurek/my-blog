@@ -16,12 +16,12 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 	[Area("Administrator")]
 	public class AuthController : Controller
 	{
-		//private IAuthService _authService;
+		private IAuthService _authService;
 
-		//public AuthController(IAuthService authService)
-		//{
-		//	_authService = authService;
-		//}
+		public AuthController(IAuthService authService)
+		{
+			_authService = authService;
+		}
 
 		[HttpGet]
 		public IActionResult Login()
@@ -30,26 +30,24 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
-		public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
+		[ValidateAntiForgeryToken]
+		public async Task<IActionResult> Login(UserForLoginDto userForLoginDto,string returnUrl)
 		{
-			var user = new User
+			var userToLogin = _authService.Login(userForLoginDto);
+			if (!userToLogin.Success)
 			{
-				Id = 1,
-				Status = true,
-				Email = "aariyurekomer@gmail.com",
-				FirstName = "Omer",
-				LastName = "Ariyurek",
-			};
-			var operationClaims = new List<OperationClaim>()
+				ModelState.AddModelError("LoginError",userToLogin.Message);
+			}
+			else
 			{
-				new OperationClaim(){Id = 1,
-					Name = "Admin"}
-			};
-			var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-			identity.AddClaims(new AuthenticationHelper().SetClaims(user, operationClaims));
-			var principal = new ClaimsPrincipal(identity);
-			await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
-			return RedirectToAction("Index", "Home");
+				var userOperationClaims = _authService.OperationClaims(userToLogin.Data);
+				var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
+				identity.AddClaims(new AuthenticationHelper().SetClaims(userToLogin.Data,userOperationClaims.Data));
+				var principal = new ClaimsPrincipal(identity);
+				await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+				return RedirectToAction("Index", "Home");
+			}
+			return View();
 		}
 	}
 }

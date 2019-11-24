@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security;
 using System.Text;
 using Castle.DynamicProxy;
 using Microsoft.AspNetCore.Http;
@@ -30,7 +31,7 @@ namespace MyBlog.Business.BusinessAspects.Autofac.Security
 					return;
 				}
 			}
-			throw new Exception(Messages.AuthorizationDenied);
+			throw new SecurityException(Messages.AuthorizationDenied);
 		}
 	}
 }

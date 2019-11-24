@@ -4,6 +4,8 @@ using System.Text;
 using MyBlog.Business.Abstract;
 using MyBlog.Business.Constants;
 using MyBlog.Core.Entities.Concrete;
+using MyBlog.Core.Entities.Dtos;
+using MyBlog.Core.Utilities.Business;
 using MyBlog.Core.Utilities.Hashing;
 using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Core.Utilities.Results.Concrete;
@@ -22,27 +24,23 @@ namespace MyBlog.Business.Concrete.Managers
 
 		public IDataResult<User> Login(UserForLoginDto userForLoginDto)
 		{
-			var userToCheck = _userService.GetByUsername(userForLoginDto.UserName);
-			if (userToCheck==null)
+			var userToCheck = _userService.CheckIfUserNameExists(userForLoginDto.UserName);
+			if (!userToCheck.Success)
 			{
 				return new ErrorDataResult<User>(Messages.UserNotFound);
 			}
 
-			if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.PasswordHash, userToCheck.PasswordSalt))
+			if (!HashingHelper.VerifyPasswordHash(userForLoginDto.Password, userToCheck.Data.PasswordHash, userToCheck.Data.PasswordSalt))
 			{
 				return new ErrorDataResult<User>(Messages.PasswordError);
 			}
-
-			return new SuccessDataResult<User>(userToCheck, Messages.SuccessfulLogin);
+			return new SuccessDataResult<User>(userToCheck.Data, Messages.SuccessfulLogin);
 		}
 
-		public IResult UserExists(string userName)
+		public IDataResult<List<OperationClaim>> OperationClaims(User user)
 		{
-			if (_userService.GetByUsername(userName) != null)
-			{
-				return new ErrorResult(Messages.UserAlreadyExists);
-			}
-			return new SuccessResult();
+			return _userService.OperationClaims(user);
 		}
+
 	}
 }

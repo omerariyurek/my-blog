@@ -12,7 +12,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 {
 	public class EfUserDal : EfEntityRepositoryBase<User,BlogContext>,IUserDal
 	{
-		public List<OperationClaimDto> GetClaims(User user)
+		public List<OperationClaim> GetClaims(User user)
 		{
 			using (var context = new BlogContext())
 			{
@@ -20,7 +20,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 					join userOperationClaim in context.UserOperationClaims
 						on operationClaim.Id equals userOperationClaim.OperationClaimId
 					where userOperationClaim.UserId == user.Id
-					select new OperationClaimDto
+					select new OperationClaim
 					{
 						Id = operationClaim.Id,
 						Name = operationClaim.Name

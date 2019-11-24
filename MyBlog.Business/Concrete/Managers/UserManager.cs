@@ -2,7 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 using MyBlog.Business.Abstract;
+using MyBlog.Business.Constants;
+using MyBlog.Core.Aspects.Autofac.Caching;
 using MyBlog.Core.Entities.Concrete;
+using MyBlog.Core.Entities.Dtos;
+using MyBlog.Core.Utilities.Results.Abstract;
+using MyBlog.Core.Utilities.Results.Concrete;
 using MyBlog.DataAccess.Abstract;
 using MyBlog.Entities.Dtos;
 
@@ -17,19 +22,26 @@ namespace MyBlog.Business.Concrete.Managers
 			_userDal = userDal;
 		}
 
-		public List<OperationClaimDto> OperationClaims(User user)
+		[CacheAspect()]
+		public IDataResult<List<OperationClaim>> OperationClaims(User user)
+		{
+			return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
+		}
+
+		[CacheRemoveAspect("IUserService.Get")]
+		public IResult Add(User user)
 		{
 			throw new NotImplementedException();
 		}
 
-		public void Add(User user)
+		public IDataResult<User> CheckIfUserNameExists(string userName)
 		{
-			throw new NotImplementedException();
-		}
-
-		public User GetByUsername(string username)
-		{
-			throw new NotImplementedException();
+			var userToCheck = _userDal.Get(x => x.UserName == userName);
+			if (userToCheck == null)
+			{
+				return new ErrorDataResult<User>(Messages.UserNotFound);
+			}
+			return new SuccessDataResult<User>(userToCheck);
 		}
 	}
 }

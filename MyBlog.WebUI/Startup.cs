@@ -24,7 +24,7 @@ namespace MyBlog.WebUI
 			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 				.AddCookie(options =>
 				{
-					options.LoginPath = "/Account/Login/";
+					options.LoginPath = "/Administrator/Auth/Login/";
 				});
 
 			services.AddHttpContextAccessor();
@@ -43,8 +43,8 @@ namespace MyBlog.WebUI
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
-				app.UseExceptionHandler("/error");
-				app.UseStatusCodePagesWithReExecute("/error/{0}");
+				//app.UseExceptionHandler("/error");
+				//app.UseStatusCodePagesWithReExecute("/error/{0}");
 			}
 			else
 			{
