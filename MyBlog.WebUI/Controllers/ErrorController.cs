@@ -14,7 +14,7 @@ namespace MyBlog.WebUI.Controllers
             return View();
         }
 
-        [Route("/404-not-found")]
+        [Route("error/404")]
         public IActionResult PageNotFound()
         {
 	        return View();

@@ -3,34 +3,33 @@
     Layout = null;
 }
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Login</title>
-    <link href="~/Areas/Administrator/Content/styles/app.css" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="~/styles/app.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
 <body>
-<div id="admin-login-wrapper">
-    <div class="login-form">
-        <div class="dash-logo">
-            <img src="~/Content/images/green-logo.png" />
+<section id="admin-login" class="admin-operations">
+    <div class="container-fluid">
+        <div class="login-area">
+            <img src="./dist/img/logo.svg" alt="">
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı</label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div class="form-group">
+                <label for="pass">Şifre</label>
+                <input type="text" name="pass" id="pass">
+            </div>
+            <button type="submit" class="login-btn">Giriş Yap</button>
         </div>
-        @Html.ValidationSummary()
-        @using (Html.BeginForm())
-        {
-            <div class="form-group">
-                <label for="name">Username</label>
-                @Html.TextBoxFor(x => x.UserName, new { @name = "name" })
-                @Html.ValidationMessageFor(x => x.UserName)
-            </div>
-            <div class="form-group">
-                <label for="pass">Password</label>
-                @Html.PasswordFor(x=>x.Password,new{@name="pass"})
-                @Html.ValidationMessageFor(x => x.Password)
-            </div>
-            <button type="submit">Login</button>
-        }
     </div>
-</div>
+</section>
+<!-- Script -->
+<script src="./dist/js/app.min.js"></script>
 </body>
 </html>

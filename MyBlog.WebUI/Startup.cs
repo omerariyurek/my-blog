@@ -12,6 +12,7 @@ using Microsoft.Extensions.Hosting;
 using MyBlog.Core.DependencyResolvers;
 using MyBlog.Core.Extensions;
 using MyBlog.Core.Utilities.IoC;
+using MyBlog.WebUI.Middlewares;
 
 namespace MyBlog.WebUI
 {
@@ -43,14 +44,17 @@ namespace MyBlog.WebUI
 			{
 				app.UseDeveloperExceptionPage();
 				app.UseExceptionHandler("/error");
-
+				app.UseStatusCodePagesWithReExecute("/error/{0}");
 			}
 			else
 			{
 				app.UseExceptionHandler("/error");
+				app.UseStatusCodePagesWithReExecute("/error/{0}");
 				app.UseHsts();
 			}
-			app.UseStaticFiles();
+			app.UseFileServer();
+			app.UseNodeModules(env.ContentRootPath);
+			app.UseStyleFiles(env.ContentRootPath);
 			app.UseRouting();
 			app.UseAuthentication();
 			app.UseAuthorization();
