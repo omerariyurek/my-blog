@@ -11,7 +11,10 @@
     <title>Giriş - Ömer ARIYÜREK</title>
     <link href="~/styles/app.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-</head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
+    </head>
 <body>
 <form asp-controller="Auth" asp-action="Login" method="post">
     <section id="admin-login" class="admin-operations">
@@ -19,18 +22,22 @@
             <div class="login-area">
                 <div class="form-group">
                     <label>Kullanıcı Adı</label>
-                    <input asp-for="UserName" />
+                    <input asp-for="UserName"/>
+                    <span asp-validation-for="UserName"></span>
                 </div>
                 <div class="form-group">
                     <label>Şifre</label>
                     <input asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
                 </div>
                 <button type="submit" class="login-btn">Giriş Yap</button>
             </div>
         </div>
     </section>
 </form>
-
 <!-- Script -->
+<script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>

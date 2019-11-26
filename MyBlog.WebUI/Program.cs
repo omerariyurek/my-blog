@@ -25,6 +25,7 @@ namespace MyBlog.WebUI
 				.ConfigureContainer<ContainerBuilder>(builder =>
 				{
 					builder.RegisterModule(new AutofacBusinessModule());
+					builder.RegisterModule(new AutofacValidationModule());
 				})
 				.ConfigureWebHostDefaults(webBuilder =>
 				{

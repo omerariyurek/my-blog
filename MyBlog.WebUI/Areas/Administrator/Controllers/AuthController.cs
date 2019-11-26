@@ -26,7 +26,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		[HttpGet]
 		public IActionResult Login()
 		{
-			return View();
+			return View(new UserForLoginDto());
 		}
 
 		[HttpPost]

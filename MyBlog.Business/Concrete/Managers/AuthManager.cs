@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using MyBlog.Business.Abstract;
 using MyBlog.Business.Constants;
+using MyBlog.Business.ValidationRules.FluentValidation;
+using MyBlog.Core.Aspects.Autofac.Validation;
 using MyBlog.Core.Entities.Concrete;
 using MyBlog.Core.Entities.Dtos;
 using MyBlog.Core.Utilities.Business;
@@ -22,6 +24,7 @@ namespace MyBlog.Business.Concrete.Managers
 			_userService = userService;
 		}
 
+		[ValidationAspect(typeof(UserForLoginValidator))]
 		public IDataResult<User> Login(UserForLoginDto userForLoginDto)
 		{
 			var userToCheck = _userService.CheckIfUserNameExists(userForLoginDto.UserName);
