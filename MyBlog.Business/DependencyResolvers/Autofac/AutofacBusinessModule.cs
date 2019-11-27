@@ -24,6 +24,9 @@ namespace MyBlog.Business.DependencyResolvers.Autofac
 
 			builder.RegisterType<AuthManager>().As<IAuthService>();
 
+			builder.RegisterType<CategoryManager>().As<ICategoryService>();
+			builder.RegisterType<EfCategoryDal>().As<ICategoryDal>();
+
 			var assembly = System.Reflection.Assembly.GetExecutingAssembly(); //current assembly
 			builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces().EnableInterfaceInterceptors(
 				new ProxyGenerationOptions()

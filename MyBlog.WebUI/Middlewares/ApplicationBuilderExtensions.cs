@@ -23,10 +23,10 @@ namespace MyBlog.WebUI.Middlewares
 
 		public static IApplicationBuilder UseStyleFiles(this IApplicationBuilder app, string root)
 		{
-			var path = Path.Combine(root, "styles");
+			var path = Path.Combine(root, "content");
 			var provider = new PhysicalFileProvider(path);
 			var options = new StaticFileOptions();
-			options.RequestPath = "/styles";
+			options.RequestPath = "/content";
 			options.FileProvider = provider;
 			app.UseStaticFiles(options);
 			return app;

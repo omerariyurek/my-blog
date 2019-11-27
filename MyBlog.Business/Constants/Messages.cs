@@ -14,6 +14,6 @@ namespace MyBlog.Business.Constants
 		public static string PasswordError = "Password incorrect!";
 		public static string SuccessfulLogin = "Login successful!";
 		public static string UserAlreadyExists = "User already exists!";
-
+		public static string CategoryAdded = "Category successfully added!";
 	}
 }

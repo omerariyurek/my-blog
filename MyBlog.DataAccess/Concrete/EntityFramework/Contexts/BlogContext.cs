@@ -24,6 +24,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework.Contexts
 		public DbSet<OperationClaim> OperationClaims { get; set; }
 		public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
 		public DbSet<Log> Logs { get; set; }
+		public DbSet<Contact> Contacts { get; set; }
 
 	}
 }

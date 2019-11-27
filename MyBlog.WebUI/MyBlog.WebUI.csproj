@@ -22,7 +22,9 @@
     <Content Include="node_modules\jquery\package.json" />
     <Content Include="node_modules\jquery\src\.eslintrc.json" />
   </ItemGroup>
-
+  <ItemGroup>
+    <None Include="node_modules/**" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="8.5.1" />
     <PackageReference Include="MicroKnights.Log4NetAdoNetAppender" Version="2.0.1" />
@@ -38,10 +40,9 @@
 
   <ItemGroup>
     <Folder Include="Areas\Administrator\Data\" />
-    <Folder Include="Areas\Administrator\Models\" />
-    <Folder Include="images\" />
     <Folder Include="Views\Home\" />
   </ItemGroup>
+  
 
   <ItemGroup>
     <None Include="node_modules\bootstrap\dist\css\bootstrap-grid.css.map" />
@@ -448,5 +449,5 @@
     <ProjectReference Include="..\MyBlog.Business\MyBlog.Business.csproj" />
     <ProjectReference Include="..\MyBlog.Core\MyBlog.Core.csproj" />
   </ItemGroup>
-
+  
 </Project>

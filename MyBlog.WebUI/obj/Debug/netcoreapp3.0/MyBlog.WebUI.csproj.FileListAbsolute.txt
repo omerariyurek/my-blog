@@ -156,4 +156,6 @@ C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Error\PageNotFound.cshtml.g.cs
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.0\package.json
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Areas\Administrator\Views\_ViewImports.cshtml.g.cs
-C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Error\Unauthorized.cshtml.g.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Areas\Administrator\Views\_ViewStart.cshtml.g.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Areas\Administrator\Views\Home\Index.cshtml.g.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Areas\Administrator\Views\Category\Index.cshtml.g.cs

@@ -1,13 +1,69 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>@ViewData["Title"] - Admin Panel</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/node_modules/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/Content/styles/app.min.css" rel="stylesheet" />
+    <link href="~/Content/styles/style.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @RenderBody()
-    </div>
+    <section id="admin-users" class="admin-operations">
+        <div class="container-fluid">
+            <div class="admin-bar">
+                <div class="web-logo">
+                    <a href="@Url.Action("Index", "Home")">
+                        <img src="~/Content/images/omer-ariyurek-logo.png" class="page-logo" />
+                    </a>
+                </div>
+                <ul class="operations-list">
+                    <li class="list-item">
+                        <a href="@Url.Action("Index", "Post")">
+                            <img src="~/Content/images/posts.png" />
+                            Posts
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="@Url.Action("Index", "Category")">
+                            <img src="~/Content/images/categories.png" />
+                            Categories
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <img src="~/Content/images/comments.png" />
+                        <a href="#">Comments</a>
+                    </li>
+                    <li class="list-item">
+                        <img src="~/Content/images/tags.png" />
+                        <a href="#">Tags</a>
+                    </li>
+                    <li class="list-item">
+                        <img src="~/Content/images/contacts.png" />
+                        <a href="#">Contacts</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="admin-content">
+                <div class="admin-header">
+                    <div class="admin-info">
+                        <span class="admin-name">@User.Identity.Name</span>
+                        <a href="@Url.Action("Logout","Auth")" class="exit-btn">Çıkış Yap</a>
+                    </div>
+                </div>
+                <div>
+                    @RenderBody()
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!-- Script -->
+<script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>

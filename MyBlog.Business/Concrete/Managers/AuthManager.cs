@@ -24,7 +24,7 @@ namespace MyBlog.Business.Concrete.Managers
 			_userService = userService;
 		}
 
-		[ValidationAspect(typeof(UserForLoginValidator))]
+		[ValidationAspect(typeof(UserForLoginValidator),Priority = 1)]
 		public IDataResult<User> Login(UserForLoginDto userForLoginDto)
 		{
 			var userToCheck = _userService.CheckIfUserNameExists(userForLoginDto.UserName);

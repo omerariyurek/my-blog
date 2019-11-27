@@ -9,12 +9,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace MyBlog.WebUI.Areas.Administrator.Controllers
 {
 	[Area("Administrator")]
+	[Authorize]
 	public class HomeController : Controller
     {
-	    [Authorize]
-	    public string Index()
-		{
-			return HttpContext.User.Identity.Name;
-        }
+	    public IActionResult Index()
+	    {
+		    return View();
+	    }
     }
 }

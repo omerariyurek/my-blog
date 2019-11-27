@@ -30,8 +30,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
-		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Login(UserForLoginDto userForLoginDto,string returnUrl)
+		public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
 		{
 			var userToLogin = _authService.Login(userForLoginDto);
 			if (!userToLogin.Success)
@@ -48,6 +47,12 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 				return RedirectToAction("Index", "Home");
 			}
 			return View();
+		}
+
+		public async Task<IActionResult> Logout()
+		{
+			await HttpContext.SignOutAsync();
+			return RedirectToAction(nameof(Login));
 		}
 	}
 }
