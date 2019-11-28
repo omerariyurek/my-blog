@@ -30,6 +30,13 @@ namespace MyBlog.Business.DependencyResolvers.Autofac
 			builder.RegisterType<TagManager>().As<ITagService>();
 			builder.RegisterType<EfTagDal>().As<ITagDal>();
 
+			builder.RegisterType<ContactManager>().As<IContactService>();
+			builder.RegisterType<EfContactDal>().As<IContactDal>();
+
+			builder.RegisterType<CommentManager>().As<ICommentService>();
+			builder.RegisterType<EfCommentDal>().As<ICommentDal>();
+
+
 			var assembly = System.Reflection.Assembly.GetExecutingAssembly(); //current assembly
 			builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces().EnableInterfaceInterceptors(
 				new ProxyGenerationOptions()

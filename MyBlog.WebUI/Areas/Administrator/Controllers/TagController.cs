@@ -21,7 +21,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			_tagService = tagService;
 		}
 
-		[HttpGet("administrator/tag")]
+		[HttpGet("administrator/tags")]
 		public IActionResult Index(string search)
 		{
 			var tags = _tagService.GetAll().Data;
@@ -49,7 +49,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		public IActionResult Delete(int id)
 		{
 			var deleteOperation = _tagService.Delete(id);
-			return Json("");
+			return Json(deleteOperation.Message);
 		}
 
 		[HttpPost]

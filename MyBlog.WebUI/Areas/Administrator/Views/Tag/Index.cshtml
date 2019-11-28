@@ -1,6 +1,6 @@
 ﻿@model MyBlog.WebUI.Areas.Administrator.Models.ViewModels.TagIndexViewModel
 @{
-    ViewData["Title"] = "Tag";
+    ViewData["Title"] = "Tags Page";
 }
 <div class="admin-new-object">
     <div class="admin-add-object col-md-4">
@@ -44,19 +44,30 @@
                         <th scope="col">Operations</th>
                     </tr>
                 </thead>
-                <tbody>
-                    @foreach (var tag in Model.Tags)
-                    {
-                        <tr id="row_category_@tag.TagId">
-                            <td>@tag.TagName</td>
-                            <td>@tag.Status</td>
-                            <td>
-                                <a class="table-button-object" href="#" onclick="return getTagById(@tag.TagId)">Update</a> |
-                                <a class="table-button-object" href="#" onclick="deleteTag(@tag.TagId)">Delete</a>
-                            </td>
+                @if (Model.Tags.Count == 0)
+                {
+                    <tbody>
+                        <tr>
+                            <td colspan="3" style="text-align: center">No Tag</td>
                         </tr>
-                    }
-                </tbody>
+                    </tbody>
+                }
+                else
+                {
+                    <tbody>
+                        @foreach (var tag in Model.Tags)
+                        {
+                            <tr id="row_tag_@tag.TagId">
+                                <td>@tag.TagName</td>
+                                <td>@tag.Status</td>
+                                <td>
+                                    <a class="table-button-object" href="#" onclick="return getTagById(@tag.TagId)">Update</a> |
+                                    <a class="table-button-object" href="#" onclick="deleteTag(@tag.TagId)">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                }
             </table>
         </div>
         <div class="pagining-admin">
@@ -65,6 +76,41 @@
                     <li class="page-item active"><a class="page-link" href="#">1</a></li>
                 </ul>
             </nav>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="tagUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit Tag</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form asp-controller="Tag" asp-action="Update" method="post">
+                    <input type="hidden" asp-for="Tag.TagId" id="TagIdModal" />
+                    <div class="form-group form-design">
+                        <label asp-for="Tag.TagName" class="col-form-label">Tag Name</label>
+                        <input asp-for="Tag.TagName" class="form-control" id="TagNameModal" />
+                        <span asp-validation-for="Tag.TagName"></span>
+                    </div>
+                    <div class="form-group form-design" style="padding-bottom: 10px;">
+                        <label asp-for="Tag.SeoUrl" class="col-form-label">Seo Url</label>
+                        <input asp-for="Tag.SeoUrl" class="form-control" id="TagSeoUrlModal" />
+                    </div>
+
+                    <div class="modal-footer">
+                        <div class="form-check alignment">
+                            <input type="checkbox" asp-for="Tag.Status" class="form-check-input" id="TagStatusModal" />
+                            <label asp-for="Tag.Status" class="form-check-label">Status</label>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-info">Save</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

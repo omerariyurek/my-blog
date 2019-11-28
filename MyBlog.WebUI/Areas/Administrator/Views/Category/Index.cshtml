@@ -1,6 +1,6 @@
 ﻿@model MyBlog.WebUI.Areas.Administrator.Models.ViewModels.CategoryIndexViewModel
 @{
-    ViewData["Title"] = "Category Page";
+    ViewData["Title"] = "Categories Page";
 }
 <div class="admin-new-object">
     <div class="admin-add-object col-md-4">
@@ -51,19 +51,29 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var category in Model.Categories)
+                    @if (Model.Categories.Count == 0)
                     {
-                        <tr id="row_category_@category.CategoryId">
-                            <td>@category.CategoryName</td>
-                            <td>@category.CategoryDescription</td>
-                            <td>@category.Status</td>
-                            <td>
-                                <a class="table-button-object" href="#" onclick="return getCategoryById(@category.CategoryId)">Update</a> |
-                                <a class="table-button-object" href="#" onclick="deleteCategory(@category.CategoryId)">Delete</a>
-                            </td>
+                        <tr>
+                            <td colspan="4" style="text-align: center">No Tag</td>
                         </tr>
                     }
+                    else
+                    {
+                        @foreach (var category in Model.Categories)
+                        {
+                            <tr id="row_category_@category.CategoryId">
+                                <td>@category.CategoryName</td>
+                                <td>@category.CategoryDescription</td>
+                                <td>@category.Status</td>
+                                <td>
+                                    <a class="table-button-object" href="#" onclick="return getCategoryById(@category.CategoryId)">Update</a> |
+                                    <a class="table-button-object" href="#" onclick="deleteCategory(@category.CategoryId)">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    }
                 </tbody>
+
             </table>
         </div>
         <div class="pagining-admin">

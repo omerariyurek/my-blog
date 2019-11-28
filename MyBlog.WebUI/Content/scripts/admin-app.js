@@ -1,7 +1,4 @@
-﻿//$(document).ready(function() {
-  
-//});
-function deleteCategory(id) {
+﻿function deleteCategory(id) {
     var ans = confirm("Are you sure you want to delete this category?");
     if (ans) {
         $.ajax({
@@ -44,3 +41,91 @@ function getCategoryById(id) {
     return false;
 }
 
+function deleteTag(id) {
+    var ans = confirm("Are you sure you want to delete this tag?");
+    if (ans) {
+        $.ajax({
+            url: "/administrator/tag/delete/" + id,
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                $("#row_tag_" + id).remove();
+            },
+            error: function () {
+                alert("Error, try again!");
+            }
+        });
+    }
+}
+
+function getTagById(id) {
+    $.ajax({
+        url: "/administrator/tag/get/" + id,
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            $('#TagIdModal').val(result.tagId);
+            $('#TagNameModal').val(result.tagName);
+            $('#TagSeoUrlModal').val(result.seoUrl);
+            if (result.status === true) {
+                $('#TagStatusModal').prop('checked', result.status);
+            } else {
+                $('#TagStatusModal').prop('checked', result.status);
+            }
+            $('#tagUpdateModal').modal('show');
+        },
+        error: function () {
+            alert("Error, try again!");
+        }
+    });
+    return false;
+}
+
+function deleteComment(id) {
+    var ans = confirm("Are you sure you want to delete this comment?");
+    if (ans) {
+        $.ajax({
+            url: "/administrator/comment/delete/" + id,
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                $("#row_comment_" + id).remove();
+            },
+            error: function () {
+                alert("Error, try again!");
+            }
+        });
+    }
+}
+
+function getCommentById(id) {
+    $.ajax({
+        url: "/administrator/comment/get/" + id,
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result);
+            $('#CommentIdModal').val(result.commentId);
+            $('#CommentPostIdModal').val(result.postId);
+            $('#AuthorNameModal').val(result.authorName);
+            $('#CommentContentModal').val(result.content);
+            $('#AuthorEmailModal').val(result.authorEmail);
+            $('#PostTitleModal').val(result.post.title);
+
+            if (result.approved === true) {
+                $('#CommentApprovedModal').prop('checked', result.approved);
+            } else {
+                $('#CommentApprovedModal').prop('checked', result.approved);
+            }
+            $('#commentUpdateModal').modal('show');
+        },
+        error: function () {
+            alert("Error, try again!");
+        }
+    });
+    return false;
+}

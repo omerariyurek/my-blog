@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.Reflection.Metadata;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using MyBlog.Core.Entities.Abstract;
 
@@ -18,6 +19,7 @@ namespace MyBlog.Entities.Concrete
 		public string AuthorName { get; set; }
 		public string AuthorEmail { get; set; }
 		public string AuthorIpAddress { get; set; }
+		public string Content { get; set; }
 		public DateTime CreatedDate { get; set; }
 		public bool Approved { get; set; }
 		public int? ParentComment { get; set; }

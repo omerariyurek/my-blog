@@ -8,7 +8,6 @@ using MyBlog.Business.Abstract;
 using MyBlog.Business.Constants;
 using MyBlog.Entities.Concrete;
 using MyBlog.WebUI.Areas.Administrator.Models.ViewModels;
-using Messages = MyBlog.WebUI.Constans.Messages;
 
 namespace MyBlog.WebUI.Areas.Administrator.Controllers
 {
@@ -23,7 +22,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			_categoryService = categoryService;
 		}
 
-		[HttpGet("administrator/category")]
+		[HttpGet("administrator/categories")]
 		public IActionResult Index(string search)
 		{
 			var categories = _categoryService.GetAll().Data;
@@ -51,7 +50,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		public IActionResult Delete(int id)
 		{
 			var deleteOperation = _categoryService.Delete(id);
-			return Json(Messages.CategoryNotDeleted);
+			return Json(deleteOperation.Message);
 		}
 
 		[HttpPost]

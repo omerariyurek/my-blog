@@ -8,5 +8,7 @@ namespace MyBlog.DataAccess.Abstract
 {
 	public interface ICommentDal : IEntityRepository<Comment>
 	{
+		List<Comment> GetAll();
+		Comment GetComment(int commentId);
 	}
 }
