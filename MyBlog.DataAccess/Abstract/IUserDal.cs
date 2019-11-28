@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using MyBlog.Core.DataAccess.Abstract;
 using MyBlog.Core.Entities.Concrete;
-using MyBlog.Core.Entities.Dtos;
 using MyBlog.Entities.Dtos;
 
 namespace MyBlog.DataAccess.Abstract

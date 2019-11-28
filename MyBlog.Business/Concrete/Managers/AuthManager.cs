@@ -6,7 +6,6 @@ using MyBlog.Business.Constants;
 using MyBlog.Business.ValidationRules.FluentValidation;
 using MyBlog.Core.Aspects.Autofac.Validation;
 using MyBlog.Core.Entities.Concrete;
-using MyBlog.Core.Entities.Dtos;
 using MyBlog.Core.Utilities.Business;
 using MyBlog.Core.Utilities.Hashing;
 using MyBlog.Core.Utilities.Results.Abstract;

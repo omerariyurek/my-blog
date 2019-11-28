@@ -19,6 +19,7 @@ namespace MyBlog.Business.DependencyResolvers.Autofac
 			builder.RegisterType<PostValidator>().As<IValidator<Post>>();
 			builder.RegisterType<UserForLoginValidator>().As<IValidator<UserForLoginDto>>();
 			builder.RegisterType<CategoryValidator>().As<IValidator<Category>>();
+			builder.RegisterType<TagValidator>().As<IValidator<Tag>>();
 		}
 	}
 }

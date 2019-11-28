@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using System.Text;
+using MyBlog.Core.Entities.Abstract;
 
 namespace MyBlog.Entities.Concrete
 {
-	public class Tag
+	public class Tag : IEntity
 	{
 		public Tag()
 		{

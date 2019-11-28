@@ -27,6 +27,9 @@ namespace MyBlog.Business.DependencyResolvers.Autofac
 			builder.RegisterType<CategoryManager>().As<ICategoryService>();
 			builder.RegisterType<EfCategoryDal>().As<ICategoryDal>();
 
+			builder.RegisterType<TagManager>().As<ITagService>();
+			builder.RegisterType<EfTagDal>().As<ITagDal>();
+
 			var assembly = System.Reflection.Assembly.GetExecutingAssembly(); //current assembly
 			builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces().EnableInterfaceInterceptors(
 				new ProxyGenerationOptions()

@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using MyBlog.Core.Entities.Concrete;
-using MyBlog.Core.Entities.Dtos;
 using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Entities.Dtos;
 

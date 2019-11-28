@@ -9,6 +9,9 @@ namespace MyBlog.Business.Abstract
 	public interface ICategoryService
 	{
 		IResult Add(Category category);
+		IResult Update(Category category);
+		IDataResult<Category> GetById(int categoryId);
+		IResult Delete(int categoryId);
 		IDataResult<List<Category>> GetAll();
 	}
 }

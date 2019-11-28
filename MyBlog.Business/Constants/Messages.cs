@@ -15,5 +15,7 @@ namespace MyBlog.Business.Constants
 		public static string SuccessfulLogin = "Login successful!";
 		public static string UserAlreadyExists = "User already exists!";
 		public static string CategoryAdded = "Category successfully added!";
+		public static string CategoryDeleted = "Category successfully deleted!";
+		public static string CategoryUpdated = "Category successfully updated!";
 	}
 }

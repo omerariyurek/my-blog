@@ -1,189 +1,249 @@
-.admin-new-object{
-    position:relative;
-    width:100%;
-    float:left;
-    margin-top:10px;
-}
-.admin-add-object{
-display:inline-block;
-position:relative;
-float:left;
-}
-.admin-add-object .button-object-add{
-margin-top:10px;
-}
-.admin-add-object .admin-object-input{
-margin-top:15px;
-}
-.admin-add-object .admin-object-input input{
-padding:5px;
-width:100%;
-}
-.admin-add-object .admin-object-input .admin-input-p{
-display:inline-block;
-position:relative;
-margin-bottom:-10px;
+.admin-new-object {
+    position: relative;
+    width: 100%;
+    float: left;
+    margin-top: 10px;
 }
 
-.admin-add-object .button-object-add button{
- padding-left:10px;
- padding-right:10px;
- padding-top:5px;
- padding-bottom:5px;
+.admin-add-object {
+    display: inline-block;
+    position: relative;
+    float: left;
 }
 
-.admin-object-table{
-display:inline-block;
-position:relative;
-float:left;
-}
-.admin-object-table .search-object{
-display:inline-block;
-position:relative;
-float:right;
-}
-.admin-object-table .search-object input{
- padding:5px;
-}
-.admin-object-table .search-object button{
-padding-top:6px;
-padding-bottom:6px;
-border-radius:4px;
-}
-.admin-object-table .delete-object{
-position:relative;
-display:inline-block;
-}
-.admin-object-table .delete-object button{
-padding-left:20px;
-padding-bottom:6px;
-padding-top:5px;
-padding-right:20px;
-}
-.admin-object-table .admin-object-table-info{
-margin-top:15px;
-}
-.admin-object-text{
-width:100%;
-display:inline-block;
-position:relative;
+    .admin-add-object .button-object-add {
+        margin-top: 10px;
+    }
+
+    .admin-add-object .admin-object-input {
+        margin-top: 15px;
+    }
+
+        .admin-add-object .admin-object-input input {
+            padding: 5px;
+            width: 100%;
+        }
+
+        .admin-add-object .admin-object-input .admin-input-p {
+            display: inline-block;
+            position: relative;
+            margin-bottom: -10px;
+        }
+
+    .admin-add-object .button-object-add button {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+
+.admin-object-table {
+    display: inline-block;
+    position: relative;
+    float: left;
 }
 
-.table-button-object{
+.font-bold {
+    font-weight: 600;
+}
+
+
+.admin-object-table .search-object-base {
+    width: 100%;
+    position: relative;
+    display: block;
+}
+
+.admin-object-table .search-object {
+    position: relative;
+    float: right;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+    .admin-object-table .search-object input {
+        padding: 5px;
+    }
+
+    .admin-object-table .search-object button {
+        padding-top: 6px;
+        padding-bottom: 6px;
+        border-radius: 4px;
+    }
+
+.admin-object-table .delete-object {
+    position: relative;
+    display: inline-block;
+}
+
+    .admin-object-table .delete-object button {
+        padding-left: 20px;
+        padding-bottom: 6px;
+        padding-top: 5px;
+        padding-right: 20px;
+    }
+
+.admin-object-table .admin-object-table-info {
+    margin-top: 15px;
+}
+
+.admin-object-text {
+    width: 100%;
+    display: inline-block;
+    position: relative;
+}
+
+.table-button-object {
     text-decoration: none;
-    color:black;
+    color: black;
 }
 
-.table-button-object:hover{
-    text-decoration:none;
-    color:black;
+    .table-button-object:hover {
+        text-decoration: none;
+        color: black;
+    }
+
+.form-fix {
+    display: inline-block;
+    position: relative;
+    width: auto;
 }
-.form-fix{
-display:inline-block;
-position: relative;
-width:auto;
-}
-.web-logo{
+
+.web-logo {
     border-bottom: 1px solid rgba(0, 0, 0, .0625);
     height: 90px;
 }
 
 
 /* Post-Add */
-.admin-post{
-width:100%;
-position:relative;
-}
-.admin-post .admin-post-input-base{
-float:left;
-display:inline-block;
-position:relative;
-}
-.admin-post .admin-post-check{
-    float:left;
-    display:inline-block;
-    position:relative; 
-    margin-top:40px;
-    
-}
-.admin-post .admin-post-check .admin-post-check-base{
-
-box-shadow: 2px 2px 2px 2px #4443;
-border-radius:3px;
+.admin-post {
+    width: 100%;
+    position: relative;
 }
 
-.admin-post .admin-post-check .admin-post-check-base p{
-    text-align:center;
-    display:inline-block;
-    position:relative;
-    width:100%;
+    .admin-post .admin-post-input-base {
+        float: left;
+        display: inline-block;
+        position: relative;
+    }
+
+    .admin-post .admin-post-input {
+        position: relative;
+    }
+
+        .admin-post .admin-post-input .admin-post-title {
+            position: relative;
+        }
+
+            .admin-post .admin-post-input .admin-post-title .admin-post-title-button {
+                display: inline-block;
+                float: right;
+                margin-top: 10px;
+            }
+
+    .admin-post .admin-post-check {
+        float: left;
+        display: inline-block;
+        position: relative;
+        margin-top: 40px;
+    }
+
+        .admin-post .admin-post-check .admin-post-check-base {
+            box-shadow: 2px 2px 2px 2px #4443;
+            border-radius: 3px;
+        }
+
+            .admin-post .admin-post-check .admin-post-check-base p {
+                text-align: center;
+                display: inline-block;
+                position: relative;
+                width: 100%;
+            }
+
+            .admin-post .admin-post-check .admin-post-check-base .admin-post-check-text {
+                width: 100%;
+                text-align: center;
+                position: relative;
+                display: inline-block;
+                margin: 10px 0px 10px 0px;
+                padding: 0px 5px;
+            }
+
+                .admin-post .admin-post-check .admin-post-check-base .admin-post-check-text input {
+                    width: 150px;
+                    text-align: center;
+                    display: inline-block;
+                }
+
+.alignment {
+    right: 58%;
 }
-.admin-post .admin-post-check .admin-post-check-base .admin-post-check-text{
-width:100%;
-text-align:center;
-position:relative;
-display:inline-block;
+
+.form-design{
+    margin-bottom:3px !important;
 }
-.admin-post .admin-post-check .admin-post-check-base .admin-post-check-text input{
-    width:150px;
-    text-align:center;
-    display:inline-block;
-}
-
-
-
-
-
-.textarea-size{
-    resize:none;width:220px;
-    text-align:center;
-    position:relative;
-    display:inline-block;
+.form-validation-alert{
+    color:#CC0000;}
+.textarea-size {
+    resize: none;
+    position: relative;
+    display: inline-block;
 }
 
+/*Paging*/
+.pagining-admin {
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    text-align: center
+}
 
 /* Mobil Operations */
-
-
 @media only screen and (max-width : 600px) {
- 
-    .web-logo{
-        width:100px !important;
-        height:80px !important;
-    }
-    .admin-bar .page-logo{
-        width:70%;
-        padding:38px 0px 0px 0px;
-    }
-    .admin-content .admin-header{
-        height:80px;
-    }
-    .admin-content .admin-info{
-        width:50%;
-    }
-    .admin-content .admin-info .admin-name{
-        font-size:14px;
-    }
-    .admin-content .admin-info .exit-btn{
-        font-size:14px;
-    }
-    .operations-list{
-        padding:0 !important;
-    }
-    #admin-users .operations-list a, .admin-content .pagination a{
-        font-size:14px;
-    }
-    #admin-users .operations-list .list-item img
-    {
-      display:none;
+    .web-logo {
+        width: 100px !important;
+        height: 80px !important;
     }
 
-    .admin-add-object .button-object-add
-    {
-        text-align:center;
+    .admin-bar .page-logo {
+        width: 70%;
+        padding: 38px 0px 0px 0px;
     }
-    .admin-object-table .search-object{
-        width:100%;
-        margin:20px 0px 20px 0px;
+
+    .admin-content .admin-header {
+        height: 80px;
     }
+
+    .admin-content .admin-info {
+        width: 50%;
     }
+
+        .admin-content .admin-info .admin-name {
+            font-size: 14px;
+        }
+
+        .admin-content .admin-info .exit-btn {
+            font-size: 14px;
+        }
+
+    .operations-list {
+        padding: 0 !important;
+    }
+
+    #admin-users .operations-list a, .admin-content .pagination a {
+        font-size: 14px;
+    }
+
+    #admin-users .operations-list .list-item img {
+        display: none;
+    }
+
+    .admin-add-object .button-object-add {
+        text-align: center;
+    }
+
+    .admin-object-table .search-object {
+        width: 100%;
+        margin: 20px 0px 20px 0px;
+    }
+}

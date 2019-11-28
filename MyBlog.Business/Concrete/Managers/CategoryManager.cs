@@ -31,6 +31,26 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessResult(Messages.CategoryAdded);
 		}
 
+		[CacheRemoveAspect("ICategoryService.Get")]
+		public IResult Update(Category category)
+		{
+			_categoryDal.Update(category);
+			return new SuccessResult(Messages.CategoryUpdated);
+		}
+
+		[CacheAspect()]
+		public IDataResult<Category> GetById(int categoryId)
+		{
+			return new SuccessDataResult<Category>(_categoryDal.Get(x=>x.CategoryId==categoryId));
+		}
+
+		[CacheRemoveAspect("ICategory.Get",Priority = 1)]
+		public IResult Delete(int categoryId)
+		{
+			_categoryDal.Delete(new Category{CategoryId = categoryId});
+			return new SuccessResult(Messages.CategoryDeleted);
+		}
+
 		[CacheAspect()]
 		public IDataResult<List<Category>> GetAll()
 		{

@@ -5,11 +5,9 @@ using MyBlog.Business.Abstract;
 using MyBlog.Business.Constants;
 using MyBlog.Core.Aspects.Autofac.Caching;
 using MyBlog.Core.Entities.Concrete;
-using MyBlog.Core.Entities.Dtos;
 using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Core.Utilities.Results.Concrete;
 using MyBlog.DataAccess.Abstract;
-using MyBlog.Entities.Dtos;
 
 namespace MyBlog.Business.Concrete.Managers
 {

@@ -1,0 +1,70 @@
+﻿@model MyBlog.WebUI.Areas.Administrator.Models.ViewModels.TagIndexViewModel
+@{
+    ViewData["Title"] = "Tag";
+}
+<div class="admin-new-object">
+    <div class="admin-add-object col-md-4">
+        <div class="admin-object-text">
+            <h3 class="font-bold">Add New Tag</h3>
+            <div class="admin-object-input">
+                <form id="categoryUpdateForm" asp-controller="Tag" asp-action="Add" method="post">
+                    <div class="form-group form-design">
+                        <label asp-for="Tag.TagName">Tag Name</label>
+                        <input asp-for="Tag.TagName" placeholder="Tag Name" class="form-control">
+                        <span class="form-validation-alert" asp-validation-for="Tag.TagName"></span>
+                    </div>
+                    <div class="button-object-add">
+                        <button type="submit" class="btn btn-info">Add Tag</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="admin-object-table col-md-8">
+        <div class="search-object-base">
+            <div class="search-object">
+                <form asp-controller="Tag" asp-action="Index" method="get">
+                    <input asp-for="Tag.TagName" class="form-control form-fix" name="search" placeholder="Search Tag">
+                    <button type="submit" class="btn btn-info">Search</button>
+                </form>
+            </div>
+        </div>
+        <div class="admin-object-table-info">
+            @if (TempData["searchTag"] != null)
+            {
+                <div class="alert alert-primary" style="margin-top: 50px" role="alert">
+                    Searched Tag : @TempData["searchTag"]
+                </div>
+            }
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Tag Name</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Operations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tag in Model.Tags)
+                    {
+                        <tr id="row_category_@tag.TagId">
+                            <td>@tag.TagName</td>
+                            <td>@tag.Status</td>
+                            <td>
+                                <a class="table-button-object" href="#" onclick="return getTagById(@tag.TagId)">Update</a> |
+                                <a class="table-button-object" href="#" onclick="deleteTag(@tag.TagId)">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="pagining-admin">
+            <nav aria-label="Page navigation example" style="display: inline-block;">
+                <ul class="pagination">
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

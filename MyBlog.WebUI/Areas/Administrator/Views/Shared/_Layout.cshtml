@@ -38,8 +38,10 @@
                         <a href="#">Comments</a>
                     </li>
                     <li class="list-item">
-                        <img src="~/Content/images/tags.png" />
-                        <a href="#">Tags</a>
+                        <a href="@Url.Action("Index", "Tag")">
+                            <img src="~/Content/images/tags.png" />
+                            Tags
+                        </a>
                     </li>
                     <li class="list-item">
                         <img src="~/Content/images/contacts.png" />
@@ -62,8 +64,11 @@
         </div>
     </section>
     <!-- Script -->
-<script src="~/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-<script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="~/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="~/Content/scripts/admin-app.js"></script>
 </body>
 </html>
