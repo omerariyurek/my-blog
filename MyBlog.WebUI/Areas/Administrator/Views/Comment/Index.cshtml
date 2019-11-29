@@ -2,21 +2,22 @@
 @{
     ViewData["Title"] = "Comments Page";
 }
-<div class="admin-object-table col-md-12">
-    <div class="search-object-base">
-        <div class="search-object">
-            <form asp-controller="Comment" asp-action="Index" method="get">
-                <input class="form-control form-fix" name="search" placeholder="Search Comment">
-                <button type="submit" class="btn btn-info">Search</button>
-            </form>
+    <div class="admin-object-table col-md-12">
+        <div class="search-object-base">
+            <div class="search-object">
+                <form asp-controller="Comment" asp-action="Index" method="get">
+                    <input class="form-control form-fix" name="search" placeholder="Search Comment">
+                    <button type="submit" class="btn btn-info">Search</button>
+                </form>
+            </div>
         </div>
+        @if (TempData["searchComment"] != null)
+        {
+        <div class="alert alert-primary" style="margin-top: 50px" role="alert">
+            Searched Comment : @TempData["searchComment"]
+        </div>
+        }
         <div class="admin-object-table-info">
-            @if (TempData["searchComment"] != null)
-            {
-                <div class="alert alert-primary" style="margin-top: 50px" role="alert">
-                    Searched Comment : @TempData["searchComment"]
-                </div>
-            }
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -31,39 +32,35 @@
                 <tbody>
                     @if (Model.Comments.Count == 0)
                     {
-                        <tr>
-                            <td colspan="5" style="text-align: center">No Comment</td>
-                        </tr>
+                    <tr>
+                        <td colspan="6" style="text-align: center">No Comment</td>
+                    </tr>
                     }
                     else
                     {
                         foreach (var comment in Model.Comments)
                         {
-                            <tr id="row_comment_@comment.CommentId">
-                                <td>@comment.AuthorName</td>
-                                <td>@comment.AuthorEmail</td>
-                                <td>@comment.Content</td>
-                                <td>@comment.Post.Title</td>
-                                <td>@comment.Approved</td>
-                                <td>
-                                    <a class="table-button-object" href="#" onclick="return getCommentById(@comment.CommentId)">Update</a> |
-                                    <a class="table-button-object" href="#" onclick="deleteComment(@comment.CommentId)">Delete</a>
-                                </td>
-                            </tr>
+                    <tr id="row_comment_@comment.CommentId">
+                        <td>@comment.AuthorName</td>
+                        <td>@comment.AuthorEmail</td>
+                        <td>@comment.Content</td>
+                        <td>@comment.Post.Title</td>
+                        <td>@comment.Approved</td>
+                        <td>
+                            <a class="table-button-object" href="#" onclick="return getCommentById(@comment.CommentId)">Update</a> |
+                            <a class="table-button-object" href="#" onclick="deleteComment(@comment.CommentId)">Delete</a>
+                        </td>
+                    </tr>
                         }
                     }
                 </tbody>
             </table>
         </div>
-        <div class="pagining-admin">
-            <nav aria-label="Page navigation example" style="display:inline-block;">
-                <ul class="pagination">
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                </ul>
-            </nav>
+        <div class="paging-admin">
+            <comment-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage" search-comment="@Model.SearchComment">
+            </comment-paging>
         </div>
     </div>
-</div>
 <div class="modal fade" id="commentUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

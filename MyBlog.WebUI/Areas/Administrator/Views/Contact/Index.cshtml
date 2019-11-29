@@ -10,53 +10,80 @@
                 <button type="submit" class="btn btn-info">Search</button>
             </form>
         </div>
-        <div class="admin-object-table-info">
-            @if (TempData["searchContact"] != null)
-            {
-                <div class="alert alert-primary" style="margin-top: 50px" role="alert">
-                    Searched Contact : @TempData["searchContact"]
-                </div>
-            }
-            <table class="table table-striped">
-                <thead>
+    </div>
+    @if (TempData["searchContact"] != null)
+    {
+        <div class="alert alert-primary" style="margin-top: 50px" role="alert">
+            Searched Contact : @TempData["searchContact"]
+        </div>
+    }
+    <div class="admin-object-table-info">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Contact Name</th>
+                    <th scope="col">E-Mail</th>
+                    <th scope="col">Message</th>
+                    <th scope="col">Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Contacts.Count == 0)
+                {
                     <tr>
-                        <th scope="col">Contact Name</th>
-                        <th scope="col">E-Mail</th>
-                        <th scope="col">Message</th>
-                        <th scope="col">Operations</th>
+                        <td colspan="4" style="text-align: center">No Contact</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @if (Model.Contacts.Count == 0)
+                }
+                else
+                {
+                    foreach (var contact in Model.Contacts)
                     {
-                        <tr>
-                            <td colspan="4" style="text-align: center">No Contact</td>
+                        <tr id="row_contact_@contact.ContactId">
+                            <td>@contact.ContactName</td>
+                            <td>@contact.Email</td>
+                            <td>@contact.Message</td>
+                            <td>
+                                <a class="table-button-object" href="#" onclick="return getContactById(@contact.ContactId)">Show</a> |
+                                <a class="table-button-object" href="#" onclick="deleteContact(@contact.ContactId)">Delete</a>
+                            </td>
                         </tr>
                     }
-                    else
-                    {
-                        foreach (var contact in Model.Contacts)
-                        {
-                            <tr id="row_contact_@contact.ContactId">
-                                <td>@contact.ContactName</td>
-                                <td>@contact.Email</td>
-                                <td>@contact.Message</td>
-                                <td>
-                                    <a class="table-button-object" href="#" onclick="return getContactById(@contact.ContactId)">Update</a> |
-                                    <a class="table-button-object" href="#" onclick="deleteContact(@contact.ContactId)">Delete</a>
-                                </td>
-                            </tr>
-                        }
-                    }
-                </tbody>
-            </table>
-        </div>
-        <div class="pagining-admin">
-            <nav aria-label="Page navigation example" style="display:inline-block;">
-                <ul class="pagination">
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                </ul>
-            </nav>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="paging-admin">
+        <contact-paging current-page="@Model.CurrentPage" page-count="@Model.PageCount" page-size="@Model.PageSize" search-contact="@Model.SearchContact">
+        </contact-paging>
+    </div>
+</div>
+<div class="modal fade" id="contactShowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Show Contact</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <input type="hidden" asp-for="Contact.ContactId" id="ContactIdModal" />
+                <div class="form-group form-design">
+                    <label asp-for="Contact.ContactName" class="col-form-label">Contact Name</label>
+                    <input asp-for="Contact.ContactName" class="form-control" id="ContactNameModal" />
+                </div>
+                <div class="form-group form-design" style="padding-bottom: 10px;">
+                    <label asp-for="Contact.Message" class="col-form-label">Message</label>
+                    <textarea asp-for="Contact.Message" rows="4" style="resize: none;" class="form-control" id="ContactMessageModal"></textarea>
+                </div>
+                <div class="form-group form-settings-contacts">
+                    <label asp-for="Contact.Email" class="col-form-label">Contact E-Mail</label>
+                    <input asp-for="Contact.Email" class="form-control" id="EmailContactModal" />
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>

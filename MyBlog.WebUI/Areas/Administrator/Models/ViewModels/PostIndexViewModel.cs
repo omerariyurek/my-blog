@@ -10,5 +10,9 @@ namespace MyBlog.WebUI.Areas.Administrator.Models.ViewModels
 	{
 		public Post Post { get; set; }
 		public List<Post> Posts { get; set; }
+		public int PageSize { get; set; }
+		public int PageCount { get; set; }
+		public int CurrentPage { get; set; }
+		public string SearchPost { get; set; }
 	}
 }

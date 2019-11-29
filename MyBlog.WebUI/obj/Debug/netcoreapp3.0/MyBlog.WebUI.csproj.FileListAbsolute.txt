@@ -162,3 +162,4 @@ C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Areas\Administrator\Views\Tag\Index.cshtml.g.cs
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Areas\Administrator\Views\Contact\Index.cshtml.g.cs
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Areas\Administrator\Views\Comment\Index.cshtml.g.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Areas\Administrator\Views\Post\Index.cshtml.g.cs

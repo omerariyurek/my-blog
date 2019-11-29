@@ -76,13 +76,11 @@
 
             </table>
         </div>
-        <div class="pagining-admin">
-            <nav aria-label="Page navigation example" style="display: inline-block;">
-                <ul class="pagination">
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                </ul>
-            </nav>
+        <div class="paging-admin">
+            <category-paging page-size="@Model.PageSize" current-page="@Model.CurrentPage" page-count="@Model.PageCount" search-category="@Model.SearchCategory">
+            </category-paging>
         </div>
+       
     </div>
 </div>
 <div class="modal fade" id="categoryUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -108,7 +106,7 @@
                     </div>
                     <div class="form-group form-design" style="padding-bottom: 10px;">
                         <label asp-for="Category.SeoUrl" class="col-form-label">Seo Url</label>
-                        <input asp-for="Category.SeoUrl" class="form-control" id="CategorySeoUrlModal" />
+                        <input asp-for="Category.SeoUrl" class="form-control" id="CategorySeoUrlModal" disabled="disabled" />
                     </div>
 
                     <div class="modal-footer">

@@ -108,7 +108,9 @@
     position: relative;
     width: auto;
 }
-
+.form-settings-contacts {
+    margin-bottom: 10px;
+}
 .web-logo {
     border-bottom: 1px solid rgba(0, 0, 0, .0625);
     height: 90px;
@@ -191,11 +193,21 @@
 }
 
 /*Paging*/
-.pagining-admin {
+.paging-admin {
     width: 100%;
     position: relative;
     display: inline-block;
     text-align: center
+}
+
+.page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #17A2B8;
+    border-color: #17A2B8;
+}
+.page-link {
+    color: #17a2b8;
 }
 
 /* Mobil Operations */

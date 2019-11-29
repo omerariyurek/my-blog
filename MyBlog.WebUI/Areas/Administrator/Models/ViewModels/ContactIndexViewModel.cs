@@ -11,5 +11,9 @@ namespace MyBlog.WebUI.Areas.Administrator.Models.ViewModels
 	{
 		public Contact Contact { get; set; }
 		public List<Contact> Contacts { get; set; }
+		public int PageSize { get; set; }
+		public int PageCount { get; set; }
+		public int CurrentPage { get; set; }
+		public string SearchContact { get; set; }
 	}
 }

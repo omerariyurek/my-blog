@@ -22,8 +22,9 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpGet("administrator/tags")]
-		public IActionResult Index(string search)
+		public IActionResult Index(string search,int page=1)
 		{
+			int pageSize = 7;
 			var tags = _tagService.GetAll().Data;
 			if (!string.IsNullOrEmpty(search))
 			{
@@ -32,8 +33,12 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			}
 			var model = new TagIndexViewModel
 			{
-				Tags = tags,
-				Tag =  new Tag()
+				Tags = tags.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+				Tag =  new Tag(),
+				CurrentPage = page,
+				SearchTag = search,
+				PageCount = (int)Math.Ceiling(tags.Count / (double)pageSize),
+				PageSize = pageSize
 			};
 			return View(model);
 		}

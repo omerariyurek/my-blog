@@ -22,8 +22,9 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpGet("administrator/contacts")]
-	    public IActionResult Index(string search)
+	    public IActionResult Index(string search,int page=1)
 	    {
+		    int pageSize = 5;
 		    var contacts = _contactService.GetAll().Data;
 		    if (!string.IsNullOrEmpty(search))
 		    {
@@ -33,7 +34,11 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			var model = new ContactIndexViewModel
 			{
 				Contact = new Contact(),
-				Contacts = contacts
+				Contacts = contacts.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+				PageCount = (int)Math.Ceiling(contacts.Count / (double)pageSize),
+				PageSize = pageSize,
+				CurrentPage = page,
+				SearchContact = search
 			};
 	        return View(model);
         }
@@ -49,13 +54,6 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 	    {
 		    var comment = _contactService.GetById(id).Data;
 		    return Json(comment);
-	    }
-
-	    [HttpPost]
-	    public IActionResult Update(Contact contact)
-	    {
-		    _contactService.Update(contact);
-		    return RedirectToAction("Index");
 	    }
 	}
 }

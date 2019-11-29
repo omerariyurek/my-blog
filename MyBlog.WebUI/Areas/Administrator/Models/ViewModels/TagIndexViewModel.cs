@@ -10,5 +10,9 @@ namespace MyBlog.WebUI.Areas.Administrator.Models.ViewModels
 	{
 		public Tag Tag { get; set; }
 		public List<Tag> Tags { get; set; }
+		public int PageSize { get; set; }
+		public int PageCount { get; set; }
+		public int CurrentPage { get; set; }
+		public string SearchTag { get; set; }
 	}
 }

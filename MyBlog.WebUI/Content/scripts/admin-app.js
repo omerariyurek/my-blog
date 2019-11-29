@@ -129,3 +129,42 @@ function getCommentById(id) {
     });
     return false;
 }
+
+function deleteContact(id) {
+    var ans = confirm("Are you sure you want to delete this contact?");
+    if (ans) {
+        $.ajax({
+            url: "/administrator/contact/delete/" + id,
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                $("#row_contact_" + id).remove();
+            },
+            error: function () {
+                alert("Error, try again!");
+            }
+        });
+    }
+}
+
+function getContactById(id) {
+    $.ajax({
+        url: "/administrator/contact/get/" + id,
+        type: "POST",
+        contentType: "application/json;charset=UTF-8",
+        dataType: "json",
+        success: function (result) {
+            console.log(result);
+            $('#ContactIdModal').val(result.contactId);
+            $('#ContactNameModal').val(result.contactName);
+            $('#ContactMessageModal').val(result.message);
+            $("#EmailContactModal").val(result.email);
+            $('#contactShowModal').modal('show');
+        },
+        error: function () {
+            alert("Error, try again!");
+        }
+    });
+    return false;
+}

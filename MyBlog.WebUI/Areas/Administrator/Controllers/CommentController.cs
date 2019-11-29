@@ -23,8 +23,9 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpGet("administrator/comments")]
-		public IActionResult Index(string search)
+		public IActionResult Index(string search,int page=1)
 		{
+			int pageSize = 7;
 			var comments = _commentService.GetAll().Data;
 			if (!string.IsNullOrEmpty(search))
 			{
@@ -35,7 +36,11 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			var model = new CommentIndexViewModel
 			{
 				Comment = new Comment(),
-				Comments = comments
+				Comments = comments.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+				CurrentPage = page,
+				PageSize = pageSize,
+				SearchComment = search,
+				PageCount = (int)Math.Ceiling(comments.Count / (double)pageSize)
 			};
 			return View(model);
 		}

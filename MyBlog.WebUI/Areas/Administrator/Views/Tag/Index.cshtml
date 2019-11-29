@@ -70,12 +70,9 @@
                 }
             </table>
         </div>
-        <div class="pagining-admin">
-            <nav aria-label="Page navigation example" style="display: inline-block;">
-                <ul class="pagination">
-                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                </ul>
-            </nav>
+        <div class="paging-admin">
+            <tag-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage"search-tag="@Model.SearchTag">
+            </tag-paging>
         </div>
     </div>
 </div>
@@ -98,7 +95,7 @@
                     </div>
                     <div class="form-group form-design" style="padding-bottom: 10px;">
                         <label asp-for="Tag.SeoUrl" class="col-form-label">Seo Url</label>
-                        <input asp-for="Tag.SeoUrl" class="form-control" id="TagSeoUrlModal" />
+                        <input asp-for="Tag.SeoUrl" class="form-control" id="TagSeoUrlModal" disabled="disabled" />
                     </div>
 
                     <div class="modal-footer">

@@ -1,0 +1,63 @@
+﻿@model MyBlog.WebUI.Areas.Administrator.Models.ViewModels.PostIndexViewModel
+@{
+    ViewData["Title"] = "Posts Page";
+}
+<div class="admin-object-table col-md-12">
+    <div class="search-object-base">
+        <div class="search-object">
+            <form asp-controller="Post" asp-action="Index" method="get">
+                <input class="form-control form-fix" name="search" placeholder="Search Post">
+                <button type="submit" class="btn btn-info">Search</button>
+            </form>
+        </div>
+    </div>
+    @if (TempData["searchPost"] != null)
+    {
+        <div class="alert alert-primary" style="margin-top: 50px" role="alert">
+            Searched Post : @TempData["searchPost"]
+        </div>
+    }
+    <div class="admin-object-table-info">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Post Title</th>
+                    <th scope="col">Content</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Is Home</th>
+                    <th scope="col">Comment Status</th>
+                    <th scope="col">Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Posts.Count == 0)
+                {
+                    <tr>
+                        <td colspan="6" style="text-align: center">No Post</td>
+                    </tr>
+                }
+                else
+                {
+                    foreach (var post in Model.Posts)
+                    {
+                        <tr id="row_post_@post.PostId">
+                            <td>@post.Title</td>
+                            <td>@(post.Content.Length > 40 ? post.Content.Substring(0, 39) + "..." : post.Content)</td>
+                            <td>@post.Status</td>
+                            <td>@post.IsHome</td>
+                            <td>@post.CommentStatus</td>
+                            <td>
+                                <a class="table-button-object" href="#">Update</a> |
+                                <a class="table-button-object" href="#" onclick="deletePost(@post.PostId)">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="paging-admin">
+    <post-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage" search-post="@Model.SearchPost">
+    </post-paging>
+</div>

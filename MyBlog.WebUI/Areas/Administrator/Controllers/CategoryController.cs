@@ -23,8 +23,9 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpGet("administrator/categories")]
-		public IActionResult Index(string search)
+		public IActionResult Index(string search, int page = 1)
 		{
+			int pageSize = 5;
 			var categories = _categoryService.GetAll().Data;
 			if (!string.IsNullOrEmpty(search))
 			{
@@ -33,8 +34,12 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			}
 			var model = new CategoryIndexViewModel
 			{
-				Categories = categories,
-				Category = new Category()
+				Categories = categories.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+				Category = new Category(),
+				PageCount = (int)Math.Ceiling(categories.Count / (double)pageSize),
+				PageSize = pageSize,
+				CurrentPage = page,
+				SearchCategory = search
 			};
 			return View(model);
 		}
