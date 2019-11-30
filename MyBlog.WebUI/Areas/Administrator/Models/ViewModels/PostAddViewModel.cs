@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos;
 
 namespace MyBlog.WebUI.Areas.Administrator.Models.ViewModels
 {
@@ -11,6 +12,6 @@ namespace MyBlog.WebUI.Areas.Administrator.Models.ViewModels
 	{
 		public List<SelectListItem> Categories { get; set; }
 		public List<SelectListItem> Tags { get; set; }
-		public Post Post { get; set; }
+		public PostDto PostDto { get; set; }
 	}
 }

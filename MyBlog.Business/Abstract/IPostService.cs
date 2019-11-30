@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos;
 
 namespace MyBlog.Business.Abstract
 {
@@ -10,9 +11,9 @@ namespace MyBlog.Business.Abstract
 	{
 		IDataResult<Post> GetById(int postId);
 		IDataResult<List<Post>> GetList();
-		IResult Add(Post post);
+		IResult Add(PostDto postDto);
 		IResult Delete(int postId);
-		IResult Update(Post post);
+		IResult Update(PostDto postDto);
 		IResult CheckIfPostTitleExists(string title);
 	}
 }

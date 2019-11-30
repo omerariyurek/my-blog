@@ -2,15 +2,14 @@
 using System.Collections.Generic;
 using System.Text;
 using FluentValidation;
-using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos;
 
 namespace MyBlog.Business.ValidationRules.FluentValidation
 {
-	public class PostValidator : AbstractValidator<Post>
+	public class PostDtoValidator : AbstractValidator<PostDto>
 	{
-		public PostValidator()
+		public PostDtoValidator()
 		{
-			RuleFor(x => x.PostId).NotEmpty();
 			RuleFor(x => x.Title).NotEmpty();
 			RuleFor(x => x.Status).NotEmpty();
 		}

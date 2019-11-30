@@ -16,7 +16,7 @@ namespace MyBlog.Business.DependencyResolvers.Autofac
 	{
 		protected override void Load(ContainerBuilder builder)
 		{
-			builder.RegisterType<PostValidator>().As<IValidator<Post>>();
+			builder.RegisterType<PostDtoValidator>().As<IValidator<PostDto>>();
 			builder.RegisterType<UserForLoginValidator>().As<IValidator<UserForLoginDto>>();
 			builder.RegisterType<CategoryValidator>().As<IValidator<Category>>();
 			builder.RegisterType<TagValidator>().As<IValidator<Tag>>();

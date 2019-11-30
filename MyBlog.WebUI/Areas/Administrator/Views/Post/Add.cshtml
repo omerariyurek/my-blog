@@ -18,10 +18,12 @@
     <div class="admin-post-check col-md-3">
         <div class="admin-post-check-base">
             <p>Categories</p>
-            <div class="admin-post-check-text">
-                <select name="Categories" id="categories-select2" multiple="multiple" class="form-control" asp-items="Model.Categories" style="width:150px;margin-bottom:5px;">
-                </select>
-            </div>
+            <form asp-controller="Post" asp-action="Add" method="post">
+                <div class="admin-post-check-text">
+                    <select name="Categories" class="form-control input-lg select2-multiple select2-hidden-accessible" id="categories-select2" multiple="multiple"  asp-items="Model.Categories" style="width:150px;margin-bottom:5px;">
+                    </select>
+                </div>
+            </form>
         </div>
         <div class="admin-post-check-base" style="margin-top:25px;">
             <p>Tags</p>

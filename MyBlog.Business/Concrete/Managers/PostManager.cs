@@ -14,6 +14,7 @@ using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Core.Utilities.Results.Concrete;
 using MyBlog.DataAccess.Abstract;
 using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos;
 
 namespace MyBlog.Business.Concrete.Managers
 {
@@ -39,11 +40,10 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<Post>>(_postDal.GetList().ToList());
 		}
 
-		[ValidationAspect(typeof(PostValidator), Priority = 1)]
+		[ValidationAspect(typeof(PostDtoValidator), Priority = 1)]
 		[CacheRemoveAspect("IPostService.Get")]
-		public IResult Add(Post post)
+		public IResult Add(PostDto postDto)
 		{
-			_postDal.Add(post);
 			return new SuccessResult(Messages.PostAdded);
 		}
 
@@ -54,11 +54,10 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessResult(Messages.PostDeleted);
 		}
 
-		[ValidationAspect(typeof(PostValidator), Priority = 1)]
+		[ValidationAspect(typeof(PostDtoValidator), Priority = 1)]
 		[CacheRemoveAspect("IPostService.Get")]
-		public IResult Update(Post post)
+		public IResult Update(PostDto postDto)
 		{
-			_postDal.Update(post);
 			return new SuccessResult(Messages.PostUpdated);
 		}
 

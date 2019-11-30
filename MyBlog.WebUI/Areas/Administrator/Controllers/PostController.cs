@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using MyBlog.Business.Abstract;
 using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos;
 using MyBlog.WebUI.Areas.Administrator.Models.ViewModels;
 
 namespace MyBlog.WebUI.Areas.Administrator.Controllers
@@ -56,10 +57,10 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		{
 			var tags = _tagService.GetListActive().Data;
 			var categories = _categoryService.GetListActive().Data;
-			var model = new PostAddViewModel();
-			model.Post=new Post();
-			model.Categories=new List<SelectListItem>();
-			model.Tags = new List<SelectListItem>();
+			var model = new PostAddViewModel
+			{
+				Tags = new List<SelectListItem>(),Categories = new List<SelectListItem>(),PostDto = new PostDto()
+			};
 			foreach (var tag in tags)
 			{
 				model.Tags.Add(new SelectListItem
@@ -80,7 +81,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Add(Post post)
+		public IActionResult Add(PostDto postDto)
 		{
 			return View();
 		}
