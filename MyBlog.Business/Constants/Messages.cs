@@ -17,5 +17,10 @@ namespace MyBlog.Business.Constants
 		public static string CategoryAdded = "Category successfully added!";
 		public static string CategoryDeleted = "Category successfully deleted!";
 		public static string CategoryUpdated = "Category successfully updated!";
+		public static string CategoryNameAlreadyExists = "Category name already exists!";
+		public static string TagNameAlreadyExists = "Tag name already exists!";
+		public static string TagAdded = "Tag successfully added!";
+		public static string TagUpdated = "Tag successfully updated!";
+		public static string PostTitleAlreadyExists = "Post title already exists!";
 	}
 }

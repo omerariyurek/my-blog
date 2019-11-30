@@ -41,6 +41,18 @@
                     Searched Category : @TempData["searchCategory"]
                 </div>
             }
+            else if (TempData["Error"] != null)
+            {
+                <div class="alert alert-danger" style="margin-top: 50px" role="alert">
+                    @TempData["Error"]
+                </div>
+            }
+            else if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success" style="margin-top: 50px" role="alert">
+                    @TempData["Success"]
+                </div>
+            }
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -80,7 +92,7 @@
             <category-paging page-size="@Model.PageSize" current-page="@Model.CurrentPage" page-count="@Model.PageCount" search-category="@Model.SearchCategory">
             </category-paging>
         </div>
-       
+
     </div>
 </div>
 <div class="modal fade" id="categoryUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

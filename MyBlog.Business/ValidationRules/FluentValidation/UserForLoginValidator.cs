@@ -10,8 +10,9 @@ namespace MyBlog.Business.ValidationRules.FluentValidation
 	{
 		public UserForLoginValidator()
 		{
-			RuleFor(x => x.UserName).NotEmpty();
-			RuleFor(x => x.Password).NotEmpty();
+			RuleFor(x => x.UserName).NotEmpty().WithMessage("User name is required."); 
+			RuleFor(x => x.Password).NotEmpty().WithMessage("Password is required.");
+			
 		}
 	}
 }

@@ -2,8 +2,14 @@
 @{
     ViewData["Title"] = "Posts Page";
 }
+
 <div class="admin-object-table col-md-12">
     <div class="search-object-base">
+        <div class="search-object" style="float: left;">
+            <div class="search-object">
+                <a href="@Url.Action("Add","Post")" class="btn btn-info">Post Add</a>
+            </div>
+        </div>
         <div class="search-object">
             <form asp-controller="Post" asp-action="Index" method="get">
                 <input class="form-control form-fix" name="search" placeholder="Search Post">

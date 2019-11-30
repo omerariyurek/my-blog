@@ -9,9 +9,11 @@ namespace MyBlog.Business.Abstract
 	public interface ITagService
 	{
 		IDataResult<List<Tag>> GetAll();
+		IDataResult<List<Tag>> GetListActive();
 		IResult Add(Tag tag);
 		IResult Update(Tag tag);
 		IResult Delete(int tagId);
 		IDataResult<Tag> GetById(int tagId);
+		IResult CheckIfTagNameExists(string tagName);
 	}
 }

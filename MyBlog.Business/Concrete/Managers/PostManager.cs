@@ -48,12 +48,11 @@ namespace MyBlog.Business.Concrete.Managers
 		}
 
 		[CacheRemoveAspect("IPostService.Get")]
-		public IResult Delete(Post post)
+		public IResult Delete(int postId)
 		{
-			_postDal.Delete(post);
+			_postDal.Delete(new Post{PostId = postId});
 			return new SuccessResult(Messages.PostDeleted);
 		}
-
 
 		[ValidationAspect(typeof(PostValidator), Priority = 1)]
 		[CacheRemoveAspect("IPostService.Get")]
@@ -61,6 +60,17 @@ namespace MyBlog.Business.Concrete.Managers
 		{
 			_postDal.Update(post);
 			return new SuccessResult(Messages.PostUpdated);
+		}
+
+		[CacheAspect()]
+		public IResult CheckIfPostTitleExists(string title)
+		{
+			var postToCheck = _postDal.Get(x => x.Title == title);
+			if (postToCheck != null)
+			{
+				return new ErrorResult(Messages.PostTitleAlreadyExists);
+			}
+			return new SuccessResult();
 		}
 	}
 }

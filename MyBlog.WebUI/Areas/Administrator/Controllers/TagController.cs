@@ -46,7 +46,8 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		[HttpPost]
 		public IActionResult Add(Tag tag)
 		{
-			_tagService.Add(tag);
+			var tagAddOperation = _tagService.Add(tag);
+			TempData.Add(!tagAddOperation.Success ? "Error" : "Success", tagAddOperation.Message);
 			return RedirectToAction("Index");
 		}
 
@@ -67,7 +68,8 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		[HttpPost]
 		public IActionResult Update(Tag tag)
 		{
-			_tagService.Update(tag);
+			var tagUpdateOperation = _tagService.Update(tag);
+			TempData.Add(!tagUpdateOperation.Success ? "Error" : "Success", tagUpdateOperation.Message);
 			return RedirectToAction("Index");
 		}
 	}

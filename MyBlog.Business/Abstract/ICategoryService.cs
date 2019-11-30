@@ -13,5 +13,7 @@ namespace MyBlog.Business.Abstract
 		IDataResult<Category> GetById(int categoryId);
 		IResult Delete(int categoryId);
 		IDataResult<List<Category>> GetAll();
+		IDataResult<List<Category>> GetListActive();
+		IResult CheckIfCategoryNameExists(string categoryName);
 	}
 }

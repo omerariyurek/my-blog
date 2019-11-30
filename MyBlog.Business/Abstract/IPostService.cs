@@ -11,7 +11,8 @@ namespace MyBlog.Business.Abstract
 		IDataResult<Post> GetById(int postId);
 		IDataResult<List<Post>> GetList();
 		IResult Add(Post post);
-		IResult Delete(Post post);
+		IResult Delete(int postId);
 		IResult Update(Post post);
+		IResult CheckIfPostTitleExists(string title);
 	}
 }

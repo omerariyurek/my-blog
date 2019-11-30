@@ -35,7 +35,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			var userToLogin = _authService.Login(userForLoginDto);
 			if (!userToLogin.Success)
 			{
-				ModelState.AddModelError("LoginError",userToLogin.Message);
+				ViewBag.LoginErrorMessage = userToLogin.Message;
 			}
 			else
 			{
@@ -46,7 +46,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 				await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 				return RedirectToAction("Index", "Home");
 			}
-			return View();
+			return View(userForLoginDto);
 		}
 
 		public async Task<IActionResult> Logout()

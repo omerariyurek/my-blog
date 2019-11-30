@@ -47,7 +47,8 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		[HttpPost]
 		public IActionResult Add(Category category)
 		{
-			_categoryService.Add(category);
+			var categoryAddOperation = _categoryService.Add(category);
+			TempData.Add(!categoryAddOperation.Success ? "Error" : "Success", categoryAddOperation.Message);
 			return RedirectToAction("Index");
 		}
 
@@ -68,7 +69,8 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		[HttpPost]
 		public IActionResult Update(Category category)
 		{
-			_categoryService.Update(category);
+			var categoryUpdateOperation = _categoryService.Update(category);
+			TempData.Add(!categoryUpdateOperation.Success ? "Error" : "Success", categoryUpdateOperation.Message);
 			return RedirectToAction("Index");
 		}
 	}

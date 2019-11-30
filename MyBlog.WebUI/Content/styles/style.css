@@ -135,6 +135,7 @@
 
         .admin-post .admin-post-input .admin-post-title {
             position: relative;
+            margin-top: 40px;
         }
 
             .admin-post .admin-post-input .admin-post-title .admin-post-title-button {
@@ -186,6 +187,11 @@
 }
 .form-validation-alert{
     color:#CC0000;}
+.form-error-alert {
+    color: #CC0000;
+    text-align: center;
+    margin-bottom: 10px;
+}
 .textarea-size {
     resize: none;
     position: relative;
