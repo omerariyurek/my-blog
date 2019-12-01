@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 using MyBlog.Core.DataAccess.Concrete.EntityFramework;
 using MyBlog.DataAccess.Abstract;
 using MyBlog.DataAccess.Concrete.EntityFramework.Contexts;
@@ -10,7 +11,7 @@ using MyBlog.Entities.Dtos;
 
 namespace MyBlog.DataAccess.Concrete.EntityFramework
 {
-	public class EfCategoryDal : EfEntityRepositoryBase<Category,BlogContext>,ICategoryDal
+	public class EfCategoryDal : EfEntityRepositoryBase<Category, BlogContext>, ICategoryDal
 	{
 		public List<CategoriesDto> GetCategories()
 		{

@@ -1,43 +1,41 @@
-﻿@model List<MyBlog.Entities.Dtos.PostsDto>
+﻿@model List<MyBlog.Entities.Dtos.PostDetailDto>
 @{
     ViewData["Title"] = "Index";
 }
-    <section class="load-more">
-        <h2 class="load-more--main-title">Diğer Yazılar</h2>
-        @foreach (var post in Model)
-        {
-            <div class="load-more__other-post">
-                <a href="#">
-                    <img src="./dist/img/post-vr.jpg" alt="">
-                    <h2 class="load-more__other-post--title">@post.Title</h2>
-                </a>
-                <ul class="load-more__other-post--date-category">
-                    <li class="date">Nisan 14, 2019</li>
-                    <li class="hyphen">-</li>
-                    <li class="category">
-                        @foreach (var category in post.PostCategories)
-                        {
-                            <a href="category-content.html">@category.CategoryName</a>
-                        }
-                    </li>
-                </ul>
-                <p class="load-more__other-post--summary">
-                    @Html.Raw(post.Content)
-                </p>
-                <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                </ul>
-            </div>
-        }
+<section class="load-more">
+    <h2 class="load-more--main-title">Diğer Yazılar</h2>
+    @foreach (var post in Model)
+    {
+        <div class="load-more__other-post">
+            <a href="#">
+                <img src="./dist/img/post-vr.jpg" alt="">
+                <h2 class="load-more__other-post--title">@post.Title</h2>
+            </a>
+            <ul class="load-more__other-post--date-category">
+                <li class="date">Nisan 14, 2019</li>
+                <li class="hyphen">-</li>
+                <li class="category">
+                    @foreach (var category in post.PostCategories)
+                    {
+                        <a href="@Url.Action("CategoryPosts","Category",new{@categoryName=category.SeoUrl})">@category.CategoryName</a>
+                    }
+                </li>
+            </ul>
+            <p class="load-more__other-post--summary">
+                @Html.Raw(post.Content)
+            </p>
+            <ul class="social-media">
+                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+            </ul>
+        </div>
+    }
 
-
-
-        <ul class="load-more__pagenation">
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-        </ul>
-    </section>
+    <ul class="load-more__pagenation">
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
+        <li><a href="#">3</a></li>
+        <li><a href="#">4</a></li>
+    </ul>
+</section>

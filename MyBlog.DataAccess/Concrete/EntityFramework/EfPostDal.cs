@@ -122,11 +122,11 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 			}
 		}
 
-		public List<PostsDto> GetPostsDto()
+		public List<PostDetailDto> GetPostDetails()
 		{
 			using (var context = new BlogContext())
 			{
-				var result = context.Posts.ToList().Select(x => new PostsDto
+				var result = context.Posts.ToList().Select(x => new PostDetailDto
 				{
 					PostId = x.PostId,
 					SeoUrl = x.SeoUrl,
@@ -143,6 +143,52 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 					PostCategories = GetPostCategories(x.PostId)
 				}).ToList();
 				return result;
+			}
+		}
+
+		public List<PostDetailDto> GetCategoryPosts(int categoryId)
+		{
+			using (var context = new BlogContext())
+			{
+				var postDetailDto = new List<PostDetailDto>();
+				var result = from post in context.Posts
+					join postCategories in context.PostCategories
+						on post.PostId equals postCategories.PostId
+					where postCategories.CategoryId == categoryId
+					select new
+					{
+						PostId = post.PostId,
+						CommentStatus = post.CommentStatus,
+						SeoUrl = post.SeoUrl,
+						Title = post.Title,
+						Content = post.Content,
+						CreatedDate = post.CreatedDate,
+						IsHome = post.IsHome,
+						MetaDescription = post.MetaDescription,
+						MetaKeywords = post.MetaKeywords,
+						ModifiedDate = post.ModifiedDate,
+						Status = post.Status,
+					};
+				foreach(var item in result)
+				{
+					postDetailDto.Add(new PostDetailDto
+					{
+						PostId = item.PostId,
+						CommentStatus = item.CommentStatus,
+						SeoUrl = item.SeoUrl,
+						Title = item.Title,
+						Content = item.Content,
+						CreatedDate = item.CreatedDate,
+						IsHome = item.IsHome,
+						MetaDescription = item.MetaDescription,
+						MetaKeywords = item.MetaKeywords,
+						ModifiedDate = item.ModifiedDate,
+						Status = item.Status,
+						PostTags = GetPostTags(item.PostId),
+						PostCategories = GetPostCategories(item.PostId)
+					});
+				}
+				return postDetailDto;
 			}
 		}
 	}

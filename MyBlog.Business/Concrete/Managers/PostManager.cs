@@ -42,9 +42,15 @@ namespace MyBlog.Business.Concrete.Managers
 		}
 
 		[CacheAspect()]
-		public IDataResult<List<PostsDto>> GetPostsDto()
+		public IDataResult<List<PostDetailDto>> GetPostDetails()
 		{
-			return new SuccessDataResult<List<PostsDto>>(_postDal.GetPostsDto());
+			return new SuccessDataResult<List<PostDetailDto>>(_postDal.GetPostDetails());
+		}
+
+		[CacheAspect()]
+		public IDataResult<List<PostDetailDto>> GetCategoryPosts(int categoryId)
+		{
+			return new SuccessDataResult<List<PostDetailDto>>(_postDal.GetCategoryPosts(categoryId));
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]

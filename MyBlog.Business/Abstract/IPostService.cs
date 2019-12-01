@@ -11,7 +11,8 @@ namespace MyBlog.Business.Abstract
 	{
 		IDataResult<Post> GetById(int postId);
 		IDataResult<PostDto> GetPostDto(int postId);
-		IDataResult<List<PostsDto>> GetPostsDto();
+		IDataResult<List<PostDetailDto>> GetPostDetails();
+		IDataResult<List<PostDetailDto>> GetCategoryPosts(int categoryId);
 		IDataResult<List<Post>> GetList();
 		IResult Add(PostDto postDto);
 		IResult Delete(int postId);

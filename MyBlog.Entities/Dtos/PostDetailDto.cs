@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection.Metadata;
 using System.Text;
 using MyBlog.Core.Entities.Abstract;
 
 namespace MyBlog.Entities.Dtos
 {
-	public class PostsDto : IDto
+	public class PostDetailDto : IDto
 	{
 		public int PostId { get; set; }
 		public string Title { get; set; }
@@ -21,6 +20,5 @@ namespace MyBlog.Entities.Dtos
 		public string MetaKeywords { get; set; }
 		public List<PostCategoriesDto> PostCategories { get; set; }
 		public List<PostTagsDto> PostTags { get; set; }
-
 	}
 }

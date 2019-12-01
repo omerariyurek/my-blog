@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MyBlog.Business.Abstract;
 using MyBlog.WebUI.Areas.Administrator.Models.ViewModels;
+using MyBlog.WebUI.Models.ViewModels;
 using CategoryIndexViewModel = MyBlog.WebUI.Models.ViewModels.CategoryIndexViewModel;
 
 namespace MyBlog.WebUI.Controllers
@@ -12,10 +13,12 @@ namespace MyBlog.WebUI.Controllers
     public class CategoryController : Controller
     {
 	    private ICategoryService _categoryService;
+	    private IPostService _postService;
 
-	    public CategoryController(ICategoryService categoryService)
+	    public CategoryController(ICategoryService categoryService, IPostService postService)
 	    {
 		    _categoryService = categoryService;
+		    _postService = postService;
 	    }
 
 	    [HttpGet("/kategoriler")]
@@ -29,10 +32,21 @@ namespace MyBlog.WebUI.Controllers
 	        return View(model);
         }
 
-		[HttpGet("/kategori/{categoryName}")]
-        public IActionResult CategoryPosts(string categoryName)
+		[HttpGet("/kategori/{seoUrl}")]
+        public IActionResult CategoryPosts(string seoUrl)
         {
-	        return View();
+	        var category = _categoryService.GetByCategoryName(seoUrl).Data;
+	        if (category==null)
+	        {
+		        return RedirectToAction("PageNotFound", "Error");
+	        }
+	        var categoryPosts = _postService.GetCategoryPosts(category.CategoryId).Data;
+	        var model = new CategoryPostsViewModel
+	        {
+				Category = category,
+				PostDetails = categoryPosts
+	        };
+	        return View(model);
         }
 
     }

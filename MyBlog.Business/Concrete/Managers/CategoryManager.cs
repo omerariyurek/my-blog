@@ -73,6 +73,11 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<Category>(_categoryDal.Get(x => x.CategoryId == categoryId));
 		}
 
+		public IDataResult<Category> GetByCategoryName(string seoUrl)
+		{
+			return new SuccessDataResult<Category>(_categoryDal.Get(x=>x.SeoUrl== seoUrl));
+		}
+
 		[SecuredOperation("Admin", Priority = 1)]
 		[CacheRemoveAspect("ICategoryService.Get", Priority = 2)]
 		public IResult Delete(int categoryId)

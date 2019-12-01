@@ -19,7 +19,7 @@ namespace MyBlog.WebUI.Controllers
 		[HttpGet("/posts")]
 	    public IActionResult Index()
 	    {
-		    var model = _postService.GetPostsDto().Data;
+		    var model = _postService.GetPostDetails().Data;
             return View(model);
         }
 

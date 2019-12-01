@@ -16,6 +16,8 @@ namespace MyBlog.DataAccess.Abstract
 		PostDto GetPostDto(int postId);
 		void DeletePostTags(int postId);
 		void DeletePostCategories(int postId);
-		List<PostsDto> GetPostsDto();
+		List<PostDetailDto> GetPostDetails();
+		List<PostDetailDto> GetCategoryPosts(int categoryId);
+
 	}
 }
