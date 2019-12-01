@@ -90,10 +90,10 @@
         </div>
     </section>
     <section class="left-bar">
-        <a href="#"><img src="~/Content/images/logo.png" class="left-bar__logo"></a>
+        <a href="@Url.Action("Index","Home")"><img src="~/Content/images/logo.png" class="left-bar__logo"></a>
         <ul class="left-bar__menu">
             <li class="left-bar__menu--item">
-                <span class="left-bar__menu--title">Anasayfa</span>
+                <span class="left-bar__menu--title"><a style="text-decoration: none;" href="@Url.Action("Index","Home")">Anasayfa</a></span>
             </li>
             <li class="left-bar__menu--item">
                 <span class="left-bar__menu--title">Kategoriler</span>
@@ -159,8 +159,15 @@
     <section class="footer">
         <div class="footer__top">
             <li>
-                <span class="footer__top--title">Ömer Arıyürek</span>
-                <a href="mailto:aariyurekomer@gmail.com" class="footer__top--mail">aariyurekomer@gmail.com</a>
+                <span class="footer__top--title">Etiketler</span>
+                <ul class="footer__top--tags-list">
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Technology</a></li>
+                    <li><a href="#">Technology</a></li>
+                </ul>
             </li>
             <li>
                 <span class="footer__top--title">Kategoriler</span>
@@ -183,7 +190,7 @@
             </li>
         </div>
         <div class="footer-bottom">
-            <p>Bu sitenin kaynak kodlarına <a href="#"><i class="fab fa-github git-icon"></i> GitHub</a> üzerinden ulaşabilirsiniz.</p>
+            <p>Bu sitenin kaynak kodlarına <a href="https://github.com/omerariyurek/my-blog" target="_blank"><i class="fab fa-github git-icon"></i> GitHub</a> üzerinden ulaşabilirsiniz.</p>
             <nav>
                 <a href="#">Lorem</a>
                 <a href="#">Ipsum</a>
@@ -193,7 +200,7 @@
             </nav>
         </div>
     </section>
-    <!--script-->
+    <!--Script-->
     <script src="~/Content/scripts/app.js"></script>
 </body>
 </html>

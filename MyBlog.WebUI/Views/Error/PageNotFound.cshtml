@@ -2,14 +2,30 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>PageNotFound</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404 - Ömer ARIYÜREK</title>
+    <link href="~/Content/styles/reset.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="~/Content/styles/style.css" rel="stylesheet" />
 </head>
 <body>
-404 Not Found Dostum!
+    <section id="error-page">
+        <div class="container">
+            <div class="error-message">
+                <p>Aradığınız sayfa bulunamadı</p>
+                <div class="search-wrapper">
+                    <input type="text" placeholder="Bir şeyler arayın...">
+                    <button><i class="fas fa-search search"></i></button>
+                </div>
+                <a href="@Url.Action("Index","Home")">Anasayfa</a>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
