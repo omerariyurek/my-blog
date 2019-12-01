@@ -7,10 +7,6 @@ namespace MyBlog.Entities.Concrete
 {
 	public class Post : IEntity
 	{
-		public Post()
-		{
-			CreatedDate = DateTime.Now;
-		}
 		public int PostId { get; set; }
 		public string Title { get; set; }
 		public string Content { get; set; }

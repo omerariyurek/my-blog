@@ -59,7 +59,9 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			var categories = _categoryService.GetListActive().Data;
 			var model = new PostAddViewModel
 			{
-				Tags = new List<SelectListItem>(),Categories = new List<SelectListItem>(),PostDto = new PostDto()
+				Tags = new List<SelectListItem>(),
+				Categories = new List<SelectListItem>(),
+				PostDto = new PostDto()
 			};
 			foreach (var tag in tags)
 			{
@@ -83,24 +85,52 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		[HttpPost]
 		public IActionResult Add(PostDto postDto)
 		{
-			return View();
+			postDto.Categories ??= new int[] { }; //null check for categories
+			postDto.Tags ??= new int[] { }; //null check for tags
+			var postAddOperation = _postService.Add(postDto);
+			TempData.Add(!postAddOperation.Success ? "Error" : "Success", postAddOperation.Message);
+			return RedirectToAction("Index");
 		}
 
-		[HttpGet("administrator/post/update")]
+		[HttpGet]
 		public IActionResult Update(int id)
 		{
-			var post = _postService.GetById(id).Data;
+			var post = _postService.GetPostDto(id).Data;
+			var tags = _tagService.GetSelectedTags().Data;
+			var categories = _categoryService.GetCategories().Data;
+			var postTags = _postService.GetPostTags(id).Data;
+			var postCategories = _postService.GetPostCategories(id).Data;
+			foreach (var tag in tags)// To access the selected one in the select2 plugin
+			{
+				foreach (var postTag in postTags.Where(postTag => tag.TagId == postTag.TagId))
+				{
+					tag.Selected = true;
+				}
+			}
+			foreach (var category in categories)// To access the selected one in the select2 plugin
+			{
+				foreach (var postCategory in postCategories.Where(postCategory => category.CategoryId == postCategory.CategoryId))
+				{
+					category.Selected = true;
+				}
+			}
 			var model = new PostUpdateViewModel
 			{
-				Post = post
+				PostDto = post,
+				Tags = tags,
+				Categories = categories
 			};
 			return View(model);
 		}
 
 		[HttpPost]
-		public IActionResult Update(Post post)
+		public IActionResult Update(PostDto postDto)
 		{
-			return View();
+			postDto.Categories ??= new int[] { }; //null check for categories
+			postDto.Tags ??= new int[] { }; //null check for tags
+			var postUpdateOperation = _postService.Update(postDto);
+			TempData.Add(!postUpdateOperation.Success ? "Error" : "Success", postUpdateOperation.Message);
+			return RedirectToAction("Index");
 		}
 
 		[HttpPost]

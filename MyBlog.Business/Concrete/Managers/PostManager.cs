@@ -8,8 +8,11 @@ using MyBlog.Business.Constants;
 using MyBlog.Business.ValidationRules.FluentValidation;
 using MyBlog.Core.Aspects.Autofac.Caching;
 using MyBlog.Core.Aspects.Autofac.Logging;
+using MyBlog.Core.Aspects.Autofac.Transaction;
 using MyBlog.Core.Aspects.Autofac.Validation;
 using MyBlog.Core.CrossCuttingConcerns.Logging.Log4Net.Loggers;
+using MyBlog.Core.Extensions;
+using MyBlog.Core.Utilities.Business;
 using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Core.Utilities.Results.Concrete;
 using MyBlog.DataAccess.Abstract;
@@ -26,42 +29,131 @@ namespace MyBlog.Business.Concrete.Managers
 			_postDal = postDal;
 		}
 
-		[CacheAspect]
+		[CacheAspect(Priority = 1)]
 		public IDataResult<Post> GetById(int postId)
 		{
 			return new SuccessDataResult<Post>(_postDal.Get(x => x.PostId == postId));
 		}
 
-		[CacheAspect(Priority = 3)]
-		[SecuredOperation("Admin",Priority = 1)]
-		[LogAspect(typeof(DatabaseLogger),Priority = 2)]
+		[CacheAspect(Priority = 1)]
+		public IDataResult<PostDto> GetPostDto(int postId)
+		{
+			return new SuccessDataResult<PostDto>(_postDal.GetPostDto(postId));
+		}
+
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheAspect(Priority = 2)]
 		public IDataResult<List<Post>> GetList()
 		{
 			return new SuccessDataResult<List<Post>>(_postDal.GetList().ToList());
 		}
 
-		[ValidationAspect(typeof(PostDtoValidator), Priority = 1)]
-		[CacheRemoveAspect("IPostService.Get")]
+		[SecuredOperation("Admin", Priority = 1)]
+		[ValidationAspect(typeof(PostDtoValidator), Priority = 2)]
+		[TransactionScopeAspect(Priority = 3)]
+		[CacheRemoveAspect("IPostService.Get", Priority = 4)]
 		public IResult Add(PostDto postDto)
 		{
+			IResult result = BusinessRules.Run(CheckIfPostTitleExists(postDto.Title));
+			if (result != null)
+			{
+				return result;
+			}
+			var post = new Post
+			{
+				Title = postDto.Title,
+				SeoUrl = postDto.Title.CreateSeoFriendlyUrl(),
+				CommentStatus = postDto.CommentStatus,
+				Content = postDto.Content,
+				CreatedDate = DateTime.Now,
+				IsHome = postDto.IsHome,
+				MetaDescription = postDto.MetaDescription,
+				MetaKeywords = postDto.MetaKeywords,
+				Status = postDto.CommentStatus
+			};
+			_postDal.Add(post);
+			if (postDto.Categories.Length > 0)
+			{
+				_postDal.AddPostCategories(post.PostId, postDto.Categories);
+			}
+			if (postDto.Tags.Length > 0)
+			{
+				_postDal.AddPostTags(post.PostId, postDto.Tags);
+			}
 			return new SuccessResult(Messages.PostAdded);
 		}
 
-		[CacheRemoveAspect("IPostService.Get")]
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheRemoveAspect("IPostService.Get", Priority = 2)]
 		public IResult Delete(int postId)
 		{
-			_postDal.Delete(new Post{PostId = postId});
+			_postDal.Delete(new Post { PostId = postId });
 			return new SuccessResult(Messages.PostDeleted);
 		}
 
-		[ValidationAspect(typeof(PostDtoValidator), Priority = 1)]
-		[CacheRemoveAspect("IPostService.Get")]
+		[SecuredOperation("Admin", Priority = 1)]
+		[ValidationAspect(typeof(PostDtoValidator), Priority = 2)]
+		[TransactionScopeAspect(Priority = 3)]
+		[CacheRemoveAspect("IPostService.Get", Priority = 4)]
 		public IResult Update(PostDto postDto)
 		{
+			var checkToPost = _postDal.Get(x => x.PostId == postDto.PostId);
+			if (checkToPost.Title == postDto.Title)
+			{
+				checkToPost.PostId = postDto.PostId;
+				checkToPost.CommentStatus = postDto.CommentStatus;
+				checkToPost.Content = postDto.Content;
+				checkToPost.IsHome = postDto.IsHome;
+				checkToPost.MetaDescription = postDto.MetaDescription;
+				checkToPost.MetaKeywords = postDto.MetaKeywords;
+				checkToPost.ModifiedDate = DateTime.Now;
+				checkToPost.Status = postDto.Status;
+				checkToPost.SeoUrl = postDto.Title.CreateSeoFriendlyUrl();
+				checkToPost.Title = postDto.Title;
+				_postDal.Update(checkToPost);
+				if (postDto.Categories.Length > 0)
+				{
+					_postDal.DeletePostCategories(postDto.PostId);
+					_postDal.AddPostCategories(postDto.PostId, postDto.Categories);
+				}
+				if (postDto.Tags.Length > 0)
+				{
+					_postDal.DeletePostTags(postDto.PostId);
+					_postDal.AddPostTags(postDto.PostId, postDto.Tags);
+				}
+				return new SuccessResult(Messages.PostUpdated);
+			}
+			IResult result = BusinessRules.Run(CheckIfPostTitleExists(postDto.Title));
+			if (result != null)
+			{
+				return result;
+			}
+			checkToPost.PostId = postDto.PostId;
+			checkToPost.CommentStatus = postDto.CommentStatus;
+			checkToPost.Content = postDto.Content;
+			checkToPost.IsHome = postDto.IsHome;
+			checkToPost.MetaDescription = postDto.MetaDescription;
+			checkToPost.MetaKeywords = postDto.MetaKeywords;
+			checkToPost.ModifiedDate = DateTime.Now;
+			checkToPost.Status = postDto.Status;
+			checkToPost.SeoUrl = postDto.Title.CreateSeoFriendlyUrl();
+			checkToPost.Title = postDto.Title;
+			_postDal.Update(checkToPost);
+			if (postDto.Categories.Length > 0)
+			{
+				_postDal.DeletePostCategories(postDto.PostId);
+				_postDal.AddPostCategories(postDto.PostId, postDto.Categories);
+			}
+			if (postDto.Tags.Length > 0)
+			{
+				_postDal.DeletePostTags(postDto.PostId);
+				_postDal.AddPostTags(postDto.PostId, postDto.Tags);
+			}
 			return new SuccessResult(Messages.PostUpdated);
 		}
 
-		[CacheAspect()]
+
+		[SecuredOperation("Admin", Priority = 1)]
 		public IResult CheckIfPostTitleExists(string title)
 		{
 			var postToCheck = _postDal.Get(x => x.Title == title);
@@ -70,6 +162,20 @@ namespace MyBlog.Business.Concrete.Managers
 				return new ErrorResult(Messages.PostTitleAlreadyExists);
 			}
 			return new SuccessResult();
+		}
+
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheAspect(Priority = 2)]
+		public IDataResult<List<PostTag>> GetPostTags(int postId)
+		{
+			return new SuccessDataResult<List<PostTag>>(_postDal.GetPostTags(postId));
+		}
+
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheAspect(Priority = 2)]
+		public IDataResult<List<PostCategory>> GetPostCategories(int postId)
+		{
+			return new SuccessDataResult<List<PostCategory>>(_postDal.GetPostCategories(postId));
 		}
 	}
 }

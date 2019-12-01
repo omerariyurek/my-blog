@@ -10,7 +10,7 @@ namespace MyBlog.Business.ValidationRules.FluentValidation
 	{
 		public TagValidator()
 		{
-			RuleFor(x => x.TagName).NotEmpty();
+			RuleFor(x => x.TagName).NotEmpty().WithMessage("Tag name is required."); ;
 		}
 	}
 }

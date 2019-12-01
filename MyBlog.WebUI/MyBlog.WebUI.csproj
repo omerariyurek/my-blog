@@ -40,7 +40,6 @@
 
   <ItemGroup>
     <Folder Include="Areas\Administrator\Data\" />
-    <Folder Include="Views\Home\" />
   </ItemGroup>
   
 

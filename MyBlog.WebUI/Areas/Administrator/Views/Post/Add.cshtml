@@ -2,61 +2,74 @@
 @{
     ViewData["Title"] = "Post Add Page";
 }
+@section scripts{
+    <script src="~/node_modules/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("PostDto.Content");
+        CKEDITOR.config.height = 515;
+    </script>
+}
 <div class="admin-post">
-    <div class="admin-post-input-base col-md-9">
-        <div class="admin-post-input">
-            <div class="admin-post-title">
-                <h3 style="margin-bottom: 12px;">New Post Title</h3>
-                <input type="text" placeholder="Post Title" class="form-control">
-                <textarea cols="30" rows="10" style="resize: none;margin-top:10px" class="form-control"></textarea>
-                <div class="admin-post-title-button">
-                    <button class="btn btn-info">Save</button>
+    <form asp-controller="Post" asp-action="Add" method="post">
+        <div class="admin-post-input-base col-md-9">
+            <div class="admin-post-input">
+                <div class="admin-post-title">
+                    <h3 style="margin-bottom: 12px;">New Post Title</h3>
+                    <div class="form-group">
+                        <input asp-for="PostDto.Title" placeholder="Post Title" class="form-control">
+                        <span class="form-validation-alert" asp-validation-for="PostDto.Title"></span>
+                    </div>
+                    <div class="form-group" style="margin-top: 20px;">
+                        <textarea asp-for="PostDto.Content" class="form-control"></textarea>
+                        <span class="form-validation-alert" asp-validation-for="PostDto.Content"></span>
+                    </div>
+                    <div class="admin-post-title-button" style="margin-bottom: 10px;">
+                        <button class="btn btn-info">Add Post</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="admin-post-check col-md-3">
-        <div class="admin-post-check-base">
-            <p>Categories</p>
-            <form asp-controller="Post" asp-action="Add" method="post">
+        <div class="admin-post-check col-md-3">
+            <div class="admin-post-check-base">
+                <p>Categories</p>
                 <div class="admin-post-check-text">
-                    <select name="Categories" class="form-control input-lg select2-multiple select2-hidden-accessible" id="categories-select2" multiple="multiple"  asp-items="Model.Categories" style="width:150px;margin-bottom:5px;">
+                    <select asp-for="PostDto.Categories" class="form-control input-lg select2-multiple select2-hidden-accessible" id="categories-select2" multiple="multiple" asp-items="Model.Categories" style="width:150px;margin-bottom:5px;">
                     </select>
                 </div>
-            </form>
-        </div>
-        <div class="admin-post-check-base" style="margin-top:25px;">
-            <p>Tags</p>
-            <div class="admin-post-check-text">
-                <select name="Tags" id="tags-select2" multiple="multiple" class="form-control" asp-items="Model.Tags" style="width:150px;margin-bottom:5px;">
-                </select>
             </div>
-        </div>
-        <div class="admin-post-check-base" style="margin-top:25px;">
-            <p>Meta Keywords</p>
-            <div class="admin-post-check-text">
-                <textarea cols="30" rows="3" placeholder="Meta Keywords" class="form-control textarea-size"></textarea>
+            <div class="admin-post-check-base" style="margin-top:25px;">
+                <p>Tags</p>
+                <div class="admin-post-check-text">
+                    <select asp-for="PostDto.Tags" id="tags-select2" multiple="multiple" class="form-control" asp-items="Model.Tags" style="width:150px;margin-bottom:5px;">
+                    </select>
+                </div>
             </div>
+            <div class="admin-post-check-base" style="margin-top:25px;">
+                <p>Meta Keywords</p>
+                <div class="admin-post-check-text">
+                    <textarea asp-for="PostDto.MetaKeywords" cols="30" rows="3" placeholder="Meta Keywords" class="form-control textarea-size"></textarea>
+                </div>
 
-        </div>
-        <div class="admin-post-check-base" style="margin-top:25px;">
-            <p>Meta Description</p>
-            <div class="admin-post-check-text">
-                <textarea cols="30" rows="5" placeholder="Meta Description" class="form-control textarea-size"></textarea>
+            </div>
+            <div class="admin-post-check-base" style="margin-top:25px;">
+                <p>Meta Description</p>
+                <div class="admin-post-check-text">
+                    <textarea asp-for="PostDto.MetaDescription" cols="30" rows="5" placeholder="Meta Description" class="form-control textarea-size"></textarea>
+                </div>
+            </div>
+            <div class="admin-post-check-base" style="margin-top:25px; margin-bottom: 30px;">
+                <p>Settings</p>
+                <div class="admin-post-check-text">
+                    <input asp-for="PostDto.Status" class="form-check-input" checked>
+                    <label>Status</label>
+                    <br>
+                    <input asp-for="PostDto.IsHome" class="form-check-input" checked>
+                    <label>Home Page</label>
+                    <br>
+                    <input asp-for="PostDto.CommentStatus" class="form-check-input" checked>
+                    <label>Comment Status</label>
+                </div>
             </div>
         </div>
-        <div class="admin-post-check-base" style="margin-top:25px; margin-bottom: 30px;">
-            <p>Settings</p>
-            <div class="admin-post-check-text">
-                <input type="checkbox" class="form-check-input" checked>
-                <label>Test</label>
-                <br>
-                <input type="checkbox" class="form-check-input" checked>
-                <label>Test</label>
-                <br>
-                <input type="checkbox" class="form-check-input" checked>
-                <label>Test</label>
-            </div>
-        </div>
-    </div>
+    </form>
 </div>

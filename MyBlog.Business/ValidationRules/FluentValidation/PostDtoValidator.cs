@@ -10,7 +10,8 @@ namespace MyBlog.Business.ValidationRules.FluentValidation
 	{
 		public PostDtoValidator()
 		{
-			RuleFor(x => x.Title).NotEmpty();
+			RuleFor(x => x.Title).NotEmpty().WithMessage("Post title is required."); ;
+			RuleFor(x => x.Content).NotEmpty().WithMessage("Post content is required."); ;
 			RuleFor(x => x.Status).NotEmpty();
 		}
 	}

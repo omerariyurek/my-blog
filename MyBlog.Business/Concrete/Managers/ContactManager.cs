@@ -4,6 +4,8 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using MyBlog.Business.Abstract;
+using MyBlog.Business.BusinessAspects.Autofac.Security;
+using MyBlog.Core.Aspects.Autofac.Caching;
 using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Core.Utilities.Results.Concrete;
 using MyBlog.DataAccess.Abstract;
@@ -20,10 +22,15 @@ namespace MyBlog.Business.Concrete.Managers
 			_contactDal = contactDal;
 		}
 
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheAspect(Priority = 2)]
 		public IDataResult<List<Contact>> GetAll()
 		{
 			return new SuccessDataResult<List<Contact>>(_contactDal.GetList().ToList());
 		}
+
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheRemoveAspect("IContactService.Get", Priority = 2)]
 
 		public IResult Add(Contact contact)
 		{
@@ -31,18 +38,24 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessResult("");
 		}
 
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheRemoveAspect("IContactService.Get", Priority = 2)]
 		public IResult Update(Contact contact)
 		{
 			_contactDal.Update(contact);
 			return new SuccessResult("");
 		}
 
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheRemoveAspect("IContactService.Get", Priority = 2)]
 		public IResult Delete(int contactId)
 		{
 			_contactDal.Delete(new Contact{ContactId = contactId});
 			return new SuccessResult("");
 		}
 
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheAspect(Priority = 2)]
 		public IDataResult<Contact> GetById(int contactId)
 		{
 			return new SuccessDataResult<Contact>(_contactDal.Get(x=>x.ContactId==contactId));

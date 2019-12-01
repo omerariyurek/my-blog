@@ -7,10 +7,6 @@ namespace MyBlog.Entities.Dtos
 {
 	public class PostDto : IDto
 	{
-		public PostDto()
-		{
-			CreatedDate = DateTime.Now;
-		}
 		public int PostId { get; set; }
 		public string Title { get; set; }
 		public string Content { get; set; }
@@ -22,7 +18,7 @@ namespace MyBlog.Entities.Dtos
 		public DateTime? ModifiedDate { get; set; }
 		public string MetaDescription { get; set; }
 		public string MetaKeywords { get; set; }
-		public string[] Categories { get; set; }
-		public string[] Tags { get; set; }
+		public int[] Categories { get; set; }
+		public int[] Tags { get; set; }
 	}
 }

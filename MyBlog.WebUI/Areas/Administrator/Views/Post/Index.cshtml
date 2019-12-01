@@ -23,6 +23,18 @@
             Searched Post : @TempData["searchPost"]
         </div>
     }
+    else if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger" style="margin-top: 50px" role="alert">
+            @TempData["Error"]
+        </div>
+    }
+    else if (TempData["Success"] != null)
+    {
+        <div class="alert alert-success" style="margin-top: 50px" role="alert">
+            @TempData["Success"]
+        </div>
+    }
     <div class="admin-object-table-info">
         <table class="table table-striped">
             <thead>
@@ -53,7 +65,7 @@
                             <td>@post.IsHome</td>
                             <td>@post.CommentStatus</td>
                             <td>
-                                <a class="table-button-object" href="#">Update</a> |
+                                <a href="@Url.Action("Update","Post",new{@id=post.PostId})" class="table-button-object" href="#">Update</a> |
                                 <a class="table-button-object" href="#" onclick="deletePost(@post.PostId)">Delete</a>
                             </td>
                         </tr>

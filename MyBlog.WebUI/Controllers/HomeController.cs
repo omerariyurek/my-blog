@@ -23,8 +23,7 @@ namespace MyBlog.WebUI.Controllers
 
 		public IActionResult Index()
 		{
-			var posts = _postService.GetList();
-			return Ok(posts.Data);
+			return View();
 		}
 
 	}

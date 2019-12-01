@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MyBlog.Business.Abstract;
+using MyBlog.Business.BusinessAspects.Autofac.Security;
 using MyBlog.Business.Constants;
 using MyBlog.Business.ValidationRules.FluentValidation;
 using MyBlog.Core.Aspects.Autofac.Caching;
@@ -13,6 +14,7 @@ using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Core.Utilities.Results.Concrete;
 using MyBlog.DataAccess.Abstract;
 using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos;
 
 namespace MyBlog.Business.Concrete.Managers
 {
@@ -25,8 +27,9 @@ namespace MyBlog.Business.Concrete.Managers
 			_categoryDal = categoryDal;
 		}
 
-		[ValidationAspect(typeof(CategoryValidator), Priority = 1)]
-		[CacheRemoveAspect("ICategoryService.Get", Priority = 2)]
+		[SecuredOperation("Admin", Priority = 1)]
+		[ValidationAspect(typeof(CategoryValidator), Priority = 2)]
+		[CacheRemoveAspect("ICategoryService.Get", Priority = 3)]
 		public IResult Add(Category category)
 		{
 			IResult result = BusinessRules.Run(CheckIfCategoryNameExists(category.CategoryName));
@@ -40,8 +43,9 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessResult(Messages.CategoryAdded);
 		}
 
-		[ValidationAspect(typeof(CategoryValidator), Priority = 1)]
-		[CacheRemoveAspect("ICategoryService.Get", Priority = 2)]
+		[SecuredOperation("Admin", Priority = 1)]
+		[ValidationAspect(typeof(CategoryValidator), Priority = 2)]
+		[CacheRemoveAspect("ICategoryService.Get", Priority = 3)]
 		public IResult Update(Category category)
 		{
 			var checkToCategory = _categoryDal.Get(x => x.CategoryId == category.CategoryId);
@@ -69,14 +73,16 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<Category>(_categoryDal.Get(x => x.CategoryId == categoryId));
 		}
 
-		[CacheRemoveAspect("ICategoryService.Get", Priority = 1)]
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheRemoveAspect("ICategoryService.Get", Priority = 2)]
 		public IResult Delete(int categoryId)
 		{
 			_categoryDal.Delete(new Category { CategoryId = categoryId });
 			return new SuccessResult(Messages.CategoryDeleted);
 		}
 
-		[CacheAspect()]
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheAspect(Priority = 2)]
 		public IDataResult<List<Category>> GetAll()
 		{
 			return new SuccessDataResult<List<Category>>(_categoryDal.GetList().ToList());
@@ -88,6 +94,12 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<Category>>(_categoryDal.GetList(x=>x.Status==true).ToList());
 		}
 
+		public IDataResult<List<CategoriesDto>> GetCategories()
+		{
+			return new SuccessDataResult<List<CategoriesDto>>(_categoryDal.GetCategories());
+		}
+
+		[SecuredOperation("Admin", Priority = 1)]
 		[CacheAspect()]
 		public IResult CheckIfCategoryNameExists(string categoryName)
 		{

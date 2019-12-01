@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos;
 
 namespace MyBlog.Business.Abstract
 {
@@ -14,6 +15,7 @@ namespace MyBlog.Business.Abstract
 		IResult Delete(int categoryId);
 		IDataResult<List<Category>> GetAll();
 		IDataResult<List<Category>> GetListActive();
+		IDataResult<List<CategoriesDto>> GetCategories();
 		IResult CheckIfCategoryNameExists(string categoryName);
 	}
 }

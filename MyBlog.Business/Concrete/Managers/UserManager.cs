@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using MyBlog.Business.Abstract;
+using MyBlog.Business.BusinessAspects.Autofac.Security;
 using MyBlog.Business.Constants;
 using MyBlog.Core.Aspects.Autofac.Caching;
 using MyBlog.Core.Entities.Concrete;
@@ -20,7 +21,8 @@ namespace MyBlog.Business.Concrete.Managers
 			_userDal = userDal;
 		}
 
-		[CacheAspect()]
+		[SecuredOperation("Admin", Priority = 1)]
+		[CacheAspect(Priority = 2)]
 		public IDataResult<List<OperationClaim>> OperationClaims(User user)
 		{
 			return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
@@ -32,6 +34,7 @@ namespace MyBlog.Business.Concrete.Managers
 			throw new NotImplementedException();
 		}
 
+		[SecuredOperation("Admin", Priority = 1)]
 		public IDataResult<User> CheckIfUserNameExists(string userName)
 		{
 			var userToCheck = _userDal.Get(x => x.UserName == userName);

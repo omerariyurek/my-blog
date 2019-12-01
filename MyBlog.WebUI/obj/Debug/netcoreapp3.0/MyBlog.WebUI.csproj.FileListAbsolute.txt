@@ -165,3 +165,6 @@ C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Areas\Administrator\Views\Post\Update.cshtml.g.cs
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\MyBlog.WebUI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\MyBlog.WebUI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\_ViewStart.cshtml.g.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Home\Index.cshtml.g.cs

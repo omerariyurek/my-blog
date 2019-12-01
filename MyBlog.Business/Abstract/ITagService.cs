@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Entities.Concrete;
+using MyBlog.Entities.Dtos;
 
 namespace MyBlog.Business.Abstract
 {
@@ -15,5 +16,8 @@ namespace MyBlog.Business.Abstract
 		IResult Delete(int tagId);
 		IDataResult<Tag> GetById(int tagId);
 		IResult CheckIfTagNameExists(string tagName);
+		IDataResult<List<TagsDto>> GetSelectedTags();
+		IDataResult<List<CategoriesDto>> GetSelectedCategories();
+
 	}
 }
