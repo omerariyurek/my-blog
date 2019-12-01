@@ -11,12 +11,13 @@ namespace MyBlog.Business.Abstract
 	{
 		IDataResult<Post> GetById(int postId);
 		IDataResult<PostDto> GetPostDto(int postId);
+		IDataResult<List<PostsDto>> GetPostsDto();
 		IDataResult<List<Post>> GetList();
 		IResult Add(PostDto postDto);
 		IResult Delete(int postId);
 		IResult Update(PostDto postDto);
 		IResult CheckIfPostTitleExists(string title);
-		IDataResult<List<PostTag>> GetPostTags(int postId);
-		IDataResult<List<PostCategory>> GetPostCategories(int postId);
+		IDataResult<List<PostTagsDto>> GetPostTags(int postId);
+		IDataResult<List<PostCategoriesDto>> GetPostCategories(int postId);
 	}
 }

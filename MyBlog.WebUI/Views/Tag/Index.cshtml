@@ -1,4 +1,4 @@
-﻿@model MyBlog.WebUI.Models.ViewModels.CategoryIndexViewModel
+﻿@model MyBlog.WebUI.Models.ViewModels.TagIndexViewModel
 @{
     ViewData["Title"] = "Index";
 }
@@ -7,11 +7,11 @@
         <h2 class="category-content__category-name--category">Kategoriler</h2>
     </div>
     <ul class="category-content__content-box">
-        @foreach (var category in Model.Categories)
+        @foreach (var tag in Model.Tags)
         {
             <li class="category-content__content-box--item">
                 <img src="~/Content/images/category-background.jpg" />
-                <a href="@Url.Action("CategoryPosts","Category",new{@categoryName=@category.SeoUrl})" class="title">@category.CategoryName</a>
+                <a href="post-content.html" class="title">@tag.TagName</a>
             </li>
         }
     </ul>

@@ -11,10 +11,11 @@ namespace MyBlog.DataAccess.Abstract
 	{
 		void AddPostTags(int postId, int[] tagIds);
 		void AddPostCategories(int postId, int[] categoryIds);
-		List<PostTag> GetPostTags(int postId);
-		List<PostCategory> GetPostCategories(int postId);
+		List<PostTagsDto> GetPostTags(int postId);
+		List<PostCategoriesDto> GetPostCategories(int postId);
 		PostDto GetPostDto(int postId);
 		void DeletePostTags(int postId);
 		void DeletePostCategories(int postId);
+		List<PostsDto> GetPostsDto();
 	}
 }

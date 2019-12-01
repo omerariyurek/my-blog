@@ -1,97 +1,38 @@
-﻿
+﻿@model List<MyBlog.Entities.Dtos.PostsDto>
 @{
     ViewData["Title"] = "Index";
 }
     <section class="load-more">
-        <h2 class="load-more--main-title">Diğer İçerikler</h2>
-        <div class="load-more__other-post">
-            <a href="#">
-                <img src="./dist/img/post-vr.jpg" alt="">
-                <h2 class="load-more__other-post--title">Check Out The Most Awesome VR Headset in 2020</h2>
-            </a>
-            <ul class="load-more__other-post--date-category">
-                <li class="date">Nisan 14, 2019</li>
-                <li class="hyphen">-</li>
-                <li class="category"><a href="category-content.html">Technology</a></li>
-            </ul>
-            <p class="load-more__other-post--summary">
-                I neglect my talents Far far away, behind the word mountains,
-                far from the countries Vokalia and Consonantia,
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It...
-            </p>
-            <ul class="social-media">
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            </ul>
-        </div>
-        <div class="load-more__other-post">
-            <a href="#">
-                <img src="./dist/img/post-vr.jpg" alt="">
-                <h2 class="load-more__other-post--title">Check Out The Most Awesome VR Headset in 2020</h2>
-            </a>
-            <ul class="load-more__other-post--date-category">
-                <li class="date">Nisan 14, 2019</li>
-                <li class="hyphen">-</li>
-                <li class="category"><a href="category-content.html">Technology</a></li>
-            </ul>
-            <p class="load-more__other-post--summary">
-                I neglect my talents Far far away, behind the word mountains,
-                far from the countries Vokalia and Consonantia,
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It...
-            </p>
-            <ul class="social-media">
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            </ul>
-        </div>
-        <div class="load-more__other-post">
-            <a href="#">
-                <img src="./dist/img/post-vr.jpg" alt="">
-                <h2 class="load-more__other-post--title">Check Out The Most Awesome VR Headset in 2020</h2>
-            </a>
-            <ul class="load-more__other-post--date-category">
-                <li class="date">Nisan 14, 2019</li>
-                <li class="hyphen">-</li>
-                <li class="category"><a href="category-content.html">Technology</a></li>
-            </ul>
-            <p class="load-more__other-post--summary">
-                I neglect my talents Far far away, behind the word mountains,
-                far from the countries Vokalia and Consonantia,
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It...
-            </p>
-            <ul class="social-media">
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            </ul>
-        </div>
-        <div class="load-more__other-post">
-            <a href="#">
-                <img src="./dist/img/post-vr.jpg" alt="">
-                <h2 class="load-more__other-post--title">Check Out The Most Awesome VR Headset in 2020</h2>
-            </a>
-            <ul class="load-more__other-post--date-category">
-                <li class="date">Nisan 14, 2019</li>
-                <li class="hyphen">-</li>
-                <li class="category"><a href="category-content.html">Technology</a></li>
-            </ul>
-            <p class="load-more__other-post--summary">
-                I neglect my talents Far far away, behind the word mountains,
-                far from the countries Vokalia and Consonantia,
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It...
-            </p>
-            <ul class="social-media">
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            </ul>
-        </div>
+        <h2 class="load-more--main-title">Diğer Yazılar</h2>
+        @foreach (var post in Model)
+        {
+            <div class="load-more__other-post">
+                <a href="#">
+                    <img src="./dist/img/post-vr.jpg" alt="">
+                    <h2 class="load-more__other-post--title">@post.Title</h2>
+                </a>
+                <ul class="load-more__other-post--date-category">
+                    <li class="date">Nisan 14, 2019</li>
+                    <li class="hyphen">-</li>
+                    <li class="category">
+                        @foreach (var category in post.PostCategories)
+                        {
+                            <a href="category-content.html">@category.CategoryName</a>
+                        }
+                    </li>
+                </ul>
+                <p class="load-more__other-post--summary">
+                    @Html.Raw(post.Content)
+                </p>
+                <ul class="social-media">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        }
+
+
 
         <ul class="load-more__pagenation">
             <li><a href="#">1</a></li>

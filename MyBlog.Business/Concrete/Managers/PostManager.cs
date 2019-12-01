@@ -41,6 +41,12 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<PostDto>(_postDal.GetPostDto(postId));
 		}
 
+		[CacheAspect()]
+		public IDataResult<List<PostsDto>> GetPostsDto()
+		{
+			return new SuccessDataResult<List<PostsDto>>(_postDal.GetPostsDto());
+		}
+
 		[SecuredOperation("Admin", Priority = 1)]
 		[CacheAspect(Priority = 2)]
 		public IDataResult<List<Post>> GetList()
@@ -166,16 +172,16 @@ namespace MyBlog.Business.Concrete.Managers
 
 		[SecuredOperation("Admin", Priority = 1)]
 		[CacheAspect(Priority = 2)]
-		public IDataResult<List<PostTag>> GetPostTags(int postId)
+		public IDataResult<List<PostTagsDto>> GetPostTags(int postId)
 		{
-			return new SuccessDataResult<List<PostTag>>(_postDal.GetPostTags(postId));
+			return new SuccessDataResult<List<PostTagsDto>>(_postDal.GetPostTags(postId));
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]
 		[CacheAspect(Priority = 2)]
-		public IDataResult<List<PostCategory>> GetPostCategories(int postId)
+		public IDataResult<List<PostCategoriesDto>> GetPostCategories(int postId)
 		{
-			return new SuccessDataResult<List<PostCategory>>(_postDal.GetPostCategories(postId));
+			return new SuccessDataResult<List<PostCategoriesDto>>(_postDal.GetPostCategories(postId));
 		}
 	}
 }
