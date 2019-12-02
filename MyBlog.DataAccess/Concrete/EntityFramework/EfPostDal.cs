@@ -79,7 +79,6 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 			}
 		}
 
-
 		public PostDto GetPostDto(int postId)
 		{
 			using (var context = new BlogContext())

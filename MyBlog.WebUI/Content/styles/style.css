@@ -499,23 +499,26 @@ body::-webkit-scrollbar-thumb {
 }
 
     .load-more__other-post--date-category li {
-        float: left;
+        display: inline;
         color: #737373;
         margin-right: 10px;
         font-size: 15px;
     }
 
     .load-more__other-post--date-category a {
-        color: #737373;
+        color: #ec6a2a;
+        display: inline;
         transition: all .3s;
+        word-spacing: 3px;
+        padding: 2px;
     }
 
         .load-more__other-post--date-category a:hover {
-            color: #ec6a2a;
+            color: #737373;
         }
 
     .load-more__other-post--date-category .hyphen {
-        color: #ec6a2a;
+        color: black;
     }
 
 .load-more__other-post--summary {

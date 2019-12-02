@@ -21,7 +21,6 @@ namespace MyBlog.Business.Concrete.Managers
 			_userDal = userDal;
 		}
 
-		[SecuredOperation("Admin", Priority = 1)]
 		[CacheAspect(Priority = 2)]
 		public IDataResult<List<OperationClaim>> OperationClaims(User user)
 		{
@@ -34,7 +33,6 @@ namespace MyBlog.Business.Concrete.Managers
 			throw new NotImplementedException();
 		}
 
-		[SecuredOperation("Admin", Priority = 1)]
 		public IDataResult<User> CheckIfUserNameExists(string userName)
 		{
 			var userToCheck = _userDal.Get(x => x.UserName == userName);

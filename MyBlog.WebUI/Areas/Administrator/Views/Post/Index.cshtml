@@ -40,7 +40,6 @@
             <thead>
                 <tr>
                     <th scope="col">Post Title</th>
-                    <th scope="col">Content</th>
                     <th scope="col">Status</th>
                     <th scope="col">Is Home</th>
                     <th scope="col">Comment Status</th>
@@ -51,7 +50,7 @@
                 @if (Model.Posts.Count == 0)
                 {
                     <tr>
-                        <td colspan="6" style="text-align: center">No Post</td>
+                        <td colspan="5" style="text-align: center">No Post</td>
                     </tr>
                 }
                 else
@@ -60,7 +59,6 @@
                     {
                         <tr id="row_post_@post.PostId">
                             <td>@post.Title</td>
-                            <td>@(post.Content.Length > 40 ? post.Content.Substring(0, 39) + "..." : post.Content)</td>
                             <td>@post.Status</td>
                             <td>@post.IsHome</td>
                             <td>@post.CommentStatus</td>

@@ -140,9 +140,14 @@
 
             .admin-post .admin-post-input .admin-post-title .admin-post-title-button {
                 display: inline-block;
+                right: -15px;
+                margin-top: 31px;
                 float: right;
-                margin-top: 10px;
+
             }
+                .admin-post .admin-post-input .admin-post-title .admin-post-title-button button {
+                    float: right;
+                }
 
     .admin-post .admin-post-check {
         float: left;
@@ -171,11 +176,13 @@
                 margin: 10px 0px 10px 0px;
                 padding: 0px 5px;
             }
+.admin-upload-image {
+    display: inline-block;
+    left: -15px;
+}
 
-                .admin-post .admin-post-check .admin-post-check-base .admin-post-check-text input {
-                    width: 150px;
-                    display: inline-block;
-                }
+.admin-post .admin-post-check .admin-post-check-base .admin-post-check-text input {
+}
 
 .alignment {
     right: 58%;
