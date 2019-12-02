@@ -24,18 +24,24 @@
                         <textarea asp-for="PostDto.Content" class="form-control"></textarea>
                         <span class="form-validation-alert" asp-validation-for="PostDto.Content"></span>
                     </div>
-                    <div class="admin-upload-image col-md-6">
-                        <h4 style="margin-bottom: 12px;">Image</h4>
+                    <div class="admin-upload-image col-md-3">
+                        <h4 style="margin-bottom: 12px;">Cover Image</h4>
                         <div class="form-group">
-                            <input asp-for="PostDto.Title" placeholder="Post Title" class="form-control"/>
-                            <span class="form-validation-alert" asp-validation-for="PostDto.Title"></span>
+                            <input asp-for="PostDto.CoverImage" placeholder="Post Title" class="form-control" />
+                            <span class="form-validation-alert" asp-validation-for="PostDto.CoverImage"></span>
+                        </div>
+                    </div>
+                    <div class="admin-upload-image col-md-3">
+                        <h4 style="margin-bottom: 12px;">First Image</h4>
+                        <div class="form-group">
+                            <input asp-for="PostDto.FirstImage" placeholder="Post Title" class="form-control" />
+                            <span class="form-validation-alert" asp-validation-for="PostDto.FirstImage"></span>
                         </div>
                     </div>
                     <div class="admin-post-title-button col-md-3" style="margin-bottom: 10px;">
                         <button class="btn btn-info">Update Post</button>
                     </div>
                 </div>
-
             </div>
         </div>
         <div class="admin-post-check col-md-3">

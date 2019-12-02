@@ -13,6 +13,16 @@
                         <input asp-for="Tag.TagName" placeholder="Tag Name" class="form-control">
                         <span class="form-validation-alert" asp-validation-for="Tag.TagName"></span>
                     </div>
+                    <div class="form-group form-design">
+                        <label asp-for="Tag.MetaDescription">Meta Description</label>
+                        <textarea asp-for="Tag.MetaDescription" rows="2" cols="20" class="form-control" style="resize: none;" placeholder="Meta Description"></textarea>
+                        <span class="form-validation-alert" asp-validation-for="Tag.MetaDescription"></span>
+                    </div>
+                    <div class="form-group form-design">
+                        <label asp-for="Tag.MetaKeywords">Meta Keywords</label>
+                        <textarea asp-for="Tag.MetaKeywords" rows="2" cols="20" class="form-control" style="resize: none;" placeholder="Meta Keywords"></textarea>
+                        <span class="form-validation-alert" asp-validation-for="Tag.MetaKeywords"></span>
+                    </div>
                     <div class="button-object-add">
                         <button type="submit" class="btn btn-info">Add Tag</button>
                     </div>
@@ -104,6 +114,16 @@
                         <label asp-for="Tag.TagName" class="col-form-label">Tag Name</label>
                         <input asp-for="Tag.TagName" class="form-control" id="TagNameModal" />
                         <span asp-validation-for="Tag.TagName"></span>
+                    </div>
+                    <div class="form-group form-design">
+                        <label asp-for="Tag.MetaDescription">Meta Description</label>
+                        <textarea asp-for="Tag.MetaDescription" rows="2" cols="20" id="TagMetaDescriptionModal" class="form-control" style="resize: none;" placeholder="Meta Description"></textarea>
+                        <span class="form-validation-alert" asp-validation-for="Tag.MetaDescription"></span>
+                    </div>
+                    <div class="form-group form-design">
+                        <label asp-for="Tag.MetaKeywords">Meta Keywords</label>
+                        <textarea asp-for="Tag.MetaKeywords" id="TagMetaKeywordsModal" rows="2" cols="20" class="form-control" style="resize: none;" placeholder="Meta Keywords"></textarea>
+                        <span class="form-validation-alert" asp-validation-for="Tag.MetaKeywords"></span>
                     </div>
                     <div class="form-group form-design" style="padding-bottom: 10px;">
                         <label asp-for="Tag.SeoUrl" class="col-form-label">Seo Url</label>

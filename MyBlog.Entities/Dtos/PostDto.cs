@@ -20,5 +20,7 @@ namespace MyBlog.Entities.Dtos
 		public string MetaKeywords { get; set; }
 		public int[] Categories { get; set; }
 		public int[] Tags { get; set; }
+		public string CoverImage { get; set; }
+		public string FirstImage { get; set; }
 	}
 }

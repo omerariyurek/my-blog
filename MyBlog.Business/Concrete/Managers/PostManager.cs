@@ -81,7 +81,9 @@ namespace MyBlog.Business.Concrete.Managers
 				IsHome = postDto.IsHome,
 				MetaDescription = postDto.MetaDescription,
 				MetaKeywords = postDto.MetaKeywords,
-				Status = postDto.CommentStatus
+				Status = postDto.CommentStatus,
+				CoverImage = postDto.CoverImage,
+				FirstImage = postDto.FirstImage
 			};
 			_postDal.Add(post);
 			if (postDto.Categories.Length > 0)
@@ -122,6 +124,8 @@ namespace MyBlog.Business.Concrete.Managers
 				checkToPost.Status = postDto.Status;
 				checkToPost.SeoUrl = postDto.Title.CreateSeoFriendlyUrl();
 				checkToPost.Title = postDto.Title;
+				checkToPost.FirstImage = postDto.FirstImage;
+				checkToPost.CoverImage = postDto.CoverImage;
 				_postDal.Update(checkToPost);
 				if (postDto.Categories.Length > 0)
 				{
@@ -150,6 +154,8 @@ namespace MyBlog.Business.Concrete.Managers
 			checkToPost.Status = postDto.Status;
 			checkToPost.SeoUrl = postDto.Title.CreateSeoFriendlyUrl();
 			checkToPost.Title = postDto.Title;
+			checkToPost.FirstImage = postDto.FirstImage;
+			checkToPost.CoverImage = postDto.CoverImage;
 			_postDal.Update(checkToPost);
 			if (postDto.Categories.Length > 0)
 			{
@@ -188,6 +194,24 @@ namespace MyBlog.Business.Concrete.Managers
 		public IDataResult<List<PostCategoriesDto>> GetPostCategories(int postId)
 		{
 			return new SuccessDataResult<List<PostCategoriesDto>>(_postDal.GetPostCategories(postId));
+		}
+
+		[CacheAspect()]
+		public IDataResult<List<PostDetailDto>> GetTagPosts(int tagId)
+		{
+			return new SuccessDataResult<List<PostDetailDto>>(_postDal.GetTagPosts(tagId));
+		}
+
+		[CacheAspect()]
+		public IDataResult<int> GetByUrl(string seoUrl)
+		{
+			return new SuccessDataResult<int>(_postDal.Get(x => x.SeoUrl == seoUrl).PostId);
+		}
+
+		[CacheAspect()]
+		public IDataResult<PostDetailDto> GetPostDetail(int postId)
+		{
+			return new SuccessDataResult<PostDetailDto>(_postDal.GetPostDetail(postId));
 		}
 	}
 }

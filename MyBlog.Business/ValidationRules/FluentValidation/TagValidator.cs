@@ -11,6 +11,8 @@ namespace MyBlog.Business.ValidationRules.FluentValidation
 		public TagValidator()
 		{
 			RuleFor(x => x.TagName).NotEmpty().WithMessage("Tag name is required."); ;
+			RuleFor(x => x.MetaKeywords).NotEmpty().WithMessage("Meta keywords is required.");
+			RuleFor(x => x.MetaDescription).NotEmpty().WithMessage("Meta description is required.");
 		}
 	}
 }

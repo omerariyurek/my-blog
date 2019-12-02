@@ -561,7 +561,7 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
 }
 
-    .load-more__pagenation li {
+.load-more__pagenation li {
         width: 40px;
         height: 40px;
         border-radius: 50%;

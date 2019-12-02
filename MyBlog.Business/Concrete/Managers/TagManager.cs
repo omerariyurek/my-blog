@@ -85,7 +85,7 @@ namespace MyBlog.Business.Concrete.Managers
 		public IResult Delete(int tagId)
 		{
 			_tagDal.Delete(new Tag { TagId = tagId });
-			return new SuccessResult();
+			return new SuccessResult(Messages.TagDeleted);
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]
@@ -113,9 +113,9 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<TagsDto>>(_tagDal.GetsTags().ToList());
 		}
 
-		public IDataResult<List<CategoriesDto>> GetSelectedCategories()
+		public IDataResult<Tag> GetByUrl(string seoUrl)
 		{
-			throw new NotImplementedException();
+			return new SuccessDataResult<Tag>(_tagDal.Get(x=>x.SeoUrl==seoUrl));
 		}
 	}
 }

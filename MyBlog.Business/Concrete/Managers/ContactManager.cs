@@ -5,7 +5,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using MyBlog.Business.Abstract;
 using MyBlog.Business.BusinessAspects.Autofac.Security;
+using MyBlog.Business.Constants;
+using MyBlog.Business.ValidationRules.FluentValidation;
 using MyBlog.Core.Aspects.Autofac.Caching;
+using MyBlog.Core.Aspects.Autofac.Validation;
 using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Core.Utilities.Results.Concrete;
 using MyBlog.DataAccess.Abstract;
@@ -30,12 +33,12 @@ namespace MyBlog.Business.Concrete.Managers
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]
-		[CacheRemoveAspect("IContactService.Get", Priority = 2)]
-
+		[ValidationAspect(typeof(ContactValidator),Priority = 2)]
+		[CacheRemoveAspect("IContactService.Get", Priority = 3)]
 		public IResult Add(Contact contact)
 		{
 			_contactDal.Add(contact);
-			return new SuccessResult("");
+			return new SuccessResult(Messages.ContactAdded);
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]

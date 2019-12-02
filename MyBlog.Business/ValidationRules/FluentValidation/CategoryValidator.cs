@@ -10,7 +10,9 @@ namespace MyBlog.Business.ValidationRules.FluentValidation
 	{
 		public CategoryValidator()
 		{
-			RuleFor(x => x.CategoryName).NotEmpty().WithMessage("Category name is required."); ;
+			RuleFor(x => x.CategoryName).NotEmpty().WithMessage("Category name is required."); 
+			RuleFor(x => x.MetaKeywords).NotEmpty().WithMessage("Meta keywords is required.");
+			RuleFor(x => x.MetaDescription).NotEmpty().WithMessage("Meta description is required.");
 		}
 	}
 }

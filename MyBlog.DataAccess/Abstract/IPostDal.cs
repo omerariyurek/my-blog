@@ -18,6 +18,8 @@ namespace MyBlog.DataAccess.Abstract
 		void DeletePostCategories(int postId);
 		List<PostDetailDto> GetPostDetails();
 		List<PostDetailDto> GetCategoryPosts(int categoryId);
+		List<PostDetailDto> GetTagPosts(int tagId);
+		PostDetailDto GetPostDetail(int postId);
 
 	}
 }

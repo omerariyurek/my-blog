@@ -16,7 +16,17 @@
                     <div class="form-group form-design">
                         <label asp-for="Category.CategoryDescription">Category Description</label>
                         <textarea asp-for="Category.CategoryDescription" rows="2" cols="20" class="form-control" style="resize: none;" placeholder="Category Description"></textarea>
-                        <span asp-validation-for="Category.CategoryDescription"></span>
+                        <span class="form-validation-alert" asp-validation-for="Category.CategoryDescription"></span>
+                    </div>
+                    <div class="form-group form-design">
+                        <label asp-for="Category.MetaDescription">Meta Description</label>
+                        <textarea asp-for="Category.MetaDescription" rows="2" cols="20" class="form-control" style="resize: none;" placeholder="Meta Description"></textarea>
+                        <span class="form-validation-alert" asp-validation-for="Category.MetaDescription"></span>
+                    </div>
+                    <div class="form-group form-design">
+                        <label asp-for="Category.MetaKeywords">Meta Keywords</label>
+                        <textarea asp-for="Category.MetaKeywords" rows="2" cols="20" class="form-control" style="resize: none;" placeholder="Meta Keywords"></textarea>
+                        <span class="form-validation-alert" asp-validation-for="Category.MetaKeywords"></span>
                     </div>
                     <div class="button-object-add">
                         <button type="submit" id="categoryAdd" class="btn btn-info">Add Category</button>
@@ -110,17 +120,28 @@
                     <div class="form-group form-design">
                         <label asp-for="Category.CategoryName" class="col-form-label">Category Name</label>
                         <input asp-for="Category.CategoryName" class="form-control" id="CategoryNameModal" />
-                        <span asp-validation-for="Category.CategoryName"></span>
+                        <span class="form-validation-alert" asp-validation-for="Category.CategoryName"></span>
                     </div>
                     <div class="form-group form-design">
                         <label asp-for="Category.CategoryDescription" class="col-form-label">Category Description</label>
                         <textarea rows="3" asp-for="Category.CategoryDescription" class="form-control textarea-size" id="CategoryDescriptionModal"></textarea>
                     </div>
+                    <div class="form-group form-design">
+                        <label asp-for="Category.MetaDescription" class="col-form-label">Meta Description</label>
+                        <textarea rows="3" asp-for="Category.MetaDescription" class="form-control textarea-size" id="CategoryMetaDescriptionModal" placeholder="Meta Description"></textarea>
+                        <span class="form-validation-alert" asp-validation-for="Category.MetaDescription"></span>
+                    </div>
+                    <div class="form-group form-design">
+                        <label asp-for="Category.MetaKeywords" class="col-form-label">Meta Keywords</label>
+                        <textarea rows="3" asp-for="Category.MetaKeywords" class="form-control textarea-size" id="CategoryMetaKeywordsModal" placeholder="Meta Keywords"></textarea>
+                        <span class="form-validation-alert" asp-validation-for="Category.MetaKeywords"></span>
+                    </div>
                     <div class="form-group form-design" style="padding-bottom: 10px;">
                         <label asp-for="Category.SeoUrl" class="col-form-label">Seo Url</label>
                         <input asp-for="Category.SeoUrl" class="form-control" id="CategorySeoUrlModal" disabled="disabled" />
-                    </div>
+                        <span class="form-validation-alert" asp-validation-for="Category.CategoryName"></span>
 
+                    </div>
                     <div class="modal-footer">
                         <div class="form-check alignment">
                             <input type="checkbox" asp-for="Category.Status" class="form-check-input" id="CategoryStatusModal" />

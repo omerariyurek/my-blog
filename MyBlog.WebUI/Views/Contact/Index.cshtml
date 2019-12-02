@@ -1,17 +1,29 @@
-﻿
+﻿@model MyBlog.Entities.Concrete.Contact
 @{
     ViewData["Title"] = "Index";
 }
+@section scripts{ 
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}
 <section class="contact-wrapper">
     <h2 class="contact-wrapper__contact-title">Bana Ulaşın</h2>
-    <form action="" class="contact-wrapper__contact-form">
-        <input type="text" placeholder="Ad Soyad">
-        <input type="text" placeholder="E-Posta Adresi">
-        <input type="text" placeholder="Konu">
-        <textarea name="" id="" cols="30" rows="10" placeholder="Mesaj"></textarea>
+    @if (TempData["Success"] != null)
+    {
+        <p>@TempData["Success"]</p>
+    }
+    <form asp-controller="Contact" asp-action="Index" method="post" class="contact-wrapper__contact-form">
+        <input asp-for="ContactName" placeholder="Ad Soyad">
+        <span asp-validation-for="ContactName"></span>
+        <input asp-for="Email" placeholder="E-Posta Adresi">
+        <span asp-validation-for="Email"></span>
+        <input asp-for="Subject" placeholder="Konu">
+        <span asp-validation-for="Subject"></span>
+        <textarea asp-for="Message" cols="30" rows="10" placeholder="Mesaj"></textarea>
+        <span asp-validation-for="Message"></span>
         <button type="submit">Gönder</button>
     </form>
-
     <div class="social-media">
         <ul class="social-media-icons">
             <li><a href="mailto:"><img src="./dist/img/envelope.png" alt=""></a></li>

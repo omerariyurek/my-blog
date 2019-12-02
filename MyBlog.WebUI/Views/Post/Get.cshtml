@@ -1,11 +1,16 @@
-﻿
+﻿@model MyBlog.WebUI.Models.ViewModels.PostGetViewModel
 @{
-    ViewData["Title"] = "GetPost";
+    ViewData["Title"] = $"{Model.PostDetail.Title} - Ömer ARIYÜREK";
 }
 <section class="post-content">
-    <h2 class="post-content__title">Gutenberg Post Ex 1</h2>
+    <h2 class="post-content__title">@Model.PostDetail.Title</h2>
     <ul class="post-content__info-list">
-        <li><a href="#">Food</a></li>
+        <li>
+            @foreach (var category in Model.PostDetail.PostCategories)
+            {
+                <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=category.SeoUrl})">@category.CategoryName</a>
+            }
+        </li>
         <li class="hyphen">-</li>
         <li>
             <i class="far fa-comment"></i>
@@ -13,45 +18,9 @@
         </li>
     </ul>
     <div class="post-content__content">
-        <img src="./dist/img/post-vr.jpg" class="post-content__main-photo">
+        <img src="@Model.PostDetail.FirstImage" class="post-content__main-photo">
         <div class="post-content__content--content-txt">
-            <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean. A <a href="#" target="_blank">small river named</a> Duden flows by their place and supplies it with the necessary regelialia.
-                It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful
-                Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line.
-            </p>
-            <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean. A <a href="#" target="_blank">small river named</a> Duden flows by their place and supplies it with the necessary regelialia.
-                It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful
-                Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line.
-            </p>
-            <h6 class="post-content__content--sub-title">I neglect my talents</h6>
-            <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean. A <a href="#" target="_blank">small river named</a> Duden flows by their place and supplies it with the necessary regelialia.
-                It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful
-                Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line.
-            </p>
-            <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean. A <a href="#" target="_blank">small river named</a> Duden flows by their place and supplies it with the necessary regelialia.
-                It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful
-                Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line.
-            </p>
-            <img src="./dist/img/post-vr.jpg" class="post-content__sub-photo" alt="">
-            <p>
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                a large language ocean. A <a href="#" target="_blank">small river named</a> Duden flows by their place and supplies it with the necessary regelialia.
-                It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the all-powerful
-                Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line.
-            </p>
+            @Html.Raw(Model.PostDetail.Content)
         </div>
         <ul class="post-content__content--previous-next">
             <li class="previous">
@@ -70,7 +39,10 @@
         </ul>
     </div>
     <div class="post-content__category-tag">
-        <a href="#">Technology</a>
+        @foreach (var tag in Model.PostTags)
+        {
+            <a href="@Url.Action("TagPosts","Tag",new{@seoUrl=tag.SeoUrl})">@tag.TagName</a>
+        }
     </div>
     <div class="post-content__related-post">
         <h5 class="post-content__related-post--title">Diğer Paylaşımlar</h5>
@@ -79,7 +51,6 @@
                 <a href="#">
                     <div class="img-and-tag">
                         <img src="./dist/img/post-vr.jpg" alt="">
-                        <span class="category-tag">Trending</span>
                     </div>
                     <h5 class="post-content__related-post--related-list--title">Check Out The Most Awesome VR Headset in 2020</h5>
                 </a>
@@ -88,7 +59,6 @@
                 <a href="#">
                     <div class="img-and-tag">
                         <img src="./dist/img/post-vr.jpg" alt="">
-                        <span class="category-tag">Trending</span>
                     </div>
                     <h5 class="post-content__related-post--related-list--title">Check Out The Most Awesome VR Headset in 2020</h5>
                 </a>

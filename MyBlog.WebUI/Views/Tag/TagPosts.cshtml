@@ -1,14 +1,14 @@
-﻿@model MyBlog.WebUI.Models.ViewModels.CategoryPostsViewModel
+﻿@model MyBlog.WebUI.Models.ViewModels.TagPostsViewModel
 @{
-    ViewData["Title"] = "CategoryPosts";
+    ViewData["Title"] = "TagPosts";
 }
-
 <section class="load-more">
-    <h2 class="load-more--main-title">@Model.Category.CategoryName kategorisine ait yazılar</h2>
+    <h2 class="load-more--main-title">@Model.Tag.TagName etiketine ait yazılar</h2>
     @foreach (var post in Model.PostDetails)
     {
         <div class="load-more__other-post">
-            <a href="@Url.Action("Get","Post",new{@seoUrl=@post.SeoUrl})">                <img src="@post.FirstImage" alt="">
+            <a href="@Url.Action("Get","Post",new{@seoUrl=@post.SeoUrl})">
+                <img src="@post.FirstImage" alt="">
                 <h2 class="load-more__other-post--title">@post.Title</h2>
             </a>
             <ul class="load-more__other-post--date-category">
@@ -22,7 +22,7 @@
                 </li>
             </ul>
             <p class="load-more__other-post--summary">
-               @Html.Raw(post.Content)
+                @Html.Raw(post.Content)
             </p>
             <ul class="social-media">
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>

@@ -101,6 +101,12 @@ namespace MyBlog.DataAccess.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("MetaDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywords")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("SeoUrl")
                         .HasColumnType("nvarchar(max)");
 
@@ -160,6 +166,9 @@ namespace MyBlog.DataAccess.Migrations
                     b.Property<string>("ContactName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -167,6 +176,9 @@ namespace MyBlog.DataAccess.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ContactId");
@@ -208,8 +220,14 @@ namespace MyBlog.DataAccess.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CoverImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsHome")
                         .HasColumnType("bit");
@@ -290,6 +308,12 @@ namespace MyBlog.DataAccess.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("MetaDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywords")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SeoUrl")
                         .HasColumnType("nvarchar(max)");

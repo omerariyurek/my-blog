@@ -20,5 +20,8 @@ namespace MyBlog.Business.Abstract
 		IResult CheckIfPostTitleExists(string title);
 		IDataResult<List<PostTagsDto>> GetPostTags(int postId);
 		IDataResult<List<PostCategoriesDto>> GetPostCategories(int postId);
+		IDataResult<List<PostDetailDto>> GetTagPosts(int tagId);
+		IDataResult<int> GetByUrl(string seoUrl);
+		IDataResult<PostDetailDto> GetPostDetail(int postId);
 	}
 }

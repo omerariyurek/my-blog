@@ -41,7 +41,7 @@ namespace MyBlog.Business.Concrete.Managers
 
 		public IDataResult<List<OperationClaim>> OperationClaims(User user)
 		{
-			return _userService.OperationClaims(user);
+			return _userService.OperationClaims(user); 
 		}
 
 	}

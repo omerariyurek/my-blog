@@ -4,14 +4,14 @@
 }
 <section class="category-content">
     <div class="category-content__category-name">
-        <h2 class="category-content__category-name--category">Kategoriler</h2>
+        <h2 class="category-content__category-name--category">Etiketler</h2>
     </div>
     <ul class="category-content__content-box">
         @foreach (var tag in Model.Tags)
         {
             <li class="category-content__content-box--item">
                 <img src="~/Content/images/category-background.jpg" />
-                <a href="post-content.html" class="title">@tag.TagName</a>
+                <a href="@Url.Action("TagPosts","Tag",new{@seoUrl=tag.SeoUrl})" class="title">@tag.TagName</a>
             </li>
         }
     </ul>

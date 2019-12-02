@@ -22,5 +22,7 @@ namespace MyBlog.Business.Constants
 		public static string TagAdded = "Tag successfully added!";
 		public static string TagUpdated = "Tag successfully updated!";
 		public static string PostTitleAlreadyExists = "Post title already exists!";
+		public static string TagDeleted = "Tag successfully deleted!";
+		public static string ContactAdded = "Mesajınız başarılı şekilde gönderildi. En yakın sürede size yanıt vereceğim.";
 	}
 }

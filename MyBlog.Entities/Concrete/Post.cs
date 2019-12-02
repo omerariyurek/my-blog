@@ -18,5 +18,7 @@ namespace MyBlog.Entities.Concrete
 		public DateTime? ModifiedDate { get; set; }
 		public string MetaDescription { get; set; }
 		public string MetaKeywords { get; set; }
+		public string CoverImage { get; set; }
+		public string FirstImage { get; set; }
 	}
 }

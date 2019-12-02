@@ -23,7 +23,21 @@
                         <textarea asp-for="PostDto.Content" class="form-control"></textarea>
                         <span class="form-validation-alert" asp-validation-for="PostDto.Content"></span>
                     </div>
-                    <div class="admin-post-title-button" style="margin-bottom: 10px;">
+                    <div class="admin-upload-image col-md-3">
+                        <h4 style="margin-bottom: 12px;">Cover Image</h4>
+                        <div class="form-group">
+                            <input asp-for="PostDto.CoverImage" placeholder="Post Title" class="form-control" />
+                            <span class="form-validation-alert" asp-validation-for="PostDto.CoverImage"></span>
+                        </div>
+                    </div>
+                    <div class="admin-upload-image col-md-3">
+                        <h4 style="margin-bottom: 12px;">First Image</h4>
+                        <div class="form-group">
+                            <input asp-for="PostDto.FirstImage" placeholder="Post Title" class="form-control" />
+                            <span class="form-validation-alert" asp-validation-for="PostDto.FirstImage"></span>
+                        </div>
+                    </div>
+                    <div class="admin-post-title-button col-md-3" style="margin-bottom: 10px;">
                         <button class="btn btn-info">Add Post</button>
                     </div>
                 </div>
@@ -48,6 +62,7 @@
                 <p>Meta Keywords</p>
                 <div class="admin-post-check-text">
                     <textarea asp-for="PostDto.MetaKeywords" cols="30" rows="3" placeholder="Meta Keywords" class="form-control textarea-size"></textarea>
+                    <span asp-validation-for="PostDto.MetaKeywords"></span>
                 </div>
 
             </div>
@@ -55,6 +70,7 @@
                 <p>Meta Description</p>
                 <div class="admin-post-check-text">
                     <textarea asp-for="PostDto.MetaDescription" cols="30" rows="5" placeholder="Meta Description" class="form-control textarea-size"></textarea>
+                    <span asp-validation-for="PostDto.MetaDescription"></span>
                 </div>
             </div>
             <div class="admin-post-check-base" style="margin-top:25px; margin-bottom: 30px;">
@@ -62,12 +78,15 @@
                 <div class="admin-post-check-text">
                     <input asp-for="PostDto.Status" class="form-check-input" checked>
                     <label>Status</label>
+                    <span asp-validation-for="PostDto.Status"></span>
                     <br>
                     <input asp-for="PostDto.IsHome" class="form-check-input" checked>
                     <label>Home Page</label>
+                    <span asp-validation-for="PostDto.IsHome"></span>
                     <br>
                     <input asp-for="PostDto.CommentStatus" class="form-check-input" checked>
                     <label>Comment Status</label>
+                    <span asp-validation-for="PostDto.CommentStatus"></span>
                 </div>
             </div>
         </div>

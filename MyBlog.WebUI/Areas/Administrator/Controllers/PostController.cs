@@ -92,7 +92,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			return RedirectToAction("Index");
 		}
 
-		[HttpGet]
+		[HttpGet("administrator/post/update/{id}")]
 		public IActionResult Update(int id)
 		{
 			var post = _postService.GetPostDto(id).Data;
@@ -139,6 +139,5 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			var deleteOperation = _postService.Delete(id);
 			return Json(deleteOperation.Message);
 		}
-
 	}
 }

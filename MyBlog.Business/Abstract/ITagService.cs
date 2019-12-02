@@ -17,7 +17,6 @@ namespace MyBlog.Business.Abstract
 		IDataResult<Tag> GetById(int tagId);
 		IResult CheckIfTagNameExists(string tagName);
 		IDataResult<List<TagsDto>> GetSelectedTags();
-		IDataResult<List<CategoriesDto>> GetSelectedCategories();
-
+		IDataResult<Tag> GetByUrl(string seoUrl);
 	}
 }

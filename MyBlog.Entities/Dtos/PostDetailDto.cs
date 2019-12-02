@@ -18,7 +18,8 @@ namespace MyBlog.Entities.Dtos
 		public DateTime? ModifiedDate { get; set; }
 		public string MetaDescription { get; set; }
 		public string MetaKeywords { get; set; }
+		public string CoverImage { get; set; }
+		public string FirstImage { get; set; }
 		public List<PostCategoriesDto> PostCategories { get; set; }
-		public List<PostTagsDto> PostTags { get; set; }
 	}
 }

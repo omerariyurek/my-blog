@@ -10,8 +10,8 @@ using MyBlog.DataAccess.Concrete.EntityFramework.Contexts;
 namespace MyBlog.DataAccess.Migrations
 {
     [DbContext(typeof(BlogContext))]
-    [Migration("20191122141452_MigrationFirst")]
-    partial class MigrationFirst
+    [Migration("20191202151348_ContactColumnAdd")]
+    partial class ContactColumnAdd
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -61,6 +61,9 @@ namespace MyBlog.DataAccess.Migrations
                     b.Property<bool>("Status")
                         .HasColumnType("bit");
 
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("Id");
 
                     b.ToTable("Users");
@@ -91,11 +94,20 @@ namespace MyBlog.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<string>("CategoryDescription")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("CategoryName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("MetaDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywords")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SeoUrl")
                         .HasColumnType("nvarchar(max)");
@@ -127,6 +139,9 @@ namespace MyBlog.DataAccess.Migrations
                     b.Property<string>("AuthorName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
@@ -141,6 +156,36 @@ namespace MyBlog.DataAccess.Migrations
                     b.HasIndex("PostId");
 
                     b.ToTable("Comments");
+                });
+
+            modelBuilder.Entity("MyBlog.Entities.Concrete.Contact", b =>
+                {
+                    b.Property<int>("ContactId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ContactName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ContactId");
+
+                    b.ToTable("Contacts");
                 });
 
             modelBuilder.Entity("MyBlog.Entities.Concrete.Log", b =>
@@ -177,8 +222,14 @@ namespace MyBlog.DataAccess.Migrations
                     b.Property<string>("Content")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CoverImage")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsHome")
                         .HasColumnType("bit");
@@ -259,6 +310,12 @@ namespace MyBlog.DataAccess.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("MetaDescription")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MetaKeywords")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("SeoUrl")
                         .HasColumnType("nvarchar(max)");

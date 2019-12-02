@@ -2,21 +2,21 @@
 
 namespace MyBlog.DataAccess.Migrations
 {
-    public partial class BlogDb : Migration
+    public partial class NewContactColumn : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "CategoryDescription",
-                table: "Categories",
+                name: "Content",
+                table: "Contacts",
                 nullable: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "CategoryDescription",
-                table: "Categories");
+                name: "Content",
+                table: "Contacts");
         }
     }
 }

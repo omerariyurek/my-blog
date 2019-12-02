@@ -13,6 +13,7 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ae3a13104f1533fed4c1375ac85d737bfbe6e64d", @"/Views/Error/InternalServerError.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4a1a53d4907155e01462ebbd66339dfe9c594e23", @"/Views/_ViewImports.cshtml")]
     public class Views_Error_InternalServerError : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #line hidden
@@ -50,7 +51,7 @@ namespace AspNetCore
 #line hidden
 #nullable disable
             WriteLiteral("<!DOCTYPE html>\r\n<html lang=\"en\">\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae3a13104f1533fed4c1375ac85d737bfbe6e64d3016", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae3a13104f1533fed4c1375ac85d737bfbe6e64d3180", async() => {
                 WriteLiteral(@"
     <style>
         * {
@@ -185,7 +186,7 @@ namespace AspNetCore
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae3a13104f1533fed4c1375ac85d737bfbe6e64d8160", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ae3a13104f1533fed4c1375ac85d737bfbe6e64d8324", async() => {
                 WriteLiteral("\r\n    <div id=\"notfound\">\r\n        <div class=\"notfound\">\r\n            <div class=\"notfound-404\">\r\n                <h1>Oops!</h1>\r\n                <h2>500 - Server Hatası</h2>\r\n            </div>\r\n            <a");
                 BeginWriteAttribute("href", " href=\"", 4267, "\"", 4301, 1);
 #nullable restore

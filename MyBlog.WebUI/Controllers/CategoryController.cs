@@ -21,7 +21,7 @@ namespace MyBlog.WebUI.Controllers
 		    _postService = postService;
 	    }
 
-	    [HttpGet("/kategoriler")]
+	    [HttpGet("/categories")]
         public IActionResult Index()
         {
 	        var categories = _categoryService.GetListActive().Data;
@@ -32,7 +32,7 @@ namespace MyBlog.WebUI.Controllers
 	        return View(model);
         }
 
-		[HttpGet("/kategori/{seoUrl}")]
+		[HttpGet("/category/{seoUrl}")]
         public IActionResult CategoryPosts(string seoUrl)
         {
 	        var category = _categoryService.GetByCategoryName(seoUrl).Data;

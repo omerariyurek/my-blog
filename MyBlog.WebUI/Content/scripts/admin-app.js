@@ -8,9 +8,10 @@
             dataType: "json",
             success: function (result) {
                 $("#row_category_" + id).remove();
+                alert(result);
             },
-            error: function (message) {
-                alert(message.responseText);
+            error: function (result) {
+                alert(result);
             }
         });
     }
@@ -26,6 +27,8 @@ function getCategoryById(id) {
             $('#CategoryIdModal').val(result.categoryId);
             $('#CategoryNameModal').val(result.categoryName);
             $('#CategoryDescriptionModal').val(result.categoryDescription);
+            $('#CategoryMetaDescriptionModal').val(result.metaDescription);
+            $('#CategoryMetaKeywordsModal').val(result.metaKeywords);
             $('#CategorySeoUrlModal').val(result.seoUrl);
             if (result.status===true) {
               $('#CategoryStatusModal').prop('checked', result.status);
@@ -34,8 +37,8 @@ function getCategoryById(id) {
             }
             $('#categoryUpdateModal').modal('show');
         },
-        error: function () {
-            alert("Error, try again!");
+        error: function (result) {
+            alert(result);
         }
     });
     return false;
@@ -51,9 +54,11 @@ function deleteTag(id) {
             dataType: "json",
             success: function (result) {
                 $("#row_tag_" + id).remove();
+                alert(result);
+
             },
-            error: function () {
-                alert("Error, try again!");
+            error: function (result) {
+                alert(result);
             }
         });
     }
@@ -68,6 +73,8 @@ function getTagById(id) {
         success: function (result) {
             $('#TagIdModal').val(result.tagId);
             $('#TagNameModal').val(result.tagName);
+            $('#TagMetaDescriptionModal').val(result.metaDescription);
+            $('#TagMetaKeywordsModal').val(result.metaKeywords);
             $('#TagSeoUrlModal').val(result.seoUrl);
             if (result.status === true) {
                 $('#TagStatusModal').prop('checked', result.status);
@@ -76,8 +83,8 @@ function getTagById(id) {
             }
             $('#tagUpdateModal').modal('show');
         },
-        error: function () {
-            alert("Error, try again!");
+        error: function (result) {
+            alert(result);
         }
     });
     return false;
@@ -93,9 +100,11 @@ function deleteComment(id) {
             dataType: "json",
             success: function (result) {
                 $("#row_comment_" + id).remove();
+                alert(result);
+
             },
-            error: function () {
-                alert("Error, try again!");
+            error: function (result) {
+                alert(result);
             }
         });
     }
@@ -123,8 +132,8 @@ function getCommentById(id) {
             }
             $('#commentUpdateModal').modal('show');
         },
-        error: function () {
-            alert("Error, try again!");
+        error: function (result) {
+            alert(result);
         }
     });
     return false;
@@ -140,9 +149,10 @@ function deleteContact(id) {
             dataType: "json",
             success: function (result) {
                 $("#row_contact_" + id).remove();
+                alert(result);
             },
-            error: function () {
-                alert("Error, try again!");
+            error: function (result) {
+                alert(result);
             }
         });
     }
@@ -155,16 +165,35 @@ function getContactById(id) {
         contentType: "application/json;charset=UTF-8",
         dataType: "json",
         success: function (result) {
-            console.log(result);
             $('#ContactIdModal').val(result.contactId);
             $('#ContactNameModal').val(result.contactName);
             $('#ContactMessageModal').val(result.message);
             $("#EmailContactModal").val(result.email);
             $('#contactShowModal').modal('show');
         },
-        error: function () {
-            alert("Error, try again!");
+        error: function (result) {
+            alert(result);
         }
     });
     return false;
+}
+
+
+function deletePost(id) {
+    var ans = confirm("Are you sure you want to delete this post?");
+    if (ans) {
+        $.ajax({
+            url: "/administrator/post/delete/" + id,
+            type: "POST",
+            contentType: "application/json;charset=UTF-8",
+            dataType: "json",
+            success: function (result) {
+                $("#row_post_" + id).remove();
+                alert(result);
+            },
+            error: function (result) {
+                alert(result);
+            }
+        });
+    }
 }
