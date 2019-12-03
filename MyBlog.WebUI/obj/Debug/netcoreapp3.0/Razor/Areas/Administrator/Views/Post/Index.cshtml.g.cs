@@ -41,7 +41,7 @@ namespace AspNetCore
         }
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper;
-        private global::MyBlog.WebUI.TagHelpers.PostPagingTagHelper __MyBlog_WebUI_TagHelpers_PostPagingTagHelper;
+        private global::MyBlog.WebUI.Areas.Administrator.TagHelpers.PostPagingTagHelper __MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
@@ -64,7 +64,7 @@ WriteAttributeValue("", 332, Url.Action("Add","Post"), 332, 25, false);
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(" class=\"btn btn-info\">Post Add</a>\r\n            </div>\r\n        </div>\r\n        <div class=\"search-object\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "83ca401665eb8c59ec5d944a08845511328cce964990", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "83ca401665eb8c59ec5d944a08845511328cce965030", async() => {
                 WriteLiteral("\r\n                <input class=\"form-control form-fix\" name=\"search\" placeholder=\"Search Post\">\r\n                <button type=\"submit\" class=\"btn btn-info\">Search</button>\r\n            ");
             }
             );
@@ -254,36 +254,36 @@ WriteAttributeValue("", 2661, post.PostId, 2661, 12, false);
 #line hidden
 #nullable disable
             WriteLiteral("            </tbody>\r\n        </table>\r\n    </div>\r\n</div>\r\n<div class=\"paging-admin\">\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("post-paging", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "83ca401665eb8c59ec5d944a08845511328cce9613634", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("post-paging", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "83ca401665eb8c59ec5d944a08845511328cce9613674", async() => {
                 WriteLiteral("\r\n    ");
             }
             );
-            __MyBlog_WebUI_TagHelpers_PostPagingTagHelper = CreateTagHelper<global::MyBlog.WebUI.TagHelpers.PostPagingTagHelper>();
-            __tagHelperExecutionContext.Add(__MyBlog_WebUI_TagHelpers_PostPagingTagHelper);
+            __MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper = CreateTagHelper<global::MyBlog.WebUI.Areas.Administrator.TagHelpers.PostPagingTagHelper>();
+            __tagHelperExecutionContext.Add(__MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper);
 #nullable restore
 #line 77 "C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\Areas\Administrator\Views\Post\Index.cshtml"
-__MyBlog_WebUI_TagHelpers_PostPagingTagHelper.PageSize = Model.PageSize;
+__MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper.PageSize = Model.PageSize;
 
 #line default
 #line hidden
 #nullable disable
-            __tagHelperExecutionContext.AddTagHelperAttribute("page-size", __MyBlog_WebUI_TagHelpers_PostPagingTagHelper.PageSize, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __tagHelperExecutionContext.AddTagHelperAttribute("page-size", __MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper.PageSize, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #nullable restore
 #line 77 "C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\Areas\Administrator\Views\Post\Index.cshtml"
-__MyBlog_WebUI_TagHelpers_PostPagingTagHelper.PageCount = Model.PageCount;
+__MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper.PageCount = Model.PageCount;
 
 #line default
 #line hidden
 #nullable disable
-            __tagHelperExecutionContext.AddTagHelperAttribute("page-count", __MyBlog_WebUI_TagHelpers_PostPagingTagHelper.PageCount, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __tagHelperExecutionContext.AddTagHelperAttribute("page-count", __MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper.PageCount, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #nullable restore
 #line 77 "C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\Areas\Administrator\Views\Post\Index.cshtml"
-__MyBlog_WebUI_TagHelpers_PostPagingTagHelper.CurrentPage = Model.CurrentPage;
+__MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper.CurrentPage = Model.CurrentPage;
 
 #line default
 #line hidden
 #nullable disable
-            __tagHelperExecutionContext.AddTagHelperAttribute("current-page", __MyBlog_WebUI_TagHelpers_PostPagingTagHelper.CurrentPage, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __tagHelperExecutionContext.AddTagHelperAttribute("current-page", __MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper.CurrentPage, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginWriteTagHelperAttribute();
 #nullable restore
 #line 77 "C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\Areas\Administrator\Views\Post\Index.cshtml"
@@ -293,8 +293,8 @@ __MyBlog_WebUI_TagHelpers_PostPagingTagHelper.CurrentPage = Model.CurrentPage;
 #line hidden
 #nullable disable
             __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
-            __MyBlog_WebUI_TagHelpers_PostPagingTagHelper.SearchPost = __tagHelperStringValueBuffer;
-            __tagHelperExecutionContext.AddTagHelperAttribute("search-post", __MyBlog_WebUI_TagHelpers_PostPagingTagHelper.SearchPost, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper.SearchPost = __tagHelperStringValueBuffer;
+            __tagHelperExecutionContext.AddTagHelperAttribute("search-post", __MyBlog_WebUI_Areas_Administrator_TagHelpers_PostPagingTagHelper.SearchPost, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
             if (!__tagHelperExecutionContext.Output.IsContentModified)
             {

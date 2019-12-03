@@ -143,7 +143,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 					CoverImage = x.CoverImage,
 					FirstImage = x.FirstImage,
 					PostCategories = GetPostCategories(x.PostId)
-				}).ToList();
+				}).OrderByDescending(x=>x.CreatedDate).ToList();
 				return result;
 			}
 		}
@@ -193,7 +193,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 						PostCategories = GetPostCategories(item.PostId)
 					});
 				}
-				return postDetailDto;
+				return postDetailDto.OrderByDescending(x=>x.CreatedDate).ToList();
 			}
 		}
 
@@ -242,7 +242,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 						PostCategories = GetPostCategories(item.PostId)
 					});
 				}
-				return postDetailDto;
+				return postDetailDto.OrderByDescending(x=>x.CreatedDate).ToList();
 			}
 		}
 
@@ -272,6 +272,23 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 				};
 				return postDetail;
 
+			}
+		}
+
+		public List<Post> GetActiveSixPosts()
+		{
+			using (var context = new BlogContext())
+			{
+				return context.Posts.Where(x => x.Status).OrderByDescending(x => x.CreatedDate).Take(6).ToList();
+			}
+		}
+
+		public List<Post> GetRandomTwoPosts()
+		{
+			using (var context = new BlogContext())
+			{
+				var result = context.Posts.ToList().OrderBy(x => Guid.NewGuid()).Take(2).ToList();
+				return result;
 			}
 		}
 	}

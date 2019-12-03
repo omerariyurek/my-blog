@@ -17,10 +17,18 @@ namespace MyBlog.WebUI.Controllers
 			_postService = postService;
 		}
 
-		[HttpGet("/posts")]
-		public IActionResult Index()
+		[HttpGet("/posts/{page=1}")]
+		public IActionResult Index(int page=1)
 		{
-			var model = _postService.GetPostDetails().Data;
+			int pageSize = 5;
+			var posts = _postService.GetPostDetails().Data;
+			var model = new PostIndexViewModel
+			{
+				PostDetails = posts.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+				PageCount = (int)Math.Ceiling(posts.Count / (double)pageSize),
+				CurrentPage = page,
+				PageSize = pageSize
+			};
 			return View(model);
 		}
 
@@ -33,7 +41,8 @@ namespace MyBlog.WebUI.Controllers
 				var model = new PostGetViewModel
 				{
 					PostTags = _postService.GetPostTags(postId).Data,
-					PostDetail = _postService.GetPostDetail(postId).Data
+					PostDetail = _postService.GetPostDetail(postId).Data,
+					RandomTwoPosts = _postService.GetRandomTwoPosts().Data
 				};
 				return View(model);
 			}

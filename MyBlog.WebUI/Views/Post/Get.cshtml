@@ -22,7 +22,7 @@
         <div class="post-content__content--content-txt">
             @Html.Raw(Model.PostDetail.Content)
         </div>
-        <ul class="post-content__content--previous-next">
+        @*<ul class="post-content__content--previous-next">
             <li class="previous">
                 <span class="orientation-title">Önceki Paylaşım</span>
                 <a href="#" class="post-link">Check Out The Most Awesome VR Headset in 2020</a>
@@ -31,7 +31,7 @@
                 <span class="orientation-title">Sonraki Paylaşım</span>
                 <a href="#" class="post-link">Check Out The Most Awesome VR Headset in 2020</a>
             </li>
-        </ul>
+        </ul>*@
         <ul class="share-social-media">
             <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
             <li><a href="#"><i class="fab fa-twitter"></i></a></li>
@@ -47,22 +47,17 @@
     <div class="post-content__related-post">
         <h5 class="post-content__related-post--title">Diğer Paylaşımlar</h5>
         <ul class="post-content__related-post--related-list">
-            <li class="post-content__related-post--list-item">
-                <a href="#">
-                    <div class="img-and-tag">
-                        <img src="./dist/img/post-vr.jpg" alt="">
-                    </div>
-                    <h5 class="post-content__related-post--related-list--title">Check Out The Most Awesome VR Headset in 2020</h5>
-                </a>
-            </li>
-            <li class="post-content__related-post--list-item">
-                <a href="#">
-                    <div class="img-and-tag">
-                        <img src="./dist/img/post-vr.jpg" alt="">
-                    </div>
-                    <h5 class="post-content__related-post--related-list--title">Check Out The Most Awesome VR Headset in 2020</h5>
-                </a>
-            </li>
+           @foreach (var post in Model.RandomTwoPosts)
+           {
+               <li class="post-content__related-post--list-item">
+                   <a href="@Url.Action("Index","Post",new{@seoUrl=post.SeoUrl})">
+                       <div class="img-and-tag">
+                           <img src="@post.CoverImage" alt="">
+                       </div>
+                       <h5 class="post-content__related-post--related-list--title">@post.Title</h5>
+                   </a>
+               </li>
+           }
         </ul>
     </div>
     <div class="post-content__comment-wrapper">

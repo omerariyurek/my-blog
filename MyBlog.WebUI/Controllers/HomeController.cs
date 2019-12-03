@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MyBlog.Business.Abstract;
+using MyBlog.WebUI.Models.ViewModels;
 
 namespace MyBlog.WebUI.Controllers
 {
@@ -23,7 +24,12 @@ namespace MyBlog.WebUI.Controllers
 
 		public IActionResult Index()
 		{
-			return View();
+			var posts = _postService.GetActiveSixPosts().Data;
+			var model = new HomeIndexViewModel
+			{
+				Posts = posts
+			};
+			return View(model);
 		}
 
 	}

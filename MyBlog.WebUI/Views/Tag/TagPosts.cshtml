@@ -1,6 +1,6 @@
 ﻿@model MyBlog.WebUI.Models.ViewModels.TagPostsViewModel
 @{
-    ViewData["Title"] = "TagPosts";
+    ViewData["Title"] = $"{Model.Tag.TagName} Etiketi - Ömer ARIYÜREK";
 }
 <section class="load-more">
     <h2 class="load-more--main-title">@Model.Tag.TagName etiketine ait yazılar</h2>
@@ -34,10 +34,5 @@
             </ul>
         </div>
     }
-    <ul class="load-more__pagenation">
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-    </ul>
+    <tag-posts-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage" current-tag="@Model.CurrentTag"></tag-posts-paging>
 </section>

@@ -1,6 +1,6 @@
 ﻿@model MyBlog.WebUI.Models.ViewModels.CategoryPostsViewModel
 @{
-    ViewData["Title"] = "CategoryPosts";
+    ViewData["Title"] = $"{Model.Category.CategoryName} Kategorisi - Ömer ARIYÜREK";
 }
 
 <section class="load-more">
@@ -37,10 +37,5 @@
             </ul>
         </div>
     }
-    <ul class="load-more__pagenation">
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-    </ul>
+    <category-posts-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage" current-category="@Model.CurrentCategory"></category-posts-paging>
 </section>

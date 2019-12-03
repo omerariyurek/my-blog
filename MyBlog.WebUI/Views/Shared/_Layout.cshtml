@@ -23,58 +23,19 @@
             <i class="fas fa-times close"></i>
             <ul class="mobile-header__menu">
                 <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title">Lorem Ipsum</span>
-                    <ul class="mobile-header__menu--dropdown">
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                    </ul>
+                    <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Home")" class="mobile-header__menu--title--link">Anasayfa</a></span>
                 </li>
                 <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title">Lorem</span>
-                    <ul class="mobile-header__menu--dropdown">
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                    </ul>
+                    <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Post")" class="mobile-header__menu--title--link">Yazılar</a></span>
                 </li>
                 <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title">Lorem Ipsum</span>
-                    <ul class="mobile-header__menu--dropdown">
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                    </ul>
+                    <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Category")" class="mobile-header__menu--title--link">Kategoriler</a></span>
                 </li>
                 <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title">Lorem</span>
-                    <ul class="mobile-header__menu--dropdown">
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                    </ul>
+                    <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Tag")" class="mobile-header__menu--title--link">Etiketler</a></span>
                 </li>
                 <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title">Lorem Ipsum</span>
-                    <ul class="mobile-header__menu--dropdown">
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                    </ul>
-                </li>
-                <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title">Lorem</span>
-                    <ul class="mobile-header__menu--dropdown">
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                        <li class="mobile-header__menu--dropdown-item">Lorem Ipsum</li>
-                    </ul>
+                    <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Contact")" class="mobile-header__menu--title--link">İletişim</a></span>
                 </li>
             </ul>
             <div class="mobile-header__menu--search-wrapper">
@@ -155,18 +116,18 @@
             <li>
                 <span class="footer__top--title">Beni Takip Edin</span>
                 <ul class="footer__top--social-media">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                    <li><a href="https://github.com/omerariyurek" target="_blank"><i class="fab fa-github"></i></a></li>
+                    <li><a href="https://www.linkedin.com/in/omerariyurek/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://medium.com/@@omerariyurek" target="_blank"><i class="fab fa-medium"></i></a></li>
                 </ul>
             </li>
         </div>
         <div class="footer-bottom">
             <p>Bu sitenin kaynak kodlarına <a href="https://github.com/omerariyurek/my-blog" target="_blank"><i class="fab fa-github git-icon"></i> GitHub</a> üzerinden ulaşabilirsiniz.</p>
             <nav>
-                <a href="#">Anasayfa</a>
-                <a href="#">Yazılar</a>
-                <a href="#">İletişim</a>
+                <a href="@Url.Action("Index","Home")">Anasayfa</a>
+                <a href="@Url.Action("Index","Post")">Yazılar</a>
+                <a href="@Url.Action("Index","Contact")">İletişim</a>
             </nav>
         </div>
     </section>

@@ -50,7 +50,7 @@ namespace AspNetCore
         }
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.RenderAtEndOfFormTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_RenderAtEndOfFormTagHelper;
-        private global::MyBlog.WebUI.TagHelpers.ContactPagingTagHelper __MyBlog_WebUI_TagHelpers_ContactPagingTagHelper;
+        private global::MyBlog.WebUI.Areas.Administrator.TagHelpers.ContactPagingTagHelper __MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper;
         private global::Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper;
@@ -66,7 +66,7 @@ namespace AspNetCore
 #line hidden
 #nullable disable
             WriteLiteral("<div class=\"admin-object-table col-md-12\">\r\n    <div class=\"search-object-base\">\r\n        <div class=\"search-object\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa7932", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa7972", async() => {
                 WriteLiteral("\r\n                <input class=\"form-control form-fix\" name=\"search\" placeholder=\"Search Contact\">\r\n                <button type=\"submit\" class=\"btn btn-info\">Search</button>\r\n            ");
             }
             );
@@ -214,36 +214,36 @@ WriteAttributeValue("", 2015, contact.ContactId, 2015, 18, false);
 #line hidden
 #nullable disable
             WriteLiteral("            </tbody>\r\n        </table>\r\n    </div>\r\n    <div class=\"paging-admin\">\r\n        ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("contact-paging", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa15258", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("contact-paging", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa15298", async() => {
                 WriteLiteral("\r\n        ");
             }
             );
-            __MyBlog_WebUI_TagHelpers_ContactPagingTagHelper = CreateTagHelper<global::MyBlog.WebUI.TagHelpers.ContactPagingTagHelper>();
-            __tagHelperExecutionContext.Add(__MyBlog_WebUI_TagHelpers_ContactPagingTagHelper);
+            __MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper = CreateTagHelper<global::MyBlog.WebUI.Areas.Administrator.TagHelpers.ContactPagingTagHelper>();
+            __tagHelperExecutionContext.Add(__MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper);
 #nullable restore
 #line 56 "C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\Areas\Administrator\Views\Contact\Index.cshtml"
-__MyBlog_WebUI_TagHelpers_ContactPagingTagHelper.CurrentPage = Model.CurrentPage;
+__MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper.CurrentPage = Model.CurrentPage;
 
 #line default
 #line hidden
 #nullable disable
-            __tagHelperExecutionContext.AddTagHelperAttribute("current-page", __MyBlog_WebUI_TagHelpers_ContactPagingTagHelper.CurrentPage, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __tagHelperExecutionContext.AddTagHelperAttribute("current-page", __MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper.CurrentPage, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #nullable restore
 #line 56 "C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\Areas\Administrator\Views\Contact\Index.cshtml"
-__MyBlog_WebUI_TagHelpers_ContactPagingTagHelper.PageCount = Model.PageCount;
+__MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper.PageCount = Model.PageCount;
 
 #line default
 #line hidden
 #nullable disable
-            __tagHelperExecutionContext.AddTagHelperAttribute("page-count", __MyBlog_WebUI_TagHelpers_ContactPagingTagHelper.PageCount, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __tagHelperExecutionContext.AddTagHelperAttribute("page-count", __MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper.PageCount, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #nullable restore
 #line 56 "C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\Areas\Administrator\Views\Contact\Index.cshtml"
-__MyBlog_WebUI_TagHelpers_ContactPagingTagHelper.PageSize = Model.PageSize;
+__MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper.PageSize = Model.PageSize;
 
 #line default
 #line hidden
 #nullable disable
-            __tagHelperExecutionContext.AddTagHelperAttribute("page-size", __MyBlog_WebUI_TagHelpers_ContactPagingTagHelper.PageSize, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __tagHelperExecutionContext.AddTagHelperAttribute("page-size", __MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper.PageSize, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginWriteTagHelperAttribute();
 #nullable restore
 #line 56 "C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\Areas\Administrator\Views\Contact\Index.cshtml"
@@ -253,8 +253,8 @@ __MyBlog_WebUI_TagHelpers_ContactPagingTagHelper.PageSize = Model.PageSize;
 #line hidden
 #nullable disable
             __tagHelperStringValueBuffer = EndWriteTagHelperAttribute();
-            __MyBlog_WebUI_TagHelpers_ContactPagingTagHelper.SearchContact = __tagHelperStringValueBuffer;
-            __tagHelperExecutionContext.AddTagHelperAttribute("search-contact", __MyBlog_WebUI_TagHelpers_ContactPagingTagHelper.SearchContact, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
+            __MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper.SearchContact = __tagHelperStringValueBuffer;
+            __tagHelperExecutionContext.AddTagHelperAttribute("search-contact", __MyBlog_WebUI_Areas_Administrator_TagHelpers_ContactPagingTagHelper.SearchContact, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             await __tagHelperRunner.RunAsync(__tagHelperExecutionContext);
             if (!__tagHelperExecutionContext.Output.IsContentModified)
             {
@@ -276,7 +276,7 @@ __MyBlog_WebUI_TagHelpers_ContactPagingTagHelper.PageSize = Model.PageSize;
             </div>
             <div class=""modal-body"">
                 ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8c1056a3b479287eb5c18ef134592e9fd146dbaa19097", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8c1056a3b479287eb5c18ef134592e9fd146dbaa19357", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -300,7 +300,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                <div class=\"form-group form-design\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa20924", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa21184", async() => {
                 WriteLiteral("Contact Name");
             }
             );
@@ -323,7 +323,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8c1056a3b479287eb5c18ef134592e9fd146dbaa22540", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8c1056a3b479287eb5c18ef134592e9fd146dbaa22800", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
@@ -346,7 +346,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </div>\r\n                <div class=\"form-group form-design\" style=\"padding-bottom: 10px;\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa24302", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa24562", async() => {
                 WriteLiteral("Message");
             }
             );
@@ -369,7 +369,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa25909", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("textarea", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa26169", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.TextAreaTagHelper>();
@@ -394,7 +394,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                </div>\r\n                <div class=\"form-group form-settings-contacts\">\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa27837", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("label", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8c1056a3b479287eb5c18ef134592e9fd146dbaa28097", async() => {
                 WriteLiteral("Contact E-Mail");
             }
             );
@@ -417,7 +417,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8c1056a3b479287eb5c18ef134592e9fd146dbaa29449", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("input", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "8c1056a3b479287eb5c18ef134592e9fd146dbaa29709", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();

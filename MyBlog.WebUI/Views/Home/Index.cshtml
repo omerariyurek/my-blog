@@ -1,4 +1,4 @@
-﻿
+﻿@model MyBlog.WebUI.Models.ViewModels.HomeIndexViewModel
 @{
     ViewData["Title"] = "Ömer ARIYÜREK - .NET Developer";
 }
@@ -21,110 +21,22 @@
     <div class="homepage-content__recents-articles">
         <h3 class="homepage-content__recents-articles--recents-title">Son Makaleler</h3>
         <ul class="homepage-content__articles-list">
-            <li class="homepage-content__articles-list--item">
-                <a href="#">
-                    <img src="./dist/img/item-phone.jpg" alt="">
-                    <small class="homepage-content__articles-list--category">TECHNOLOGY</small>
-                    <h5 class="homepage-content__articles-list--content-title">Or It’s Now The End of Smartphones?</h5>
-                    <p class="homepage-content__articles-list--content-summary">
-                        Far far away, behind the word mountains,
-                        far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove...
-                    </p>
-                    <span class="homepage-content__articles-list--content-date">Nisan 7, 2019</span>
-                </a>
-            </li>
-            <li class="homepage-content__articles-list--item">
-                <a href="#">
-                    <img src="./dist/img/item-phone.jpg" alt="">
-                    <small class="homepage-content__articles-list--category">TECHNOLOGY</small>
-                    <h5 class="homepage-content__articles-list--content-title">Or It’s Now The End of Smartphones?</h5>
-                    <p class="homepage-content__articles-list--content-summary">
-                        Far far away, behind the word mountains,
-                        far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove...
-                    </p>
-                    <span class="homepage-content__articles-list--content-date">Nisan 7, 2019</span>
-                </a>
-            </li>
-            <li class="homepage-content__articles-list--item">
-                <a href="#">
-                    <img src="./dist/img/item-phone.jpg" alt="">
-                    <small class="homepage-content__articles-list--category">TECHNOLOGY</small>
-                    <h5 class="homepage-content__articles-list--content-title">Or It’s Now The End of Smartphones?</h5>
-                    <p class="homepage-content__articles-list--content-summary">
-                        Far far away, behind the word mountains,
-                        far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove...
-                    </p>
-                    <span class="homepage-content__articles-list--content-date">Nisan 7, 2019</span>
-                </a>
-            </li>
-            <li class="homepage-content__articles-list--item">
-                <a href="#">
-                    <img src="./dist/img/item-phone.jpg" alt="">
-                    <small class="homepage-content__articles-list--category">TECHNOLOGY</small>
-                    <h5 class="homepage-content__articles-list--content-title">Or It’s Now The End of Smartphones?</h5>
-                    <p class="homepage-content__articles-list--content-summary">
-                        Far far away, behind the word mountains,
-                        far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove...
-                    </p>
-                    <span class="homepage-content__articles-list--content-date">Nisan 7, 2019</span>
-                </a>
-            </li>
-            <li class="homepage-content__articles-list--item">
-                <a href="#">
-                    <img src="./dist/img/item-phone.jpg" alt="">
-                    <small class="homepage-content__articles-list--category">TECHNOLOGY</small>
-                    <h5 class="homepage-content__articles-list--content-title">Or It’s Now The End of Smartphones?</h5>
-                    <p class="homepage-content__articles-list--content-summary">
-                        Far far away, behind the word mountains,
-                        far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove...
-                    </p>
-                    <span class="homepage-content__articles-list--content-date">Nisan 7, 2019</span>
-                </a>
-            </li>
-            <li class="homepage-content__articles-list--item">
-                <a href="#">
-                    <img src="./dist/img/item-phone.jpg" alt="">
-                    <small class="homepage-content__articles-list--category">TECHNOLOGY</small>
-                    <h5 class="homepage-content__articles-list--content-title">Or It’s Now The End of Smartphones?</h5>
-                    <p class="homepage-content__articles-list--content-summary">
-                        Far far away, behind the word mountains,
-                        far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove...
-                    </p>
-                    <span class="homepage-content__articles-list--content-date">Nisan 7, 2019</span>
-                </a>
-            </li>
-            <li class="homepage-content__articles-list--item">
-                <a href="#">
-                    <img src="./dist/img/item-phone.jpg" alt="">
-                    <small class="homepage-content__articles-list--category">TECHNOLOGY</small>
-                    <h5 class="homepage-content__articles-list--content-title">Or It’s Now The End of Smartphones?</h5>
-                    <p class="homepage-content__articles-list--content-summary">
-                        Far far away, behind the word mountains,
-                        far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove...
-                    </p>
-                    <span class="homepage-content__articles-list--content-date">Nisan 7, 2019</span>
-                </a>
-            </li>
-            <li class="homepage-content__articles-list--item">
-                <a href="#">
-                    <img src="./dist/img/item-phone.jpg" alt="">
-                    <small class="homepage-content__articles-list--category">TECHNOLOGY</small>
-                    <h5 class="homepage-content__articles-list--content-title">Or It’s Now The End of Smartphones?</h5>
-                    <p class="homepage-content__articles-list--content-summary">
-                        Far far away, behind the word mountains,
-                        far from the countries Vokalia and Consonantia,
-                        there live the blind texts. Separated they live in Bookmarksgrove...
-                    </p>
-                    <span class="homepage-content__articles-list--content-date">Nisan 7, 2019</span>
-                </a>
-            </li>
+            @foreach (var post in Model.Posts)
+            {
+                <li class="homepage-content__articles-list--item">
+                    <a href="@Url.Action("Get","Post",new{@seoUrl=post.SeoUrl})">
+                        <img src="@post.CoverImage" alt="">
+                        <h5 class="homepage-content__articles-list--content-title">@post.Title</h5>
+                    </a>
+                    @*<div class="homepage-content__articles-list--content-summary">
+                        @{
+                            var postContent = post.Content.Length > 150 ? post.Content.Substring(0, 146) + "..." : post.Content;
+                            @Html.Raw(postContent)
+                        }
+                    </div>*@
+                    <span class="homepage-content__articles-list--content-date">@post.CreatedDate.ToString("MM/dd/yyyy")</span>
+                </li>
+            }
         </ul>
         <div class="homepage-content__recents-articles--more-btn">
             <a href="@Url.Action("Index","Post")" class="btn">TÜM YAZILAR</a>

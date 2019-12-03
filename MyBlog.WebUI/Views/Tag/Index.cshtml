@@ -1,6 +1,6 @@
 ﻿@model MyBlog.WebUI.Models.ViewModels.TagIndexViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Etiketler - Ömer Arıyürek";
 }
 <section class="category-content">
     <div class="category-content__category-name">
@@ -15,10 +15,5 @@
             </li>
         }
     </ul>
-    <ul class="load-more__pagenation" style="margin-top: 30px; margin-bottom: 30px;">
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-    </ul>
+    <tags-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage"></tags-paging>
 </section>

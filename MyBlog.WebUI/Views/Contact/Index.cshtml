@@ -1,8 +1,8 @@
 ﻿@model MyBlog.Entities.Concrete.Contact
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "İletişim - Ömer ARIYÜREK";
 }
-@section scripts{ 
+@section scripts{
     <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
@@ -26,11 +26,26 @@
     </form>
     <div class="social-media">
         <ul class="social-media-icons">
-            <li><a href="mailto:"><img src="./dist/img/envelope.png" alt=""></a></li>
-            <li><a href="#"><img src="./dist/img/facebook-logo.png" alt=""></a></li>
-            <li><a href="#"><img src="./dist/img/google-plus.png" alt=""></a></li>
-            <li><a href="#"><img src="./dist/img/skype-logo.png" alt=""></a></li>
-            <li><a href="#"><img src="./dist/img/twitter.png" alt=""></a></li>
+            <li>
+                <a href="mailto:omerariyurek@@hotmail.com">
+                    <img src="~/Content/images/envelope.png" />
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/omerariyurek" target="_blank">
+                    <img src="~/Content/images/github-logo.png" />
+                </a>
+            </li>
+            <li>
+                <a href="https://www.linkedin.com/in/omerariyurek/" target="_blank">
+                    <img src="~/Content/images/linkedin-logo.png" />
+                </a>
+            </li>
+            <li>
+                <a href="https://twitter.com/omer_ariyurek" target="_blank">
+                    <img src="~/Content/images/twitter.png" />
+                </a>
+            </li>
         </ul>
     </div>
 </section>

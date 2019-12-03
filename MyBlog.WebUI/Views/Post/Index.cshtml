@@ -1,10 +1,10 @@
-﻿@model List<MyBlog.Entities.Dtos.PostDetailDto>
+﻿@model MyBlog.WebUI.Models.ViewModels.PostIndexViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Yazılar - Ömer ARIYÜREK";
 }
 <section class="load-more">
     <h2 class="load-more--main-title">Diğer Yazılar</h2>
-    @foreach (var post in Model)
+    @foreach (var post in Model.PostDetails)
     {
         <div class="load-more__other-post">
             <a href="@Url.Action("Get","Post",new{@seoUrl=@post.SeoUrl})">
@@ -35,10 +35,7 @@
         </div>
     }
 
-    <ul class="load-more__pagenation">
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-    </ul>
+    <posts-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage">
+
+    </posts-paging>
 </section>

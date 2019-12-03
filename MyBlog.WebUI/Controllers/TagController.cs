@@ -19,20 +19,25 @@ namespace MyBlog.WebUI.Controllers
 		    _postService = postService;
 	    }
 
-		[HttpGet("/tags")]
-	    public IActionResult Index()
+		[HttpGet("/tags/{page=1}")]
+	    public IActionResult Index(int page=1)
 	    {
+		    int pageSize = 6;
 		    var tags = _tagService.GetListActive().Data;
 		    var model = new TagIndexViewModel
 		    {
-				Tags = tags
-		    };
+				Tags = tags.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+				PageCount = (int)Math.Ceiling(tags.Count / (double)pageSize),
+				CurrentPage = page,
+				PageSize = pageSize
+			};
             return View(model);
         }
 
-	    [HttpGet("/tag/{seoUrl}")]
-	    public IActionResult TagPosts(string seoUrl)
+	    [HttpGet("/tag/{seoUrl}/{page=1}")]
+	    public IActionResult TagPosts(string seoUrl,int page=1)
 	    {
+		    int pageSize = 5;
 		    var tag = _tagService.GetByUrl(seoUrl).Data;
 		    if (tag == null)
 		    {
@@ -43,8 +48,12 @@ namespace MyBlog.WebUI.Controllers
 		    var model = new TagPostsViewModel
 		    {
 			    Tag = tag,
-			    PostDetails = tagPosts
-		    };
+			    PostDetails = tagPosts.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+				PageCount = (int)Math.Ceiling(tagPosts.Count / (double)pageSize),
+				CurrentPage = page,
+				PageSize = pageSize,
+				CurrentTag = seoUrl
+			};
 			return View(model);
 	    }
     }

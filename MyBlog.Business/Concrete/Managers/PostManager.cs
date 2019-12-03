@@ -211,5 +211,17 @@ namespace MyBlog.Business.Concrete.Managers
 		{
 			return new SuccessDataResult<PostDetailDto>(_postDal.GetPostDetail(postId));
 		}
+
+		[CacheAspect()]
+		public IDataResult<List<Post>> GetActiveSixPosts()
+		{
+			return new SuccessDataResult<List<Post>>(_postDal.GetActiveSixPosts());
+		}
+
+		[CacheAspect()]
+		public IDataResult<List<Post>> GetRandomTwoPosts()
+		{
+			return new SuccessDataResult<List<Post>>(_postDal.GetRandomTwoPosts());
+		}
 	}
 }

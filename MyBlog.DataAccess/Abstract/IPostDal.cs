@@ -20,6 +20,7 @@ namespace MyBlog.DataAccess.Abstract
 		List<PostDetailDto> GetCategoryPosts(int categoryId);
 		List<PostDetailDto> GetTagPosts(int tagId);
 		PostDetailDto GetPostDetail(int postId);
-
+		List<Post> GetActiveSixPosts();
+		List<Post> GetRandomTwoPosts();
 	}
 }

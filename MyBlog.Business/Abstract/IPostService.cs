@@ -23,5 +23,7 @@ namespace MyBlog.Business.Abstract
 		IDataResult<List<PostDetailDto>> GetTagPosts(int tagId);
 		IDataResult<int> GetByUrl(string seoUrl);
 		IDataResult<PostDetailDto> GetPostDetail(int postId);
+		IDataResult<List<Post>> GetActiveSixPosts();
+		IDataResult<List<Post>> GetRandomTwoPosts();
 	}
 }

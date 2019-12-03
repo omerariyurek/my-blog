@@ -11,5 +11,9 @@ namespace MyBlog.WebUI.Models.ViewModels
 	{
 		public List<PostDetailDto> PostDetails { get; set; }
 		public Category Category { get; set; }
+		public int PageSize { get; set; }
+		public int PageCount { get; set; }
+		public int CurrentPage { get; set; }
+		public string CurrentCategory { get; set; }
 	}
 }
