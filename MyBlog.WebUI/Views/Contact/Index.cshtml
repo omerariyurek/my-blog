@@ -11,7 +11,7 @@
     <h2 class="contact-wrapper__contact-title">Bana Ulaşın</h2>
     @if (TempData["Success"] != null)
     {
-        <p>@TempData["Success"]</p>
+        <p style="text-align: center;">@TempData["Success"]</p>
     }
     <form asp-controller="Contact" asp-action="Index" method="post" class="contact-wrapper__contact-form">
         <input asp-for="ContactName" placeholder="Ad Soyad">

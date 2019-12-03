@@ -21,9 +21,12 @@
                     }
                 </li>
             </ul>
-            <p class="load-more__other-post--summary">
-                @Html.Raw(post.Content)
-            </p>
+            <div class="load-more__other-post--summary">
+                @{
+                    var postContent = post.Content.Length > 330 ? post.Content.Substring(0, 336) + "..." : post.Content;
+                    @Html.Raw(postContent)
+                }
+            </div>
             <ul class="social-media">
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>

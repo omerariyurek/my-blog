@@ -17,16 +17,16 @@
                 <li class="category">
                     @foreach (var category in post.PostCategories)
                     {
-                        <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=category.SeoUrl})">@category.CategoryName</a>
+                        <a href="@Url.Action("CategoryPosts", "Category", new {@seoUrl = category.SeoUrl})">@category.CategoryName</a>
                     }
                 </li>
             </ul>
-            <p class="load-more__other-post--summary">
+            <div class="load-more__other-post--summary">
                 @{
-                    var postContent = post.Content.Length > 100 ? post.Content.Substring(0, 96) + "..." : post.Content;
+                    var postContent = post.Content.Length > 330 ? post.Content.Substring(0, 336) + "..." : post.Content;
                     @Html.Raw(postContent)
                 }
-            </p>
+            </div>
             <ul class="social-media">
                 <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
                 <li><a href="#"><i class="fab fa-twitter"></i></a></li>

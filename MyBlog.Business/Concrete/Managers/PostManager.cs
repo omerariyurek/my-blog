@@ -182,15 +182,13 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessResult();
 		}
 
-		[SecuredOperation("Admin", Priority = 1)]
-		[CacheAspect(Priority = 2)]
+		[CacheAspect(Priority = 1)]
 		public IDataResult<List<PostTagsDto>> GetPostTags(int postId)
 		{
 			return new SuccessDataResult<List<PostTagsDto>>(_postDal.GetPostTags(postId));
 		}
 
-		[SecuredOperation("Admin", Priority = 1)]
-		[CacheAspect(Priority = 2)]
+		[CacheAspect(Priority = 1)]
 		public IDataResult<List<PostCategoriesDto>> GetPostCategories(int postId)
 		{
 			return new SuccessDataResult<List<PostCategoriesDto>>(_postDal.GetPostCategories(postId));
