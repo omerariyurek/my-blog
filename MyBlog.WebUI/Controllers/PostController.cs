@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MyBlog.Business.Abstract;
+using MyBlog.Entities.Dtos;
 using MyBlog.WebUI.Models.ViewModels;
 
 namespace MyBlog.WebUI.Controllers
@@ -18,7 +19,7 @@ namespace MyBlog.WebUI.Controllers
 		}
 
 		[HttpGet("/posts/{page=1}")]
-		public IActionResult Index(int page=1)
+		public IActionResult Index(int page = 1)
 		{
 			int pageSize = 5;
 			var posts = _postService.GetPostDetails().Data;
@@ -48,5 +49,22 @@ namespace MyBlog.WebUI.Controllers
 			}
 			return RedirectToAction("PageNotFound", "Error");
 		}
+
+		[HttpGet("/list")]
+		public IActionResult List(PostSearchDto postSearchDto, int page = 1)
+		{
+			int pageSize = 5;
+			var posts = _postService.GetPostsBySearchKey(postSearchDto).Data;
+			var model = new PostListViewModel
+			{
+				PostDetails = posts.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+				PageCount = (int)Math.Ceiling(posts.Count / (double)pageSize),
+				CurrentPage = page,
+				PageSize = pageSize,
+				SearchKey = postSearchDto.PostName
+			};
+			return View(model);
+		}
+
 	}
 }

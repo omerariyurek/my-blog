@@ -18,5 +18,6 @@ namespace MyBlog.Business.Abstract
 		IResult CheckIfTagNameExists(string tagName);
 		IDataResult<List<TagsDto>> GetSelectedTags();
 		IDataResult<Tag> GetByUrl(string seoUrl);
+		IDataResult<List<Tag>> GetRandomSixTags();
 	}
 }

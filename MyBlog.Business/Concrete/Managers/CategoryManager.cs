@@ -73,6 +73,7 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<Category>(_categoryDal.Get(x => x.CategoryId == categoryId));
 		}
 
+		[CacheAspect()]
 		public IDataResult<Category> GetByCategoryName(string seoUrl)
 		{
 			return new SuccessDataResult<Category>(_categoryDal.Get(x=>x.SeoUrl== seoUrl));
@@ -99,13 +100,13 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<Category>>(_categoryDal.GetList(x=>x.Status==true).ToList());
 		}
 
+		[CacheAspect()]
 		public IDataResult<List<CategoriesDto>> GetCategories()
 		{
 			return new SuccessDataResult<List<CategoriesDto>>(_categoryDal.GetCategories());
 		}
 
-		[SecuredOperation("Admin", Priority = 1)]
-		[CacheAspect()]
+		
 		public IResult CheckIfCategoryNameExists(string categoryName)
 		{
 			var categoryToCheck = _categoryDal.Get(x => x.CategoryName == categoryName);
@@ -114,6 +115,12 @@ namespace MyBlog.Business.Concrete.Managers
 				return new ErrorResult(Messages.CategoryNameAlreadyExists);
 			}
 			return new SuccessResult();
+		}
+
+		[CacheAspect()]
+		public IDataResult<List<Category>> GetRandomSixCategories()
+		{
+			return new SuccessDataResult<List<Category>>(_categoryDal.GetList(x=>x.Status).OrderByDescending(x=>Guid.NewGuid()).Take(6).ToList());
 		}
 	}
 }

@@ -1,0 +1,88 @@
+﻿@model MyBlog.Entities.Dtos.PostSearchDto
+<section class="mobile-header">
+    <div class="mobile-header__mobile-logo">
+        <a href="@Url.Action("Index","Home")"><img src="~/Content/images/logo.png" /></a>
+    </div>
+    <i class="fas fa-bars menu-icon"></i>
+    <div class="mobile-header__menu-wrapper">
+        <i class="fas fa-times close"></i>
+        <ul class="mobile-header__menu">
+            <li class="mobile-header__menu--item">
+                <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Home")" class="mobile-menu-title-link">Anasayfa</a></span>
+            </li>
+            <li class="mobile-header__menu--item">
+                <span class="mobile-header__menu--title"> <a href="@Url.Action("Index","Post")" class="mobile-menu-title-link">Yazılar</a></span>
+            </li>
+            <li class="mobile-header__menu--item">
+                <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Category")" class="mobile-menu-title-link">Kategoriler</a></span>
+            </li>
+            <li class="mobile-header__menu--item">
+                <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Tag")" class="mobile-menu-title-link">Etiketler</a></span>
+            </li>
+            <li class="mobile-header__menu--item">
+                <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Contact")" class="mobile-menu-title-link">İletişim</a></span>
+            </li>
+        </ul>
+        <div class="mobile-header__menu--search-wrapper">
+            <form asp-action="List" asp-controller="Post">
+                <input asp-for="PostName" class="mobile-header__menu--search" placeholder="Bir şeyler arayın...">
+                <button type="submit"><i class="fas fa-search search"></i></button>
+                <span style="color: white;float: left;padding-left: 18%; padding-top: 5px;" asp-validation-for="PostName"></span>
+            </form>
+        </div>
+        <ul class="mobile-header__social-media">
+            <li><a href="https://github.com/omerariyurek" target="_blank"><i class="fab fa-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/omerariyurek/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="https://medium.com/@@omerariyurek" target="_blank"><i class="fab fa-medium"></i></a></li>
+            <li><a href="mailto:omerariyurek@@hotmail.com"><i class="fas fa-envelope"></i></a></li>
+        </ul>
+    </div>
+</section>
+<section class="left-bar">
+    <a href="@Url.Action("Index","Home")"><img src="~/Content/images/logo.png" class="left-bar__logo"></a>
+    <ul class="left-bar__menu">
+        <li class="left-bar__menu--item">
+            <span class="left-bar__menu--title"><a class="left-bar__menu--text" href="@Url.Action("Index","Home")">Anasayfa</a></span>
+        </li>
+        <li class="left-bar__menu--item">
+            <span class="left-bar__menu--title">
+                <a class="left-bar__menu--text" href="@Url.Action("Index","Post")">Yazılar</a>
+            </span>
+        </li>
+        <li class="left-bar__menu--item">
+            <span class="left-bar__menu--title">
+                <a class="left-bar__menu--text" href="@Url.Action("Index", "Category")">Kategoriler</a>
+            </span>
+        </li>
+        <li class="left-bar__menu--item">
+            <span class="left-bar__menu--title"><a class="left-bar__menu--text" href="@Url.Action("Index","Tag")">Etiketler</a></span>
+        </li>
+
+        <li class="left-bar__menu--item">
+            <span class="left-bar__menu--title">
+                <a class="left-bar__menu--text" href="@Url.Action("Index", "Contact")">İletişim</a>
+            </span>
+        </li>
+    </ul>
+    <div class="left-bar__menu--search-wrapper">
+        <form asp-action="List" asp-controller="Post" asp-antiforgery="true">
+            <input asp-for="PostName" class="mobile-header__menu--search" placeholder="Bir şeyler arayın...">
+            <button type="submit"><i class="fas fa-search search"></i></button>
+            <div style="padding-right:19px">
+                <span asp-validation-for="PostName"></span>
+            </div>
+
+        </form>
+    </div>
+    <ul class="left-bar__social-media">
+        <li><a href="https://github.com/omerariyurek" target="_blank"><i class="fab fa-github"></i></a></li>
+        <li><a href="https://www.linkedin.com/in/omerariyurek/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="https://medium.com/@@omerariyurek" target="_blank"><i class="fab fa-medium"></i></a></li>
+        <li><a href="mailto:omerariyurek@@hotmail.com"><i class="fas fa-envelope"></i></a></li>
+    </ul>
+</section>
+@section scripts{
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}

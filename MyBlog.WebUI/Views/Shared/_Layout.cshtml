@@ -14,125 +14,17 @@
     <div class="load-wrapper hidden">
         <img src="~/Content/images/Spinner-1s-200px.gif" />
     </div>
-    <section class="mobile-header">
-        <div class="mobile-header__mobile-logo">
-            <img src="~/Content/images/logo.png" />
-        </div>
-        <i class="fas fa-bars menu-icon"></i>
-        <div class="mobile-header__menu-wrapper">
-            <i class="fas fa-times close"></i>
-            <ul class="mobile-header__menu">
-                <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Home")">Anasayfa</a></span>
-                </li>
-                <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Post")">Yazılar</a></span>
-                </li>
-                <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Category")">Kategoriler</a></span>
-                </li>
-                <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Tag")">Etiketler</a></span>
-                </li>
-                <li class="mobile-header__menu--item">
-                    <span class="mobile-header__menu--title"><a href="@Url.Action("Index","Contact")">İletişim</a></span>
-                </li>
-            </ul>
-            <div class="mobile-header__menu--search-wrapper">
-                <input type="text" class="mobile-header__menu--search" placeholder="Bir şeyler arayın...">
-                <button><i class="fas fa-search search"></i></button>
-            </div>
-            <ul class="mobile-header__social-media">
-                <li><a href="https://github.com/omerariyurek" target="_blank"><i class="fab fa-github"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/omerariyurek/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                <li><a href="https://medium.com/@@omerariyurek" target="_blank"><i class="fab fa-medium"></i></a></li>
-                <li><a href="mailto:omerariyurek@@hotmail.com"><i class="fas fa-envelope"></i></a></li>
-            </ul>
-        </div>
-    </section>
-    <section class="left-bar">
-        <a href="@Url.Action("Index","Home")"><img src="~/Content/images/logo.png" class="left-bar__logo"></a>
-        <ul class="left-bar__menu">
-            <li class="left-bar__menu--item">
-                <span class="left-bar__menu--title"><a class="left-bar__menu--text" href="@Url.Action("Index","Home")">Anasayfa</a></span>
-            </li>
-            <li class="left-bar__menu--item">
-                <span class="left-bar__menu--title">
-                    <a class="left-bar__menu--text" href="@Url.Action("Index","Post")">Yazılar</a>
-                </span>
-            </li>
-            <li class="left-bar__menu--item">
-                <span class="left-bar__menu--title"><a class="left-bar__menu--text" href="@Url.Action("Index", "Category")">Kategoriler</a>
-                </span>
-            </li>
-            <li class="left-bar__menu--item">
-                <span class="left-bar__menu--title"><a class="left-bar__menu--text" href="@Url.Action("Index","Tag")">Etiketler</a></span>
-            </li>
-           
-            <li class="left-bar__menu--item">
-                <span class="left-bar__menu--title"><a class="left-bar__menu--text" href="@Url.Action("Index", "Contact")">İletişim</a>
-                </span>
-            </li>
-        </ul>
-        <div class="left-bar__menu--search-wrapper">
-            <input type="text" class="left-bar__menu--search" placeholder="Bir şeyler arayın...">
-            <button><i class="fas fa-search search"></i></button>
-        </div>
-        <ul class="left-bar__social-media">
-            <li><a href="https://github.com/omerariyurek" target="_blank"><i class="fab fa-github"></i></a></li>
-            <li><a href="https://www.linkedin.com/in/omerariyurek/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-            <li><a href="https://medium.com/@@omerariyurek" target="_blank"><i class="fab fa-medium"></i></a></li>
-            <li><a href="mailto:omerariyurek@@hotmail.com"><i class="fas fa-envelope"></i></a></li>
-        </ul>
-    </section>
+    @await Component.InvokeAsync("Sidebar")
     @RenderBody()
     <div class="scroll-top">
         <i class="arrow up"></i>
     </div>
-    <section class="footer">
-        <div class="footer__top">
-            <li>
-                <span class="footer__top--title"><a class="footer__top--title-text" href="@Url.Action("Index","Tag")">Etiketler</a></span>
-                <ul class="footer__top--tags-list">
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Technology</a></li>
-                </ul>
-            </li>
-            <li>
-                <span class="footer__top--title"><a class="footer__top--title-text" href="@Url.Action("Index","Category")" target="_blank">Kategoriler</a></span>
-                <ul class="footer__top--categories-list">
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Technology</a></li>
-                    <li><a href="#">Technology</a></li>
-                </ul>
-            </li>
-            <li>
-                <span class="footer__top--title">Beni Takip Edin</span>
-                <ul class="footer__top--social-media">
-                    <li><a href="https://github.com/omerariyurek" target="_blank"><i class="fab fa-github"></i></a></li>
-                    <li><a href="https://www.linkedin.com/in/omerariyurek/" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://medium.com/@@omerariyurek" target="_blank"><i class="fab fa-medium"></i></a></li>
-                </ul>
-            </li>
-        </div>
-        <div class="footer-bottom">
-            <p>Bu sitenin kaynak kodlarına <a href="https://github.com/omerariyurek/my-blog" target="_blank"><i class="fab fa-github git-icon"></i> GitHub</a> üzerinden ulaşabilirsiniz.</p>
-            <nav>
-                <a href="@Url.Action("Index","Home")">Anasayfa</a>
-                <a href="@Url.Action("Index","Post")">Yazılar</a>
-                <a href="@Url.Action("Index","Contact")">İletişim</a>
-            </nav>
-        </div>
-    </section>
+    @await Component.InvokeAsync("Footer")
     <!--Script-->
-<script src="~/Content/scripts/app.js"></script>
-@RenderSection("scripts",false)
+    <script src="~/Content/scripts/app.js"></script>
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("scripts", false)
 </body>
 </html>

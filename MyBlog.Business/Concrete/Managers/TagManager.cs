@@ -81,7 +81,7 @@ namespace MyBlog.Business.Concrete.Managers
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]
-		[CacheRemoveAspect("ITagService.Get",Priority = 2)]
+		[CacheRemoveAspect("ITagService.Get", Priority = 2)]
 		public IResult Delete(int tagId)
 		{
 			_tagDal.Delete(new Tag { TagId = tagId });
@@ -113,9 +113,16 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<TagsDto>>(_tagDal.GetsTags().ToList());
 		}
 
+		[CacheAspect()]
 		public IDataResult<Tag> GetByUrl(string seoUrl)
 		{
-			return new SuccessDataResult<Tag>(_tagDal.Get(x=>x.SeoUrl==seoUrl));
+			return new SuccessDataResult<Tag>(_tagDal.Get(x => x.SeoUrl == seoUrl));
+		}
+
+		[CacheAspect()]
+		public IDataResult<List<Tag>> GetRandomSixTags()
+		{
+			return new SuccessDataResult<List<Tag>>(_tagDal.GetList(x => x.Status).OrderByDescending(x => Guid.NewGuid()).Take(6).ToList());
 		}
 	}
 }

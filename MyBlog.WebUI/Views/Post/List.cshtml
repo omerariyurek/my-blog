@@ -1,0 +1,37 @@
+﻿@model MyBlog.WebUI.Models.ViewModels.PostListViewModel
+@{
+    ViewData["Title"] = "List";
+}
+    <section class="load-more">
+        <h2 class="load-more--main-title">Diğer Yazılar</h2>
+        @foreach (var post in Model.PostDetails)
+        {
+            <div class="load-more__other-post">
+                <a href="@Url.Action("Get","Post",new{@seoUrl=@post.SeoUrl})">
+                    <img src="@post.FirstImage" alt="">
+                    <h2 class="load-more__other-post--title">@post.Title</h2>
+                </a>
+                <ul class="load-more__other-post--date-category">
+                    <li class="date">Nisan 14, 2019</li>
+                    <li class="hyphen">-</li>
+                    <li class="category">
+                        @foreach (var category in post.PostCategories)
+                        {
+                            <a href="@Url.Action("CategoryPosts", "Category", new {@seoUrl = category.SeoUrl})">@category.CategoryName</a>
+                        }
+                    </li>
+                </ul>
+                <div class="load-more__other-post--summary">
+                    @{
+                        var postContent = post.Content.Length > 330 ? post.Content.Substring(0, 336) + "..." : post.Content;
+                        @Html.Raw(postContent)
+                    }
+                </div>
+                <ul class="social-media">
+                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                </ul>
+            </div>
+        }
+    </section>

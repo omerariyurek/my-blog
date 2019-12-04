@@ -83,7 +83,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 		{
 			using (var context = new BlogContext())
 			{
-				var result = context.Posts.Where(x => x.PostId == postId).Select(x => new PostDto
+				var result = context.Posts.Where(x => x.PostId == postId && x.Status).Select(x => new PostDto
 				{
 					PostId = x.PostId,
 					SeoUrl = x.SeoUrl,
@@ -127,7 +127,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 		{
 			using (var context = new BlogContext())
 			{
-				var result = context.Posts.ToList().Select(x => new PostDetailDto
+				var result = context.Posts.Where(x=>x.Status).ToList().Select(x => new PostDetailDto
 				{
 					PostId = x.PostId,
 					SeoUrl = x.SeoUrl,
@@ -156,7 +156,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 				var result = from post in context.Posts
 							 join postCategories in context.PostCategories
 								 on post.PostId equals postCategories.PostId
-							 where postCategories.CategoryId == categoryId
+							 where postCategories.CategoryId == categoryId && post.Status
 							 select new
 							 {
 								 PostId = post.PostId,
@@ -205,7 +205,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 				var result = from post in context.Posts
 							 join posTags in context.PostTags
 								 on post.PostId equals posTags.PostId
-							 where posTags.TagId == tagId
+							 where posTags.TagId == tagId && post.Status
 							 select new
 							 {
 								 PostId = post.PostId,
@@ -251,7 +251,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 			using (var context = new BlogContext())
 			{
 
-				var result = context.Posts.FirstOrDefault(x => x.PostId == postId);
+				var result = context.Posts.FirstOrDefault(x => x.PostId == postId && x.Status);
 				if (result == null) return null;
 				var postDetail = new PostDetailDto
 				{
@@ -287,7 +287,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 		{
 			using (var context = new BlogContext())
 			{
-				var result = context.Posts.ToList().OrderBy(x => Guid.NewGuid()).Take(2).ToList();
+				var result = context.Posts.Where(x=>x.Status).OrderBy(x => Guid.NewGuid()).Take(2).ToList();
 				return result;
 			}
 		}

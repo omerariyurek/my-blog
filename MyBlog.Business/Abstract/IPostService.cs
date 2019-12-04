@@ -25,5 +25,6 @@ namespace MyBlog.Business.Abstract
 		IDataResult<PostDetailDto> GetPostDetail(int postId);
 		IDataResult<List<Post>> GetActiveSixPosts();
 		IDataResult<List<Post>> GetRandomTwoPosts();
+		IDataResult<List<PostDetailDto>> GetPostsBySearchKey(PostSearchDto postSearchDto);
 	}
 }

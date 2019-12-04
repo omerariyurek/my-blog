@@ -176,3 +176,6 @@ C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Tag\TagPosts.cshtml.g.cs
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Post\Get.cshtml.g.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Components\Sidebar\Default.cshtml.g.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.0\Razor\Views\Post\List.cshtml.g.cs

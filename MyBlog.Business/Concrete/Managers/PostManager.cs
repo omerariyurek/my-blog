@@ -223,5 +223,14 @@ namespace MyBlog.Business.Concrete.Managers
 		{
 			return new SuccessDataResult<List<Post>>(_postDal.GetRandomTwoPosts());
 		}
+
+		[ValidationAspect(typeof(PostSearchValidator))]
+		[CacheAspect()]
+		public IDataResult<List<PostDetailDto>> GetPostsBySearchKey(PostSearchDto postSearchDto)
+		{
+			var posts = GetPostDetails().Data;
+			var postDetailDto = posts.Where(x => x.Title.Contains(postSearchDto.PostName) || x.Content.Contains(postSearchDto.PostName)).ToList();
+			return new SuccessDataResult<List<PostDetailDto>>(postDetailDto);
+		}
 	}
 }

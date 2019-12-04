@@ -18,5 +18,6 @@ namespace MyBlog.Business.Abstract
 		IDataResult<List<Category>> GetListActive();
 		IDataResult<List<CategoriesDto>> GetCategories();
 		IResult CheckIfCategoryNameExists(string categoryName);
+		IDataResult<List<Category>> GetRandomSixCategories();
 	}
 }
