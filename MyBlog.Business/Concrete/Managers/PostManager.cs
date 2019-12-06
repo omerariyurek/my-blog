@@ -201,9 +201,9 @@ namespace MyBlog.Business.Concrete.Managers
 		}
 
 		[CacheAspect()]
-		public IDataResult<int> GetByUrl(string seoUrl)
+		public IDataResult<Post> GetByUrl(string seoUrl)
 		{
-			return new SuccessDataResult<int>(_postDal.Get(x => x.SeoUrl == seoUrl).PostId);
+			return new SuccessDataResult<Post>(_postDal.Get(x => x.SeoUrl == seoUrl));
 		}
 
 		[CacheAspect()]
@@ -224,12 +224,12 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<Post>>(_postDal.GetRandomTwoPosts());
 		}
 
-		[ValidationAspect(typeof(PostSearchValidator))]
+
 		[CacheAspect()]
-		public IDataResult<List<PostDetailDto>> GetPostsBySearchKey(PostSearchDto postSearchDto)
+		public IDataResult<List<PostDetailDto>> GetPostsBySearchKey(string postName)
 		{
 			var posts = GetPostDetails().Data;
-			var postDetailDto = posts.Where(x => x.Title.Contains(postSearchDto.PostName) || x.Content.Contains(postSearchDto.PostName)).ToList();
+			var postDetailDto = posts.Where(x => x.Title.ToLower().Contains(postName.ToLower()) || x.Content.ToLower().Contains(postName.ToLower())).ToList();
 			return new SuccessDataResult<List<PostDetailDto>>(postDetailDto);
 		}
 	}

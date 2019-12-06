@@ -13,7 +13,7 @@ namespace MyBlog.WebUI.ViewComponents
 	{
 		public ViewViewComponentResult Invoke()
 		{
-			return View(new PostSearchDto());
+			return View();
 		}
 	}
 }

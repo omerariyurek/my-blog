@@ -2,123 +2,108 @@
 @{
     ViewData["Title"] = $"{Model.PostDetail.Title} - Ömer ARIYÜREK";
 }
-    <section class="post-content">
-        <h2 class="post-content__title">@Model.PostDetail.Title</h2>
-        <ul class="post-content__info-list">
-            <li>
-                @foreach (var category in Model.PostDetail.PostCategories)
-                {
-                    <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=category.SeoUrl})">@category.CategoryName</a>
-                }
-            </li>
-            <li class="hyphen">-</li>
-            <li>
-                <i class="far fa-comment"></i>
-                <small class="post-content__info-list--comment">0</small>
-            </li>
-        </ul>
-        <div class="post-content__content">
-            <img src="@Model.PostDetail.FirstImage" class="post-content__main-photo">
-            <div class="post-content__content--content-txt">
-                @Html.Raw(Model.PostDetail.Content)
-            </div>
-            <ul class="share-social-media">
-                <li style="font-size: larger">Paylaş</li>
-                <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-            </ul>
-        </div>
-        <div class="post-content__category-tag">
-            @foreach (var tag in Model.PostTags)
+@section metaTags
+{
+    <meta name="description" content="@Model.PostDetail.MetaDescription" />
+    <meta name="keywords" content="@Model.PostDetail.MetaKeywords" />
+}
+<section class="post-content">
+    <h2 class="post-content__title">@Model.PostDetail.Title</h2>
+    <ul class="post-content__info-list">
+        <li>
+            @foreach (var category in Model.PostDetail.PostCategories)
             {
-                <a href="@Url.Action("TagPosts","Tag",new{@seoUrl=tag.SeoUrl})">@tag.TagName</a>
+                <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=category.SeoUrl})">@category.CategoryName</a>
+            }
+        </li>
+        <li class="hyphen">-</li>
+        <li>
+            <i class="far fa-comment"></i>
+            <small class="post-content__info-list--comment">@Model.Comments.Count</small>
+        </li>
+    </ul>
+    <div class="post-content__content">
+        <img src="@Model.PostDetail.FirstImage" class="post-content__main-photo" alt="@Model.PostDetail.MetaKeywords" title="@Model.PostDetail.Title">
+        <div class="post-content__content--content-txt">
+            @Html.Raw(Model.PostDetail.Content)
+        </div>
+    </div>
+    <div class="post-content__category-tag">
+        @foreach (var tag in Model.PostTags)
+        {
+            <a href="@Url.Action("TagPosts","Tag",new{@seoUrl=tag.SeoUrl})">@tag.TagName</a>
+        }
+    </div>
+    <div class="post-content__related-post">
+        <h5 class="post-content__related-post--title">Diğer Paylaşımlar</h5>
+        <ul class="post-content__related-post--related-list">
+            @foreach (var post in Model.RandomTwoPosts)
+            {
+                <li class="post-content__related-post--list-item">
+                    <a href="@Url.Action("Get","Post",new{@seoUrl=post.SeoUrl})">
+                        <div class="img-and-tag">
+                            <img src="@post.CoverImage" alt="@post.MetaKeywords" title="@post.Title">
+                        </div>
+                        <h5 class="post-content__related-post--related-list--title">@post.Title</h5>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+    @if (Model.PostDetail.CommentStatus)
+    {
+        <div class="post-content__comment-wrapper">
+            @if (Model.Comments.Count > 0)
+            {
+                <h4 class="comment-title">Yorumlarınız</h4>
+                @foreach (var comment in Model.Comments)
+                {
+                    @if (comment.ParentComment == null)
+                    {
+                        <div class="post-content__comment-wrapper--comment">
+                            <span class="post-content__comment-wrapper--name">@comment.AuthorName</span>
+                            <p class="post-content__comment-wrapper--comment-txt">
+                                @comment.Content
+                            </p>
+                            <p style="display: inline-block;">@comment.CreatedDate.ToString("dddd, dd MMMM yyyy")</p>
+                            <a href="#comment" style="float: right; color: #ec6a2a; text-decoration: none;" onclick="">Yanıtla</a>
+                        </div>
+                    }
+                    foreach (var parentComment in Model.Comments.Where(x => x.ParentComment == comment.CommentId))
+                    {
+                        <div class="reply-comment">
+                            <span class="post-content__comment-wrapper--name">@parentComment.AuthorName</span>
+                            <p class="post-content__comment-wrapper--comment-txt">
+                                @parentComment.Content
+                            </p>
+                            <p style="display: inline-block;">@comment.CreatedDate.ToString("dddd, dd MMMM yyyy")</p>
+                        </div>
+                    }
+                }
             }
         </div>
-        <div class="post-content__related-post">
-            <h5 class="post-content__related-post--title">Diğer Paylaşımlar</h5>
-            <ul class="post-content__related-post--related-list">
-                @foreach (var post in Model.RandomTwoPosts)
-                {
-                    <li class="post-content__related-post--list-item">
-                        <a href="@Url.Action("Index","Post",new{@seoUrl=post.SeoUrl})">
-                            <div class="img-and-tag">
-                                <img src="@post.CoverImage" alt="">
-                            </div>
-                            <h5 class="post-content__related-post--related-list--title">@post.Title</h5>
-                        </a>
-                    </li>
-                }
-            </ul>
+        <div id="comment" class="post-content__post-comment">
+            <h4 class="comment-title">Bir Yorum Yapın</h4>
+            <form asp-action="Add" asp-controller="Comment" asp-antiforgery="true" method="post">
+                <input asp-for="Comment.PostId" type="hidden" value="@Model.PostDetail.PostId" />
+                <label>Yorumunuz</label>
+                <textarea style="resize: none;"asp-for="Comment.Content"></textarea>
+                <span style="float:left;width: 100%;" asp-validation-for="Comment.Content"></span>
+                <div class="small">
+                    <label>Adınız Soyadınız</label>
+                    <input asp-for="Comment.AuthorName" class="customer-name">
+                    <span asp-validation-for="Comment.AuthorName"></span>
+                </div>
+                <div class="small">
+                    <label>E-Mail</label>
+                    <input asp-for="Comment.AuthorEmail" class="customer-name">
+                    <span asp-validation-for="Comment.AuthorEmail"></span>
+                </div>
+                <button type="submit">Yorum Gönder</button>
+            </form>
         </div>
-        @if (Model.PostDetail.CommentStatus)
-        {
-            <div class="post-content__comment-wrapper">
-                <h4 class="comment-title">Yorumlarınız</h4>
-                <div class="post-content__comment-wrapper--comment">
-                    <span class="post-content__comment-wrapper--name">Lorem Ipsum</span>
-                    <p class="post-content__comment-wrapper--comment-txt">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis doloribus porro,
-                        enim sequi quod adipisci magnam blanditiis. Blanditiis, minus suscipit.
-                        Amet, consequatur provident earum dolor aliquam nostrum fugit velit vero!
-                    </p>
-                </div>
-                <div class="reply-comment">
-                    <span class="post-content__comment-wrapper--name">Lorem Ipsum</span>
-                    <p class="post-content__comment-wrapper--comment-txt">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis doloribus porro,
-                        enim sequi quod adipisci magnam blanditiis. Blanditiis, minus suscipit.
-                        Amet, consequatur provident earum dolor aliquam nostrum fugit velit vero!
-                    </p>
-                </div>
-                <div class="reply-comment">
-                    <span class="post-content__comment-wrapper--name">Lorem Ipsum</span>
-                    <p class="post-content__comment-wrapper--comment-txt">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis doloribus porro,
-                        enim sequi quod adipisci magnam blanditiis. Blanditiis, minus suscipit.
-                        Amet, consequatur provident earum dolor aliquam nostrum fugit velit vero!
-                    </p>
-                </div>
-                <div class="post-content__comment-wrapper--comment">
-                    <span class="post-content__comment-wrapper--name">Lorem Ipsum</span>
-                    <p class="post-content__comment-wrapper--comment-txt">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis doloribus porro,
-                        enim sequi quod adipisci magnam blanditiis. Blanditiis, minus suscipit.
-                        Amet, consequatur provident earum dolor aliquam nostrum fugit velit vero!
-                    </p>
-                </div>
-                <div class="post-content__comment-wrapper--comment">
-                    <span class="post-content__comment-wrapper--name">Lorem Ipsum</span>
-                    <p class="post-content__comment-wrapper--comment-txt">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis doloribus porro,
-                        enim sequi quod adipisci magnam blanditiis. Blanditiis, minus suscipit.
-                        Amet, consequatur provident earum dolor aliquam nostrum fugit velit vero!
-                    </p>
-                </div>
-                <div class="reply-comment">
-                    <span class="post-content__comment-wrapper--name">Lorem Ipsum</span>
-                    <p class="post-content__comment-wrapper--comment-txt">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Omnis doloribus porro,
-                        enim sequi quod adipisci magnam blanditiis. Blanditiis, minus suscipit.
-                        Amet, consequatur provident earum dolor aliquam nostrum fugit velit vero!
-                    </p>
-                </div>
-            </div>
-            <div class="post-content__post-comment">
-                <h4 class="comment-title">Bir Yorum Yapın</h4>
-                <form>
-                    <label>Yorumunuz</label>
-                    <textarea></textarea>
-                    <div class="small">
-                        <label>Adınız Soyadınız</label>
-                        <input type="text" class="customer-name">
-                    </div>
-                    <div class="small">
-                        <label>E-Mail</label>
-                        <input type="text" class="customer-name">
-                    </div>
-                    <button type="submit">Yorum Gönder</button>
-                </form>
-            </div>
-        }
-    </section>
+    }
+</section>
+<script type="text/javascript">
+
+</script>

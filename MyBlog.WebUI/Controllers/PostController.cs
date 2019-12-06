@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MyBlog.Business.Abstract;
+using MyBlog.Entities.Concrete;
 using MyBlog.Entities.Dtos;
 using MyBlog.WebUI.Models.ViewModels;
 
@@ -12,10 +14,12 @@ namespace MyBlog.WebUI.Controllers
 	public class PostController : Controller
 	{
 		private IPostService _postService;
+		private ICommentService _commentService;
 
-		public PostController(IPostService postService)
+		public PostController(IPostService postService, ICommentService commentService)
 		{
 			_postService = postService;
+			_commentService = commentService;
 		}
 
 		[HttpGet("/posts/{page=1}")]
@@ -36,34 +40,41 @@ namespace MyBlog.WebUI.Controllers
 		[HttpGet("/post/{seoUrl}")]
 		public IActionResult Get(string seoUrl)
 		{
-			if (!string.IsNullOrEmpty(seoUrl))
+			var post = _postService.GetByUrl(seoUrl).Data;
+			if (post == null)
 			{
-				var postId = _postService.GetByUrl(seoUrl).Data;
-				var model = new PostGetViewModel
-				{
-					PostTags = _postService.GetPostTags(postId).Data,
-					PostDetail = _postService.GetPostDetail(postId).Data,
-					RandomTwoPosts = _postService.GetRandomTwoPosts().Data
-				};
-				return View(model);
+				return RedirectToAction("PageNotFound", "Error");
 			}
-			return RedirectToAction("PageNotFound", "Error");
-		}
-
-		[HttpGet("/list")]
-		public IActionResult List(PostSearchDto postSearchDto, int page = 1)
-		{
-			int pageSize = 5;
-			var posts = _postService.GetPostsBySearchKey(postSearchDto).Data;
-			var model = new PostListViewModel
+			var model = new PostGetViewModel
 			{
-				PostDetails = posts.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
-				PageCount = (int)Math.Ceiling(posts.Count / (double)pageSize),
-				CurrentPage = page,
-				PageSize = pageSize,
-				SearchKey = postSearchDto.PostName
+				PostTags = _postService.GetPostTags(post.PostId).Data,
+				PostDetail = _postService.GetPostDetail(post.PostId).Data,
+				RandomTwoPosts = _postService.GetRandomTwoPosts().Data,
+				Comment = new Comment(),
+				Comments = _commentService.GetByPostId(post.PostId).Data
 			};
 			return View(model);
+		}
+
+		[HttpGet("/all-post")]
+		public IActionResult List(string search, int page = 1)
+		{
+			if (!string.IsNullOrEmpty(search))
+			{
+				int pageSize = 5;
+				var posts = _postService.GetPostsBySearchKey(search).Data;
+				var model = new PostListViewModel
+				{
+					PostDetails = posts.Skip((page - 1) * pageSize).Take(pageSize).ToList(),
+					PageCount = (int)Math.Ceiling(posts.Count / (double)pageSize),
+					CurrentPage = page,
+					PageSize = pageSize,
+					SearchKey = search
+				};
+				TempData.Add("searchPost", search);
+				return View(model);
+			}
+			return RedirectToAction("Index", "Post");
 		}
 
 	}

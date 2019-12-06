@@ -43,7 +43,6 @@ namespace MyBlog.WebUI.Controllers
 		    {
 			    return RedirectToAction("PageNotFound", "Error");
 		    }
-
 		    var tagPosts = _postService.GetTagPosts(tag.TagId).Data;
 		    var model = new TagPostsViewModel
 		    {

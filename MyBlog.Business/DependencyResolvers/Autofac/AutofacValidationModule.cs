@@ -22,7 +22,6 @@ namespace MyBlog.Business.DependencyResolvers.Autofac
 			builder.RegisterType<TagValidator>().As<IValidator<Tag>>();
 			builder.RegisterType<CommentValidator>().As<IValidator<Comment>>();
 			builder.RegisterType<ContactValidator>().As<IValidator<Contact>>();
-			builder.RegisterType<PostSearchValidator>().As<IValidator<PostSearchDto>>();
 		}
 	}
 }

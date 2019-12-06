@@ -14,7 +14,6 @@ using MyBlog.Business.DependencyResolvers.Autofac;
 using MyBlog.Core.DependencyResolvers;
 using MyBlog.Core.Extensions;
 using MyBlog.Core.Utilities.IoC;
-using MyBlog.WebUI.Middlewares;
 
 namespace MyBlog.WebUI
 {
@@ -50,8 +49,8 @@ namespace MyBlog.WebUI
 				app.UseHsts();
 			}
 			app.UseFileServer();
-			app.UseNodeModules(env.ContentRootPath);
-			app.UseStyleFiles(env.ContentRootPath);
+			app.UseFiles(env.ContentRootPath, "node_modules", "/node_modules");
+			app.UseFiles(env.ContentRootPath, "content", "/content");
 			app.UseRouting();
 			app.UseAuthentication();
 			app.UseAuthorization();

@@ -13,5 +13,6 @@ namespace MyBlog.Business.Abstract
 		IResult Update(Comment comment);
 		IResult Delete(int commentId);
 		IDataResult<Comment> GetById(int commentId);
+		IDataResult<List<Comment>> GetByPostId(int postId);
 	}
 }

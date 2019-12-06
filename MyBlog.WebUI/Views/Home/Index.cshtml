@@ -28,12 +28,6 @@
                         <img src="@post.CoverImage" alt="">
                         <h5 class="homepage-content__articles-list--content-title">@post.Title</h5>
                     </a>
-                    @*<div class="homepage-content__articles-list--content-summary">
-                        @{
-                            var postContent = post.Content.Length > 150 ? post.Content.Substring(0, 146) + "..." : post.Content;
-                            @Html.Raw(postContent)
-                        }
-                    </div>*@
                     <span class="homepage-content__articles-list--content-date">@post.CreatedDate.ToString("MM/dd/yyyy")</span>
                 </li>
             }

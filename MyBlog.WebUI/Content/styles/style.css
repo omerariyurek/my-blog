@@ -94,7 +94,7 @@ body::-webkit-scrollbar-thumb {
 
     .left-bar__menu--search-wrapper button {
         position: relative;
-        right: 20%;
+        right: 10%;
         top: 61%;
         background: transparent;
         border: none;
@@ -136,7 +136,7 @@ body::-webkit-scrollbar-thumb {
 
 .mobile-header__menu--search {
     margin-top: 30px;
-    width: 100%;
+    width: 80%;
     display: block;
     width: 250px;
     height: 30px;
@@ -921,6 +921,7 @@ body::-webkit-scrollbar-thumb {
     font-size: 14px;
     line-height: 24px;
     color: #737373;
+    padding-bottom: 5px;
 }
 
 .post-content__post-comment {
@@ -1363,6 +1364,10 @@ label {
         color: #737373;
         padding-left: 10px;
     }
+
+ .icon-font-size {
+     font-size: 20px;
+ }
 
 @media screen and (max-width: 1368px) {
     .left-bar {

@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using MyBlog.Business.Abstract;
 using MyBlog.Business.BusinessAspects.Autofac.Security;
+using MyBlog.Business.ValidationRules.FluentValidation;
 using MyBlog.Core.Aspects.Autofac.Caching;
+using MyBlog.Core.Aspects.Autofac.Validation;
 using MyBlog.Core.Utilities.Results.Abstract;
 using MyBlog.Core.Utilities.Results.Concrete;
 using MyBlog.DataAccess.Abstract;
@@ -28,9 +31,11 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<Comment>>(_commentDal.GetAll().ToList());
 		}
 
-		[CacheRemoveAspect("ICommentService.Get", Priority = 1)]
+		[ValidationAspect(typeof(CommentValidator))]
+		[CacheRemoveAspect("ICommentService.Get", Priority = 2)]
 		public IResult Add(Comment comment)
 		{
+			comment.Approved = true;
 			_commentDal.Add(comment);
 			return new SuccessResult("");
 		}
@@ -55,6 +60,12 @@ namespace MyBlog.Business.Concrete.Managers
 		public IDataResult<Comment> GetById(int commentId)
 		{
 			return new SuccessDataResult<Comment>(_commentDal.GetComment(commentId));
+		}
+
+		[CacheAspect()]
+		public IDataResult<List<Comment>> GetByPostId(int postId)
+		{
+			return new SuccessDataResult<List<Comment>>(_commentDal.GetList(x=>x.Approved &&x.PostId==postId).ToList());
 		}
 	}
 }

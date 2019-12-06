@@ -21,10 +21,10 @@ namespace MyBlog.Business.Abstract
 		IDataResult<List<PostTagsDto>> GetPostTags(int postId);
 		IDataResult<List<PostCategoriesDto>> GetPostCategories(int postId);
 		IDataResult<List<PostDetailDto>> GetTagPosts(int tagId);
-		IDataResult<int> GetByUrl(string seoUrl);
+		IDataResult<Post> GetByUrl(string seoUrl);
 		IDataResult<PostDetailDto> GetPostDetail(int postId);
 		IDataResult<List<Post>> GetActiveSixPosts();
 		IDataResult<List<Post>> GetRandomTwoPosts();
-		IDataResult<List<PostDetailDto>> GetPostsBySearchKey(PostSearchDto postSearchDto);
+		IDataResult<List<PostDetailDto>> GetPostsBySearchKey(string postName);
 	}
 }

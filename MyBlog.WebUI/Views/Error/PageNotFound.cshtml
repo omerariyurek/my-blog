@@ -20,8 +20,10 @@
             <div class="error-message">
                 <p>Aradığınız sayfa bulunamadı</p>
                 <div class="search-wrapper">
-                    <input type="text" placeholder="Bir şeyler arayın...">
-                    <button><i class="fas fa-search search"></i></button>
+                    <form asp-action="List" asp-controller="Post" method="get">
+                        <input name="search" type="text" placeholder="Bir şeyler arayın...">
+                        <button type="submit"><i class="fas fa-search search"></i></button>
+                    </form>
                 </div>
                 <a href="@Url.Action("Index","Home")">Anasayfa</a>
             </div>

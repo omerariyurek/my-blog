@@ -1,9 +1,9 @@
 ﻿@model MyBlog.WebUI.Models.ViewModels.PostListViewModel
 @{
-    ViewData["Title"] = "List";
+    ViewData["Title"] = $"{@TempData["searchPost"]} - Ömer ARIYÜREK";
 }
     <section class="load-more">
-        <h2 class="load-more--main-title">Diğer Yazılar</h2>
+        <h2 class="load-more--main-title">@TempData["searchPost"] için arama sonuçları</h2>
         @foreach (var post in Model.PostDetails)
         {
             <div class="load-more__other-post">
@@ -12,7 +12,7 @@
                     <h2 class="load-more__other-post--title">@post.Title</h2>
                 </a>
                 <ul class="load-more__other-post--date-category">
-                    <li class="date">Nisan 14, 2019</li>
+                    <li class="date">@post.CreatedDate.ToString("MM/dd/yyyy")</li>
                     <li class="hyphen">-</li>
                     <li class="category">
                         @foreach (var category in post.PostCategories)
@@ -21,17 +21,7 @@
                         }
                     </li>
                 </ul>
-                <div class="load-more__other-post--summary">
-                    @{
-                        var postContent = post.Content.Length > 330 ? post.Content.Substring(0, 336) + "..." : post.Content;
-                        @Html.Raw(postContent)
-                    }
-                </div>
-                <ul class="social-media">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                </ul>
             </div>
         }
+        <post-all-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage" search-post="@Model.SearchKey"></post-all-paging>
     </section>

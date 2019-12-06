@@ -1,5 +1,4 @@
-﻿@model MyBlog.Entities.Dtos.PostSearchDto
-<section class="mobile-header">
+﻿<section class="mobile-header">
     <div class="mobile-header__mobile-logo">
         <a href="@Url.Action("Index","Home")"><img src="~/Content/images/logo.png" /></a>
     </div>
@@ -24,10 +23,9 @@
             </li>
         </ul>
         <div class="mobile-header__menu--search-wrapper">
-            <form asp-action="List" asp-controller="Post">
-                <input asp-for="PostName" class="mobile-header__menu--search" placeholder="Bir şeyler arayın...">
+            <form asp-action="List" asp-controller="Post" method="get">
+                <input name="search" class="mobile-header__menu--search" placeholder="Bir şeyler arayın...">
                 <button type="submit"><i class="fas fa-search search"></i></button>
-                <span style="color: white;float: left;padding-left: 18%; padding-top: 5px;" asp-validation-for="PostName"></span>
             </form>
         </div>
         <ul class="mobile-header__social-media">
@@ -65,13 +63,9 @@
         </li>
     </ul>
     <div class="left-bar__menu--search-wrapper">
-        <form asp-action="List" asp-controller="Post" asp-antiforgery="true">
-            <input asp-for="PostName" class="mobile-header__menu--search" placeholder="Bir şeyler arayın...">
+        <form asp-action="List" asp-controller="Post" method="get">
+            <input name="search" class="mobile-header__menu--search" placeholder="Bir şeyler arayın...">
             <button type="submit"><i class="fas fa-search search"></i></button>
-            <div style="padding-right:19px">
-                <span asp-validation-for="PostName"></span>
-            </div>
-
         </form>
     </div>
     <ul class="left-bar__social-media">
@@ -81,8 +75,3 @@
         <li><a href="mailto:omerariyurek@@hotmail.com"><i class="fas fa-envelope"></i></a></li>
     </ul>
 </section>
-@section scripts{
-    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
-}

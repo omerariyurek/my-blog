@@ -12,5 +12,7 @@ namespace MyBlog.WebUI.Models.ViewModels
 		public PostDetailDto PostDetail { get; set; }
 		public List<PostTagsDto> PostTags { get; set; }
 		public List<Post> RandomTwoPosts { get; set; }
+		public Comment Comment { get; set; }
+		public List<Comment> Comments { get; set; }
 	}
 }
