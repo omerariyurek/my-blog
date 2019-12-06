@@ -23,6 +23,7 @@ namespace MyBlog.WebUI.Controllers
 		{
 			comment.AuthorIpAddress = HttpContext.Connection.RemoteIpAddress.ToString();
 			var addCommentOperation = _commentService.Add(comment);
+			TempData.Add(!addCommentOperation.Success ? "CommentAddError" : "CommentInsertSuccessful", addCommentOperation.Message);
 			return RedirectToAction("Index","Post");
 		}
 	}
