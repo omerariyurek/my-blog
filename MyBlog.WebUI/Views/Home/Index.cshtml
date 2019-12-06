@@ -2,6 +2,15 @@
 @{
     ViewData["Title"] = "Ömer ARIYÜREK - .NET Developer";
 }
+@section metaTags
+{
+    <meta name="description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming hakkında yazılar" />
+    <meta name="keywords" content="Ömer Arıyürek,C#,ASP.NET CORE,.NET Core,.NET,Entity Framework,Ömer Arıyürek,C#,ASP.NET CORE MVC,.NET Core,.NET,Entity Framework,Design Patterns,ASP.NET MVC,ASP.NET Core Web Api" />
+    <meta property="og:image" content="@Url.Content("~/Content/images/omer-ariyurek-logo.png")" />
+    <meta property="og:title" content="@ViewData["Title"]">
+    <meta property="og:url" content="https://www.omerariyurek.com">
+    <meta property="og:description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming hakkında yazılar" />
+}
 <section class="homepage-content">
     <div class="homepage-content__about-me">
         <img class="homepage-content__my-photo">
@@ -9,23 +18,19 @@
             <span class="homepage-content__about-txt--hello">Merhaba! Ben</span>
             <span class="homepage-content__about-txt--name">Ömer Arıyürek</span>
             <p class="homepage-content__about-txt--about-content">
-                A wonderful serenity has taken possession of my entire soul,
-                like these sweet mornings of spring which I enjoy with my whole heart.
-                I am alone, and feel the charm of existence in this spot,
-                which was created for the bliss of souls like mine. I am so happy,
-                my dear friend, so absorbed in the exquisite.
+                Yazılım ile lise yıllarımda bilişim teknolojileri bölümünde okurken tanıştım. Daha sonrasında üniversitede ise bilgisayar programcılığı bölümünü bitirdim. Yaklaşık 5 senedir kod yazmakla birlikte bilgilerime yenilerini eklemekteyim. Ağırlıklı olarak Microsoft teknolojilerini kullanmaktayım. Blogumda elimden geldiğince bildiklerim ve öğrendiğim teknolojiler hakkında yazılar yazmaya çalışacağım...
             </p>
         </div>
         <div class="homepage-content__about-me--background-image"></div>
     </div>
     <div class="homepage-content__recents-articles">
-        <h3 class="homepage-content__recents-articles--recents-title">Son Makaleler</h3>
+        <h3 class="homepage-content__recents-articles--recents-title">Son Yazılar</h3>
         <ul class="homepage-content__articles-list">
             @foreach (var post in Model.Posts)
             {
                 <li class="homepage-content__articles-list--item">
-                    <a href="@Url.Action("Get","Post",new{@seoUrl=post.SeoUrl})">
-                        <img src="@post.CoverImage" alt="">
+                    <a href="@Url.Action("Get","Post",new{@seoUrl=post.SeoUrl})" title="@post.Title">
+                        <img src="@post.CoverImage" alt="@post.Title" title="@post.Title">
                         <h5 class="homepage-content__articles-list--content-title">@post.Title</h5>
                     </a>
                     <span class="homepage-content__articles-list--content-date">@post.CreatedDate.ToString("MM/dd/yyyy")</span>

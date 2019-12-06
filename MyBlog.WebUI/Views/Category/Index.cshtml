@@ -11,7 +11,7 @@
         {
             <li class="category-content__content-box--item">
                 <img src="~/Content/images/category-background.jpg" />
-                <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=@category.SeoUrl})" class="title">@category.CategoryName</a>
+                <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=@category.SeoUrl})" class="title" title="@category.CategoryName">@category.CategoryName</a>
             </li>
         }
     </ul>

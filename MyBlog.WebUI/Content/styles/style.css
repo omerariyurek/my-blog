@@ -217,7 +217,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 .homepage-content__about-txt--about-content {
-    width: 60%;
+    width: 70%;
     font-size: 15px;
     font-weight: 500;
     color: #ffffff;
@@ -694,6 +694,16 @@ body::-webkit-scrollbar-thumb {
     font-size: 25px;
     color: #161616;
     font-weight: bold;
+}
+
+.post-content__comment-successfully {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    font-size: 20px;
+    color: #ec6a2a;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .post-content__info-list {

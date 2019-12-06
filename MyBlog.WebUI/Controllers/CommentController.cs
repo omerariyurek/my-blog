@@ -11,10 +11,12 @@ namespace MyBlog.WebUI.Controllers
 	public class CommentController : Controller
 	{
 		private ICommentService _commentService;
+		private IPostService _postService;
 
-		public CommentController(ICommentService commentService)
+		public CommentController(ICommentService commentService, IPostService postService)
 		{
 			_commentService = commentService;
+			_postService = postService;
 		}
 
 		[HttpPost]
@@ -23,8 +25,13 @@ namespace MyBlog.WebUI.Controllers
 		{
 			comment.AuthorIpAddress = HttpContext.Connection.RemoteIpAddress.ToString();
 			var addCommentOperation = _commentService.Add(comment);
-			TempData.Add(!addCommentOperation.Success ? "CommentAddError" : "CommentInsertSuccessful", addCommentOperation.Message);
-			return RedirectToAction("Index","Post");
+			if (addCommentOperation.Success)
+			{
+				var post = _postService.GetById(comment.PostId).Data;
+				TempData.Add("CommentInsertSuccessful",addCommentOperation.Message);
+				return RedirectToAction("Get", "Post", new {seoUrl = post.SeoUrl});
+			}
+			return RedirectToAction("InternalServerError","Error");
 		}
 	}
 }

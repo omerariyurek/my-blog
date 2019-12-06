@@ -46,7 +46,7 @@ namespace MyBlog.Business.Concrete.Managers
 		public IResult Update(Contact contact)
 		{
 			_contactDal.Update(contact);
-			return new SuccessResult("");
+			return new SuccessResult(Messages.ContactUpdated);
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]
@@ -54,7 +54,7 @@ namespace MyBlog.Business.Concrete.Managers
 		public IResult Delete(int contactId)
 		{
 			_contactDal.Delete(new Contact{ContactId = contactId});
-			return new SuccessResult("");
+			return new SuccessResult(Messages.ContactDeleted);
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]

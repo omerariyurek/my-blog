@@ -2,19 +2,13 @@
 @{
     ViewData["Title"] = "Yazılar - Ömer ARIYÜREK";
 }
-<div>
-    @if (TempData["CommentInsertSuccessful"] != null)
-    {
-        <p>@TempData["CommentInsertSuccessful"]</p>
-    }
-</div>
 <section class="load-more">
     <h2 class="load-more--main-title">Diğer Yazılar</h2>
     @foreach (var post in Model.PostDetails)
     {
         <div class="load-more__other-post">
-            <a href="@Url.Action("Get", "Post", new {@seoUrl = @post.SeoUrl})">
-                <img src="@post.FirstImage" alt="">
+            <a href="@Url.Action("Get", "Post", new {@seoUrl = @post.SeoUrl})" title="@post.Title">
+                <img src="@post.FirstImage" alt="@post.Title" title="@post.Title">
                 <h2 class="load-more__other-post--title">@post.Title</h2>
             </a>
             <ul class="load-more__other-post--date-category">
@@ -23,7 +17,7 @@
                 <li class="category">
                     @foreach (var category in post.PostCategories)
                     {
-                        <a href="@Url.Action("CategoryPosts", "Category", new {@seoUrl = category.SeoUrl})">@category.CategoryName</a>
+                        <a href="@Url.Action("CategoryPosts", "Category", new {@seoUrl = category.SeoUrl})" title="@category.CategoryName">@category.CategoryName</a>
                     }
                 </li>
             </ul>

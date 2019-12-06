@@ -27,12 +27,6 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<OperationClaim>>(_userDal.GetClaims(user));
 		}
 
-		[CacheRemoveAspect("IUserService.Get")]
-		public IResult Add(User user)
-		{
-			throw new NotImplementedException();
-		}
-
 		public IDataResult<User> CheckIfUserNameExists(string userName)
 		{
 			var userToCheck = _userDal.Get(x => x.UserName == userName);

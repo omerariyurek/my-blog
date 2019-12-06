@@ -5,6 +5,7 @@ using System.Text;
 using System.Xml;
 using MyBlog.Business.Abstract;
 using MyBlog.Business.BusinessAspects.Autofac.Security;
+using MyBlog.Business.Constants;
 using MyBlog.Business.ValidationRules.FluentValidation;
 using MyBlog.Core.Aspects.Autofac.Caching;
 using MyBlog.Core.Aspects.Autofac.Validation;
@@ -31,21 +32,22 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<Comment>>(_commentDal.GetAll().ToList());
 		}
 
-		[ValidationAspect(typeof(CommentValidator))]
+		[ValidationAspect(typeof(CommentValidator),Priority = 1)]
 		[CacheRemoveAspect("ICommentService.Get", Priority = 2)]
 		public IResult Add(Comment comment)
 		{
 			comment.Approved = true;
 			_commentDal.Add(comment);
-			return new SuccessResult("");
+			return new SuccessResult(Messages.CommentAdded);
 		}
 
-		[SecuredOperation("Admin", Priority = 1)]
-		[CacheRemoveAspect("ICommentService.Get", Priority = 2)]
+		[ValidationAspect(typeof(CommentValidator),Priority = 1)]
+		[SecuredOperation("Admin", Priority = 2)]
+		[CacheRemoveAspect("ICommentService.Get", Priority = 3)]
 		public IResult Update(Comment comment)
 		{
 			_commentDal.Update(comment);
-			return new SuccessResult("");
+			return new SuccessResult(Messages.CommentUpdated);
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]
@@ -53,10 +55,11 @@ namespace MyBlog.Business.Concrete.Managers
 		public IResult Delete(int commentId)
 		{
 			_commentDal.Delete(new Comment {CommentId = commentId});
-			return new SuccessResult("");
+			return new SuccessResult(Messages.CommentDeleted);
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]
+		[CacheAspect()]
 		public IDataResult<Comment> GetById(int commentId)
 		{
 			return new SuccessDataResult<Comment>(_commentDal.GetComment(commentId));

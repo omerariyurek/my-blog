@@ -6,6 +6,9 @@
 {
     <meta name="description" content="@Model.Tag.MetaDescription" />
     <meta name="keywords" content="@Model.Tag.MetaKeywords" />
+    <meta property="og:title" content="@ViewData["Title"]">
+    <meta property="og:url" content="https://www.omerariyurek.com/category/@Model.Tag.SeoUrl">
+    <meta property="og:description" content="@Model.Tag.MetaDescription" />
 }
 <section class="load-more">
     <h2 class="load-more--main-title">@Model.Tag.TagName etiketine ait yazılar</h2>
@@ -13,7 +16,7 @@
     {
         <div class="load-more__other-post">
             <a href="@Url.Action("Get","Post",new{@seoUrl=@post.SeoUrl})">
-                <img src="@post.FirstImage" alt="@post.MetaKeywords" title="@post.Title">
+                <img src="@post.FirstImage" alt="@post.Title" title="@post.Title">
                 <h2 class="load-more__other-post--title">@post.Title</h2>
             </a>
             <ul class="load-more__other-post--date-category">

@@ -10,7 +10,6 @@ namespace MyBlog.Business.Abstract
 	public interface IUserService
 	{
 		IDataResult<List<OperationClaim>> OperationClaims(User user);
-		IResult Add(User user);
 		IDataResult<User> CheckIfUserNameExists(string userName);
 	}
 }

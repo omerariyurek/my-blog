@@ -4,16 +4,19 @@
 }
 @section metaTags
 {
-    <meta name="description" content="@Model.Category.MetaDescription" />
-    <meta name="keywords" content="@Model.Category.MetaKeywords" />
+    <meta name="description" content="@Model.Category.MetaDescription"/>
+    <meta name="keywords" content="@Model.Category.MetaKeywords"/>
+    <meta property="og:title" content="@ViewData["Title"]">
+    <meta property="og:url" content="https://www.omerariyurek.com/category/@Model.Category.SeoUrl">
+    <meta property="og:description" content="@Model.Category.MetaDescription"/>
 }
 <section class="load-more">
     <h2 class="load-more--main-title">@Model.Category.CategoryName kategorisine ait yazılar</h2>
     @foreach (var post in Model.PostDetails)
     {
         <div class="load-more__other-post">
-            <a href="@Url.Action("Get","Post",new{@seoUrl=@post.SeoUrl})">
-                <img src="@post.FirstImage" alt="@post.MetaKeywords" title="@post.Title">
+            <a href="@Url.Action("Get","Post",new{@seoUrl=@post.SeoUrl})" title="@post.Title">
+                <img src="@post.FirstImage" alt="@post.Title" title="@post.Title">
                 <h2 class="load-more__other-post--title">@post.Title</h2>
             </a>
             <ul class="load-more__other-post--date-category">
@@ -22,7 +25,7 @@
                 <li class="category">
                     @foreach (var category in post.PostCategories)
                     {
-                        <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=@category.SeoUrl})" class="title">@category.CategoryName</a>
+                        <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=@category.SeoUrl})" class="title" title="@category.CategoryName">@category.CategoryName</a>
                     }
                 </li>
             </ul>
