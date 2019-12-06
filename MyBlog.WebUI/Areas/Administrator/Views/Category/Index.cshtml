@@ -7,7 +7,7 @@
         <div class="admin-object-text">
             <h3 class="font-bold">Add New Category</h3>
             <div class="admin-object-input">
-                <form id="categoryUpdateForm" asp-controller="Category" asp-action="Add" method="post">
+                <form id="categoryUpdateForm" asp-controller="Category" asp-action="Add" asp-antiforgery="true" method="post">
                     <div class="form-group form-design">
                         <label asp-for="Category.CategoryName">Category Name</label>
                         <input asp-for="Category.CategoryName" placeholder="Category Name" class="form-control">
@@ -116,7 +116,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form asp-controller="Category" asp-action="Update" method="post">
+                <form asp-controller="Category" asp-action="Update" asp-antiforgery="true" method="post">
                     <input type="hidden" asp-for="Category.CategoryId" id="CategoryIdModal" />
                     <div class="form-group form-design">
                         <label asp-for="Category.CategoryName" class="col-form-label">Category Name</label>

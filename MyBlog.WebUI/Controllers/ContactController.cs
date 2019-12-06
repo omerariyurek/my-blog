@@ -24,6 +24,7 @@ namespace MyBlog.WebUI.Controllers
         }
 
         [HttpPost]
+		[ValidateAntiForgeryToken]
         public IActionResult Index(Contact contact)
         {
 	        var contactAddOperation = _contactService.Add(contact);

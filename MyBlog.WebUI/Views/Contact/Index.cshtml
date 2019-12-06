@@ -13,7 +13,7 @@
     {
         <p style="text-align: center;">@TempData["Success"]</p>
     }
-    <form asp-controller="Contact" asp-action="Index" method="post" class="contact-wrapper__contact-form">
+    <form asp-controller="Contact" asp-action="Index" method="post" asp-antiforgery="true" class="contact-wrapper__contact-form">
         <input asp-for="ContactName" placeholder="Ad Soyad">
         <span asp-validation-for="ContactName"></span>
         <input asp-for="Email" placeholder="E-Posta Adresi">

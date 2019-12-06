@@ -45,6 +45,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult Add(Category category)
 		{
 			var categoryAddOperation = _categoryService.Add(category);
@@ -67,6 +68,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult Update(Category category)
 		{
 			var categoryUpdateOperation = _categoryService.Update(category);

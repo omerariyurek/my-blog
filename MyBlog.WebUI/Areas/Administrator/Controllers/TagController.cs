@@ -44,6 +44,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult Add(Tag tag)
 		{
 			var tagAddOperation = _tagService.Add(tag);
@@ -66,6 +67,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult Update(Tag tag)
 		{
 			var tagUpdateOperation = _tagService.Update(tag);

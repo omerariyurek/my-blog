@@ -18,6 +18,7 @@ namespace MyBlog.WebUI.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult Add(Comment comment)
 		{
 			comment.AuthorIpAddress = HttpContext.Connection.RemoteIpAddress.ToString();

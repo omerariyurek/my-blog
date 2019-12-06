@@ -71,7 +71,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form asp-controller="Comment" asp-action="Update" method="post">
+                <form asp-controller="Comment" asp-action="Update" asp-antiforgery="true" method="post">
                     <input type="hidden" asp-for="Comment.CommentId" id="CommentIdModal" />
                     <input type="hidden" asp-for="Comment.PostId" id="CommentPostIdModal" />
                     <div class="form-group form-design">

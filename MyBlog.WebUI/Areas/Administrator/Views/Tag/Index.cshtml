@@ -7,7 +7,7 @@
         <div class="admin-object-text">
             <h3 class="font-bold">Add New Tag</h3>
             <div class="admin-object-input">
-                <form id="categoryUpdateForm" asp-controller="Tag" asp-action="Add" method="post">
+                <form id="categoryUpdateForm" asp-controller="Tag" asp-action="Add" method="post" asp-antiforgery="true">
                     <div class="form-group form-design">
                         <label asp-for="Tag.TagName">Tag Name</label>
                         <input asp-for="Tag.TagName" placeholder="Tag Name" class="form-control">
@@ -108,7 +108,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form asp-controller="Tag" asp-action="Update" method="post">
+                <form asp-controller="Tag" asp-action="Update" method="post" asp-antiforgery="true">
                     <input type="hidden" asp-for="Tag.TagId" id="TagIdModal" />
                     <div class="form-group form-design">
                         <label asp-for="Tag.TagName" class="col-form-label">Tag Name</label>

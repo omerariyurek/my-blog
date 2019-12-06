@@ -83,6 +83,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult Add(PostDto postDto)
 		{
 			postDto.Categories ??= new int[] { }; //null check for categories
@@ -124,6 +125,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult Update(PostDto postDto)
 		{
 			postDto.Categories ??= new int[] { }; //null check for categories

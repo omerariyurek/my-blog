@@ -30,6 +30,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
 		{
 			var userToLogin = _authService.Login(userForLoginDto);

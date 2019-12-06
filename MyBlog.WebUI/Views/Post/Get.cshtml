@@ -7,6 +7,12 @@
     <meta name="description" content="@Model.PostDetail.MetaDescription" />
     <meta name="keywords" content="@Model.PostDetail.MetaKeywords" />
 }
+@section scripts
+{
+    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+}
 <section class="post-content">
     <h2 class="post-content__title">@Model.PostDetail.Title</h2>
     <ul class="post-content__info-list">
@@ -66,7 +72,7 @@
                                 @comment.Content
                             </p>
                             <p style="display: inline-block;">@comment.CreatedDate.ToString("dddd, dd MMMM yyyy")</p>
-                            <a href="#comment" style="float: right; color: #ec6a2a; text-decoration: none;" onclick="">Yanıtla</a>
+                            <a href="#comment" style="float: right; color: #ec6a2a; text-decoration: none;" onclick="parentComment(@comment.CommentId)">Yanıtla</a>
                         </div>
                     }
                     foreach (var parentComment in Model.Comments.Where(x => x.ParentComment == comment.CommentId))
@@ -86,8 +92,9 @@
             <h4 class="comment-title">Bir Yorum Yapın</h4>
             <form asp-action="Add" asp-controller="Comment" asp-antiforgery="true" method="post">
                 <input asp-for="Comment.PostId" type="hidden" value="@Model.PostDetail.PostId" />
+                <input asp-for="Comment.ParentComment" type="hidden" id="parent-comment-id" />
                 <label>Yorumunuz</label>
-                <textarea style="resize: none;"asp-for="Comment.Content"></textarea>
+                <textarea style="resize: none;" asp-for="Comment.Content"></textarea>
                 <span style="float:left;width: 100%;" asp-validation-for="Comment.Content"></span>
                 <div class="small">
                     <label>Adınız Soyadınız</label>
@@ -105,5 +112,7 @@
     }
 </section>
 <script type="text/javascript">
-
+    function parentComment(id) {
+        $("#parent-comment-id").val(id);
+    }
 </script>

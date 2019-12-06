@@ -60,6 +60,7 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		}
 
 		[HttpPost]
+		[ValidateAntiForgeryToken]
 		public IActionResult Update(Comment comment)
 		{
 			_commentService.Update(comment);

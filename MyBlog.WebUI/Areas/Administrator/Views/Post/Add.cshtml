@@ -10,7 +10,7 @@
     </script>
 }
 <div class="admin-post">
-    <form asp-controller="Post" asp-action="Add" method="post">
+    <form asp-controller="Post" asp-action="Add" method="post" asp-antiforgery="true">
         <div class="admin-post-input-base col-md-9">
             <div class="admin-post-input">
                 <div class="admin-post-title">

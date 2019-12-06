@@ -25,7 +25,7 @@
                 <div class="login-page-logo">
                     <img src="~/Content/images/omer-ariyurek-logo.png" />
                 </div>
-                <form asp-controller="Auth" asp-action="Login" method="post">
+                <form asp-controller="Auth" asp-action="Login" asp-antiforgery="true" method="post">
                     <div class="form-group">
                         @if (ViewBag.LoginErrorMessage != null)
                         {
