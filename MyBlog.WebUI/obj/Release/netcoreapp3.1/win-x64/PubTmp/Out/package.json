@@ -10,7 +10,6 @@
     "jquery-validation": "1.19.1",
     "jquery-validation-unobtrusive": "3.2.11",
     "select2": "4.0.12",
-    "select2-bootstrap-theme": "0.1.0-beta.9",
-    "ckeditor": "4.12.1"
+    "select2-bootstrap-theme": "0.1.0-beta.9"
   }
 }
