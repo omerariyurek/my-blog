@@ -86,8 +86,8 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		[ValidateAntiForgeryToken]
 		public IActionResult Add(PostDto postDto)
 		{
-			postDto.Categories ??= new int[] { }; //null check for categories
-			postDto.Tags ??= new int[] { }; //null check for tags
+			postDto.Categories = postDto.Categories ?? new int[] { }; //null check for categories
+			postDto.Tags = postDto.Tags ?? new int[] { }; //null check for tags
 			var postAddOperation = _postService.Add(postDto);
 			TempData.Add(!postAddOperation.Success ? "Error" : "Success", postAddOperation.Message);
 			return RedirectToAction("Index");
@@ -128,8 +128,8 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 		[ValidateAntiForgeryToken]
 		public IActionResult Update(PostDto postDto)
 		{
-			postDto.Categories ??= new int[] { }; //null check for categories
-			postDto.Tags ??= new int[] { }; //null check for tags
+			postDto.Categories = postDto.Categories ?? new int[] { }; //null check for categories
+			postDto.Tags = postDto.Tags ?? new int[] { }; //null check for tags
 			var postUpdateOperation = _postService.Update(postDto);
 			TempData.Add(!postUpdateOperation.Success ? "Error" : "Success", postUpdateOperation.Message);
 			return RedirectToAction("Index");

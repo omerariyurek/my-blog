@@ -12,8 +12,8 @@
     <link href="~/node_modules/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet" />
     <link href="~/node_modules/select2/dist/css/select2.min.css" rel="stylesheet" />
     <link href="~/node_modules/select2-bootstrap-theme/dist/select2-bootstrap.min.css" rel="stylesheet" />
-    <link href="~/Content/styles/app.min.css" rel="stylesheet" />
-    <link href="~/Content/styles/admin-style.min.css" rel="stylesheet" />
+    <link href="~/assets/styles/app.min.css" rel="stylesheet" />
+    <link href="~/assets/styles/admin-style.min.css" rel="stylesheet" />
 </head>
 <body>
     <section id="admin-users" class="admin-operations">
@@ -21,37 +21,37 @@
             <div class="admin-bar">
                 <div class="web-logo">
                     <a href="@Url.Action("Index", "Home")">
-                        <img src="~/Content/images/omer-ariyurek-logo.png" class="page-logo" />
+                        <img src="~/assets/images/omer-ariyurek-logo.png" class="page-logo" />
                     </a>
                 </div>
                 <ul class="operations-list">
                     <li class="list-item">
                         <a href="@Url.Action("Index", "Post")">
-                            <img src="~/Content/images/posts.png" />
+                            <img src="~/assets/images/posts.png" />
                             Posts
                         </a>
                     </li>
                     <li class="list-item">
                         <a href="@Url.Action("Index", "Category")">
-                            <img src="~/Content/images/categories.png" />
+                            <img src="~/assets/images/categories.png" />
                             Categories
                         </a>
                     </li>
                     <li class="list-item">
                         <a href="@Url.Action("Index", "Comment")">
-                            <img src="~/Content/images/comments.png" />
+                            <img src="~/assets/images/comments.png" />
                             Comments
                         </a>
                     </li>
                     <li class="list-item">
                         <a href="@Url.Action("Index", "Tag")">
-                            <img src="~/Content/images/tags.png" />
+                            <img src="~/assets/images/tags.png" />
                             Tags
                         </a>
                     </li>
                     <li class="list-item">
                         <a href="@Url.Action("Index", "Contact")">
-                            <img src="~/Content/images/contacts.png" />
+                            <img src="~/assets/images/contacts.png" />
                             Contacts
                         </a>
                     </li>
@@ -78,8 +78,8 @@
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="~/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/node_modules/select2/dist/js/select2.full.min.js"></script>
-    <script src="~/Content/scripts/admin-select2.min.js"></script>
-    <script src="~/Content/scripts/admin-app.min.js"></script>
+    <script src="~/assets/scripts/admin-select2.min.js"></script>
+    <script src="~/assets/scripts/admin-app.min.js"></script>
     @RenderSection("scripts", false)
 </body>
 </html>

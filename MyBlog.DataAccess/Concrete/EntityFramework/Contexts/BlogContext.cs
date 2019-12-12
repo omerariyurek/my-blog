@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Internal;
 using MyBlog.Core.Entities.Concrete;
 using MyBlog.Entities.Concrete;
 
@@ -11,7 +12,8 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework.Contexts
 	{
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
-			optionsBuilder.UseSqlServer(@"Data Source=.; Initial Catalog=BlogDB; Integrated Security=true;");
+			optionsBuilder.UseSqlServer(@"Data Source=.;Initial Catalog=Blog; Integrated Security=true");
+			
 		}
 
 		public DbSet<Post> Posts { get; set; }

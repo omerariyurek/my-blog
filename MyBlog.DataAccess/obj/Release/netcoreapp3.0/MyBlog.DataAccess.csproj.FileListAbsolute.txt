@@ -1,0 +1,13 @@
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\bin\Release\netcoreapp3.0\MyBlog.DataAccess.deps.json
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\bin\Release\netcoreapp3.0\MyBlog.DataAccess.dll
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\bin\Release\netcoreapp3.0\MyBlog.DataAccess.pdb
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\bin\Release\netcoreapp3.0\MyBlog.Core.dll
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\bin\Release\netcoreapp3.0\MyBlog.Entities.dll
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\bin\Release\netcoreapp3.0\MyBlog.Core.pdb
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\bin\Release\netcoreapp3.0\MyBlog.Entities.pdb
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\obj\Release\netcoreapp3.0\MyBlog.DataAccess.csprojAssemblyReference.cache
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\obj\Release\netcoreapp3.0\MyBlog.DataAccess.AssemblyInfoInputs.cache
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\obj\Release\netcoreapp3.0\MyBlog.DataAccess.AssemblyInfo.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\obj\Release\netcoreapp3.0\MyBlog.DataAccess.csproj.CopyComplete
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\obj\Release\netcoreapp3.0\MyBlog.DataAccess.dll
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.DataAccess\obj\Release\netcoreapp3.0\MyBlog.DataAccess.pdb

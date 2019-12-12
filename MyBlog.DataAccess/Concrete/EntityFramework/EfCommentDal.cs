@@ -6,7 +6,6 @@ using Microsoft.EntityFrameworkCore;
 using MyBlog.Core.DataAccess.Concrete.EntityFramework;
 using MyBlog.DataAccess.Abstract;
 using MyBlog.DataAccess.Concrete.EntityFramework.Contexts;
-using MyBlog.DataAccess.Migrations;
 using MyBlog.Entities.Concrete;
 
 namespace MyBlog.DataAccess.Concrete.EntityFramework

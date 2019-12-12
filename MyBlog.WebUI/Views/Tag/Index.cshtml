@@ -10,7 +10,7 @@
         @foreach (var tag in Model.Tags)
         {
             <li class="category-content__content-box--item">
-                <img src="~/Content/images/category-background.jpg" />
+                <img src="~/assets/images/category-background.jpg" />
                 <a href="@Url.Action("TagPosts","Tag",new{@seoUrl=tag.SeoUrl})" class="title">@tag.TagName</a>
             </li>
         }

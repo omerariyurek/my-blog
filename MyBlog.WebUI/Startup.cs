@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyBlog.Business.DependencyResolvers.Autofac;
@@ -19,6 +21,12 @@ namespace MyBlog.WebUI
 {
 	public class Startup
 	{
+		public Startup(IConfiguration configuration)
+		{
+			Configuration = configuration;
+		}
+		public IConfiguration Configuration { get; }
+
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddMvc().AddFluentValidation();
@@ -36,21 +44,12 @@ namespace MyBlog.WebUI
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
-			if (env.IsDevelopment())
-			{
-				app.UseDeveloperExceptionPage();
-				//app.UseExceptionHandler("/error");
-				//app.UseStatusCodePagesWithReExecute("/error/{0}");
-			}
-			else
-			{
-				app.UseExceptionHandler("/error");
-				app.UseStatusCodePagesWithReExecute("/error/{0}");
-				app.UseHsts();
-			}
+			app.UseDeveloperExceptionPage();
+			//app.UseExceptionHandler("/error");
+			//app.UseStatusCodePagesWithReExecute("/error/{0}");
+			app.UseHttpsRedirection();
+			app.UseStaticFiles();
 			app.UseFileServer();
-			app.UseFiles(env.ContentRootPath, "node_modules", "/node_modules");
-			app.UseFiles(env.ContentRootPath, "content", "/content");
 			app.UseRouting();
 			app.UseAuthentication();
 			app.UseAuthorization();

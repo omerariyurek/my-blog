@@ -27,7 +27,7 @@ namespace MyBlog.WebUI.Controllers
 			var addCommentOperation = _commentService.Add(comment);
 			if (addCommentOperation.Success)
 			{
-				var post = _postService.GetById(comment.PostId).Data;
+				var post = _postService.GetById(comment.PostId).Data; // for post redirect
 				TempData.Add("CommentInsertSuccessful",addCommentOperation.Message);
 				return RedirectToAction("Get", "Post", new {seoUrl = post.SeoUrl});
 			}
