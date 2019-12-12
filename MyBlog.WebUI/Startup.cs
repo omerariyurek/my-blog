@@ -44,9 +44,8 @@ namespace MyBlog.WebUI
 
 		public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 		{
-			app.UseDeveloperExceptionPage();
-			//app.UseExceptionHandler("/error");
-			//app.UseStatusCodePagesWithReExecute("/error/{0}");
+			app.UseExceptionHandler("/error");
+			app.UseStatusCodePagesWithReExecute("/error/{0}");
 			app.UseHttpsRedirection();
 			app.UseStaticFiles();
 			app.UseFileServer();

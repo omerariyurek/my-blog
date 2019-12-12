@@ -13,9 +13,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework.Contexts
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 		{
 			optionsBuilder.UseSqlServer(@"Data Source=.;Initial Catalog=Blog; Integrated Security=true");
-			
 		}
-
 		public DbSet<Post> Posts { get; set; }
 		public DbSet<Category> Categories { get; set; }
 		public DbSet<Comment> Comments { get; set; }
