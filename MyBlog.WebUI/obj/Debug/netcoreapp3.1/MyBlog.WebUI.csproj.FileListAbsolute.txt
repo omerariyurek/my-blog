@@ -9,7 +9,6 @@ C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.1\MyBlog
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\log4net.config
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\appsettings.json
-C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\package.json
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\MyBlog.WebUI.exe
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\MyBlog.WebUI.deps.json
@@ -170,3 +169,5 @@ C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.1\MyBlog
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\Microsoft.Bcl.HashCode.dll
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.1\MyBlog.WebUI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\libman.json
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\package-lock.json

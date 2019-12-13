@@ -1,7 +1,6 @@
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\log4net.config
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\appsettings.Development.json
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\appsettings.json
-C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\package.json
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\Properties\launchSettings.json
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\MyBlog.WebUI.exe
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\MyBlog.WebUI.deps.json
@@ -512,3 +511,5 @@ C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Release\netcoreapp3.1\win-
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Release\netcoreapp3.1\win-x64\MyBlog.WebUI.dll
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Release\netcoreapp3.1\win-x64\MyBlog.WebUI.pdb
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Release\netcoreapp3.1\win-x64\MyBlog.WebUI.csprojAssemblyReference.cache
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\libman.json
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\package-lock.json

@@ -5,8 +5,8 @@
 @section metaTags
 {
     <meta name="description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming hakkında yazılar" />
-    <meta name="keywords" content="Ömer Arıyürek,C#,ASP.NET CORE,.NET Core,.NET,Entity Framework,Ömer Arıyürek,C#,ASP.NET CORE MVC,.NET Core,.NET,Entity Framework,Design Patterns,ASP.NET MVC,ASP.NET Core Web Api" />
-    <meta property="og:image" content="@Url.Content("~/assets/images/omer-ariyurek-logo.png")" />
+    <meta name="keywords" content="Ömer Arıyürek,C#,ASP.NET CORE,.NET Core,.NET,Entity Framework,C#,ASP.NET CORE MVC,.NET Core,.NET,Entity Framework,Design Patterns,ASP.NET MVC,ASP.NET Core Web Api" />
+    <meta property="og:image" content="@Url.Content("~/assets/images/pp.jpg")" />
     <meta property="og:title" content="@ViewData["Title"]">
     <meta property="og:url" content="https://www.omerariyurek.com">
     <meta property="og:description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming hakkında yazılar" />
@@ -33,7 +33,7 @@
                         <img src="@post.CoverImage" alt="@post.Title" title="@post.Title">
                         <h5 class="homepage-content__articles-list--content-title">@post.Title</h5>
                     </a>
-                    <span class="homepage-content__articles-list--content-date">@post.CreatedDate.ToString("MM/dd/yyyy")</span>
+                    <span class="homepage-content__articles-list--content-date">@post.CreatedDate.ToString("dd/MM/yyyy")</span>
                 </li>
             }
         </ul>

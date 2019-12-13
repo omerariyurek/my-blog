@@ -67,7 +67,6 @@
                 <thead>
                     <tr>
                         <th scope="col">Category Name</th>
-                        <th scope="col">Category Description</th>
                         <th scope="col">Status</th>
                         <th scope="col">Operations</th>
                     </tr>
@@ -76,7 +75,7 @@
                     @if (Model.Categories.Count == 0)
                     {
                         <tr>
-                            <td colspan="4" style="text-align: center">No Tag</td>
+                            <td colspan="3" style="text-align: center">No Tag</td>
                         </tr>
                     }
                     else
@@ -85,7 +84,6 @@
                         {
                             <tr id="row_category_@category.CategoryId">
                                 <td>@category.CategoryName</td>
-                                <td>@category.CategoryDescription</td>
                                 <td>@category.Status</td>
                                 <td>
                                     <a class="table-button-object" href="#" onclick="return getCategoryById(@category.CategoryId)">Update</a> |

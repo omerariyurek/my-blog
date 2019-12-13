@@ -32,9 +32,8 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<Contact>>(_contactDal.GetList().ToList());
 		}
 
-		[SecuredOperation("Admin", Priority = 1)]
-		[ValidationAspect(typeof(ContactValidator),Priority = 2)]
-		[CacheRemoveAspect("IContactService.Get", Priority = 3)]
+		[ValidationAspect(typeof(ContactValidator),Priority = 1)]
+		[CacheRemoveAspect("IContactService.Get", Priority = 2)]
 		public IResult Add(Contact contact)
 		{
 			_contactDal.Add(contact);

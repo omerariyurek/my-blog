@@ -9,12 +9,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login - Ömer ARIYÜREK</title>
+    <link rel="shortcut icon" type="image/png" href="@Url.Content("~/assets/favicon.ico")" />
     <meta name="robots" content="noindex" />
     <meta name="googlebot" content="noindex">
-    <link href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="~/node_modules/bootstrap/dist/css/bootstrap-grid.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap/css/bootstrap-grid.min.css" rel="stylesheet" />
     <link href="~/assets/styles/app.min.css" rel="stylesheet" />
-    <link href="~/assets/styles/style.css" rel="stylesheet" />
+    <link href="~/assets/styles/admin-style.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400" rel="stylesheet">
 </head>
@@ -30,7 +31,7 @@
                         @if (ViewBag.LoginErrorMessage != null)
                         {
                             <div class="form-error-alert">
-                                <span >@ViewBag.LoginErrorMessage</span>
+                                <span>@ViewBag.LoginErrorMessage</span>
                             </div>
                         }
                         <div class="form-group">
@@ -50,8 +51,8 @@
         </div>
     </section>
     <!-- Script -->
-    <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="~/node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-    <script src="~/node_modules/jquery-validation-unobtrusive/dist/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery/jquery.min.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>

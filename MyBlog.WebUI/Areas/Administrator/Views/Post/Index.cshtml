@@ -42,7 +42,7 @@
                     <th scope="col">Post Title</th>
                     <th scope="col">Status</th>
                     <th scope="col">Is Home</th>
-                    <th scope="col">Comment Status</th>
+                    <th scope="col">Comment</th>
                     <th scope="col">Operations</th>
                 </tr>
             </thead>
@@ -58,7 +58,7 @@
                     foreach (var post in Model.Posts)
                     {
                         <tr id="row_post_@post.PostId">
-                            <td>@post.Title</td>
+                            <td>@(post.Title.Length > 60 ? post.Title.Substring(0, 56) + "..." : post.Title)</td>
                             <td>@post.Status</td>
                             <td>@post.IsHome</td>
                             <td>@post.CommentStatus</td>

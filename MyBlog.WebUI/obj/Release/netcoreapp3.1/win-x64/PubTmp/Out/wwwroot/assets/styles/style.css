@@ -160,7 +160,7 @@ body::-webkit-scrollbar-thumb {
 .homepage-content__my-photo {
     width: 150px;
     height: 150px;
-    background-image: url("../../Content/images/pp.jpg");
+    background-image: url("../../assets/images/pp.jpg");
     background-size: cover;
     border: 15px solid #f5f5f5;
     border-radius: 50%;
@@ -185,7 +185,7 @@ body::-webkit-scrollbar-thumb {
     height: 100vh;
     top: 0;
     position: absolute;
-    background-image: url("../../Content/images/markus-spiske.jpg");
+    background-image: url("../../assets/images/markus-spiske.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -622,7 +622,7 @@ body::-webkit-scrollbar-thumb {
     width: 100%;
     height: 250px;
     display: inline-block;
-    background-image: url("../../Content/images/markus-spiske.jpg");
+    background-image: url("../../assets/images/markus-spiske.jpg");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -755,8 +755,8 @@ body::-webkit-scrollbar-thumb {
 }
 
     .post-content__content--content-txt img {
-        width: 100% !important;
-        height: 100% !important;
+        width: 70% !important;
+        height: 70% !important;
         display: inline-block;
     }
 
@@ -1257,7 +1257,7 @@ label {
     width: 100%;
     height: 99vh;
     display: inline-block;
-    background-image: url(../../Content/images/404.jpg);
+    background-image: url(../../assets/images/404.jpg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1327,7 +1327,7 @@ label {
 #error-page {
     width: 100%;
     height: 100vh;
-    background-image: url(../../Content/images/404.jpg);
+    background-image: url(../../assets/images/404.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -1375,9 +1375,9 @@ label {
         padding-left: 10px;
     }
 
- .icon-font-size {
-     font-size: 20px;
- }
+.icon-font-size {
+    font-size: 20px;
+}
 
 @media screen and (max-width: 1368px) {
     .left-bar {
@@ -1421,9 +1421,10 @@ label {
         height: 700px;
     }
 }
+
 .mobile-menu-title-link {
-    text-decoration:none;
-    color:white;
+    text-decoration: none;
+    color: white;
 }
 
 @media screen and (max-width: 991px) and (min-width: 768px) {
@@ -1739,6 +1740,12 @@ label {
         margin-bottom: 25px;
     }
 
+    .post-content__content--content-txt img {
+        width: 100% !important;
+        height: 100% !important;
+        display: inline-block;
+    }
+
     .post-content .customer-name {
         width: 100%;
         border: 1px solid;
@@ -1859,7 +1866,7 @@ label {
 
 @media screen and (min-width: 1920px) {
     .homepage-content__recents-articles {
-        margin-top: 23%;
+        margin-top: 25%;
     }
 }
 

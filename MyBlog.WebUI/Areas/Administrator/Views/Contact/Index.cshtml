@@ -39,9 +39,9 @@
                     foreach (var contact in Model.Contacts)
                     {
                         <tr id="row_contact_@contact.ContactId">
-                            <td>@contact.ContactName</td>
-                            <td>@contact.Email</td>
-                            <td>@contact.Message</td>
+                            <td>@(contact.ContactName.Length>20?contact.ContactName.Substring(0,17)+"...":contact.ContactName)</td>
+                            <td>@(contact.Email.Length>15?contact.Email.Substring(0,12)+"...":contact.Email)</td>
+                            <td>@(contact.Message.Length>80?contact.Message.Substring(0,76)+"...":contact.Message)</td>
                             <td>
                                 <a class="table-button-object" href="#" onclick="return getContactById(@contact.ContactId)">Show</a> |
                                 <a class="table-button-object" href="#" onclick="deleteContact(@contact.ContactId)">Delete</a>

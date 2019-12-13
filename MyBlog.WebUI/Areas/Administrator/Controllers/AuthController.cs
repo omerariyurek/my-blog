@@ -44,7 +44,10 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 				var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
 				identity.AddClaims(new AuthenticationHelper().SetClaims(userToLogin.Data,userOperationClaims.Data));
 				var principal = new ClaimsPrincipal(identity);
-				await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+				await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties
+				{
+					ExpiresUtc = DateTime.UtcNow.AddHours(6)
+				});
 				return RedirectToAction("Index", "Home");
 			}
 			return View(userForLoginDto);

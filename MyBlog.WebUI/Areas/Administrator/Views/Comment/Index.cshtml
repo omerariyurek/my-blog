@@ -2,65 +2,65 @@
 @{
     ViewData["Title"] = "Comments Page";
 }
-    <div class="admin-object-table col-md-12">
-        <div class="search-object-base">
-            <div class="search-object">
-                <form asp-controller="Comment" asp-action="Index" method="get">
-                    <input class="form-control form-fix" name="search" placeholder="Search Comment">
-                    <button type="submit" class="btn btn-info">Search</button>
-                </form>
-            </div>
+<div class="admin-object-table col-md-12">
+    <div class="search-object-base">
+        <div class="search-object">
+            <form asp-controller="Comment" asp-action="Index" method="get">
+                <input class="form-control form-fix" name="search" placeholder="Search Comment">
+                <button type="submit" class="btn btn-info">Search</button>
+            </form>
         </div>
-        @if (TempData["searchComment"] != null)
-        {
+    </div>
+    @if (TempData["searchComment"] != null)
+    {
         <div class="alert alert-primary" style="margin-top: 50px" role="alert">
             Searched Comment : @TempData["searchComment"]
         </div>
-        }
-        <div class="admin-object-table-info">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Author Name</th>
-                        <th scope="col">Author E-Mail</th>
-                        <th scope="col">Comment</th>
-                        <th scope="col">Post Name</th>
-                        <th scope="col">Approved</th>
-                        <th scope="col">Operations</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @if (Model.Comments.Count == 0)
-                    {
+    }
+    <div class="admin-object-table-info">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Author Name</th>
+                    <th scope="col">Author E-Mail</th>
+                    <th scope="col">Comment</th>
+                    <th scope="col">Post Name</th>
+                    <th scope="col">Approved</th>
+                    <th scope="col">Operations</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Comments.Count == 0)
+                {
                     <tr>
                         <td colspan="6" style="text-align: center">No Comment</td>
                     </tr>
-                    }
-                    else
+                }
+                else
+                {
+                    foreach (var comment in Model.Comments)
                     {
-                        foreach (var comment in Model.Comments)
-                        {
-                    <tr id="row_comment_@comment.CommentId">
-                        <td>@comment.AuthorName</td>
-                        <td>@comment.AuthorEmail</td>
-                        <td>@comment.Content</td>
-                        <td>@comment.Post.Title</td>
-                        <td>@comment.Approved</td>
-                        <td>
-                            <a class="table-button-object" href="#" onclick="return getCommentById(@comment.CommentId)">Update</a> |
-                            <a class="table-button-object" href="#" onclick="deleteComment(@comment.CommentId)">Delete</a>
-                        </td>
-                    </tr>
-                        }
+                        <tr id="row_comment_@comment.CommentId">
+                            <td>@(comment.AuthorName.Length > 20 ? comment.AuthorName.Substring(0, 16) + "..." : comment.AuthorName)</td>
+                            <td>@(comment.AuthorEmail.Length > 15?comment.AuthorEmail.Substring(0,12)+"...":comment.AuthorEmail)</td>
+                            <td>@(comment.Content.Length > 50 ? comment.Content.Substring(0, 46) + "..." : comment.Content)</td>
+                            <td>@(comment.Post.Title.Length > 50 ? comment.Post.Title.Substring(0, 46) + "..." : comment.Post.Title)</td>
+                            <td>@comment.Approved</td>
+                            <td>
+                                <a class="table-button-object" href="#" onclick="return getCommentById(@comment.CommentId)">Update</a> |
+                                <a class="table-button-object" href="#" onclick="deleteComment(@comment.CommentId)">Delete</a>
+                            </td>
+                        </tr>
                     }
-                </tbody>
-            </table>
-        </div>
-        <div class="paging-admin">
-            <comment-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage" search-comment="@Model.SearchComment">
-            </comment-paging>
-        </div>
+                }
+            </tbody>
+        </table>
     </div>
+    <div class="paging-admin">
+        <comment-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage" search-comment="@Model.SearchComment">
+        </comment-paging>
+    </div>
+</div>
 <div class="modal fade" id="commentUpdateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">

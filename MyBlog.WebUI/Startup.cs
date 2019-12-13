@@ -35,6 +35,11 @@ namespace MyBlog.WebUI
 				{
 					options.LoginPath = "/Administrator/Auth/Login/";
 				});
+			services.AddHttpsRedirection(options =>
+			{
+				options.RedirectStatusCode = StatusCodes.Status308PermanentRedirect;
+				options.HttpsPort = 443;
+			});
 			services.AddHttpContextAccessor();
 			services.AddDependencyResolvers(new ICoreModule[]
 			{

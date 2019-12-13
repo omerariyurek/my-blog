@@ -20,7 +20,7 @@
                 <h2 class="load-more__other-post--title">@post.Title</h2>
             </a>
             <ul class="load-more__other-post--date-category">
-                <li class="date">@post.CreatedDate.ToString("MM/dd/yyyy")</li>
+                <li class="date">@post.CreatedDate.ToString("dd/MM/yyyy")</li>
                 <li class="hyphen">-</li>
                 <li class="category">
                     @foreach (var category in post.PostCategories)
