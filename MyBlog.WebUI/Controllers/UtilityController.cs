@@ -27,7 +27,7 @@ namespace MyBlog.WebUI.Controllers
 		[Route("/sitemap.xml")]
 		public IActionResult Sitemap()
 		{
-			string baseUrl = "https://localhost:44376/";
+			string baseUrl = "https://www.omerariyurek.com/";
 
 			var posts = _postService.GetPostDetails().Data;
 			var categories = _categoryService.GetListActive().Data;
