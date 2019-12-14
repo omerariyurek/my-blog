@@ -10,7 +10,7 @@
         @foreach (var category in Model.Categories)
         {
             <li class="category-content__content-box--item">
-                <img src="~/assets/images/category-background.jpg" />
+                <img src="~/assets/images/category-background.jpg" title="@category.CategoryName" alt="@category.CategoryName"/>
                 <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=@category.SeoUrl})" class="title" title="@category.CategoryName">@category.CategoryName</a>
             </li>
         }

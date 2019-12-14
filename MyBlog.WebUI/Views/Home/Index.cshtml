@@ -4,9 +4,10 @@
 }
 @section metaTags
 {
+    <link rel="canonical" href="https://www.omerariyurek.com/" />
     <meta name="description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming hakkında yazılar" />
     <meta name="keywords" content="Ömer Arıyürek,C#,ASP.NET CORE,.NET Core,.NET,Entity Framework,C#,ASP.NET CORE MVC,.NET Core,.NET,Entity Framework,Design Patterns,ASP.NET MVC,ASP.NET Core Web Api" />
-    <meta property="og:image" content="@Url.Content("~/assets/images/pp.jpg")" />
+    <meta property="og:image" content="@Url.Content("~/assets/images/pp.jpg")"/>
     <meta property="og:title" content="@ViewData["Title"]">
     <meta property="og:url" content="https://www.omerariyurek.com">
     <meta property="og:description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming hakkında yazılar" />
@@ -38,7 +39,7 @@
             }
         </ul>
         <div class="homepage-content__recents-articles--more-btn">
-            <a href="@Url.Action("Index","Post")" class="btn">TÜM YAZILAR</a>
+            <a href="@Url.Action("Index","Post")" class="btn" title="TÜM YAZILAR">TÜM YAZILAR</a>
         </div>
     </div>
 </section>

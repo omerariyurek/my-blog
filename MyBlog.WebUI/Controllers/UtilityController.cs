@@ -11,13 +11,13 @@ using MyBlog.Core.Utilities.Web.Sitemap;
 
 namespace MyBlog.WebUI.Controllers
 {
-	public class SitemapController : Controller
+	public class UtilityController : Controller
 	{
 		private IPostService _postService;
 		private ICategoryService _categoryService;
 		private ITagService _tagService;
 
-		public SitemapController(IPostService postService, ICategoryService categoryService, ITagService tagService)
+		public UtilityController(IPostService postService, ICategoryService categoryService, ITagService tagService)
 		{
 			_postService = postService;
 			_categoryService = categoryService;
@@ -25,7 +25,7 @@ namespace MyBlog.WebUI.Controllers
 		}
 
 		[Route("/sitemap.xml")]
-		public IActionResult Index()
+		public IActionResult Sitemap()
 		{
 			string baseUrl = "https://localhost:44376/";
 
@@ -75,6 +75,13 @@ namespace MyBlog.WebUI.Controllers
 			string xml = siteMapBuilder.ToString();
 			return Content(xml, "text/xml",Encoding.UTF8);
 
+		}
+
+		[Route("/robots.txt")]
+		public IActionResult Robots()
+		{
+			Response.ContentType = "text/plain";
+			return View();
 		}
 	}
 }

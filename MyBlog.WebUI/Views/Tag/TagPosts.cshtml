@@ -25,7 +25,7 @@
                 <li class="category">
                     @foreach (var category in post.PostCategories)
                     {
-                        <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=@category.SeoUrl})" class="title">@category.CategoryName</a>
+                        <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=@category.SeoUrl})" class="title" title="@category.CategoryName">@category.CategoryName</a>
                     }
                 </li>
             </ul>

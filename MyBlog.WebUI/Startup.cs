@@ -52,7 +52,13 @@ namespace MyBlog.WebUI
 			app.UseExceptionHandler("/error");
 			app.UseStatusCodePagesWithReExecute("/error/{0}");
 			app.UseHttpsRedirection();
-			app.UseStaticFiles();
+			app.UseStaticFiles(new StaticFileOptions
+			{
+				OnPrepareResponse = ctx =>
+					{
+						ctx.Context.Response.Headers.Append("Cache-Control", $"public,max-age={604800}");
+					}
+			});
 			app.UseFileServer();
 			app.UseRouting();
 			app.UseAuthentication();

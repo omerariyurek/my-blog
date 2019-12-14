@@ -171,3 +171,4 @@ C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\Micros
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.1\MyBlog.WebUI.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\libman.json
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Debug\netcoreapp3.1\package-lock.json
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Debug\netcoreapp3.1\Razor\Views\Utility\Robots.cshtml.g.cs

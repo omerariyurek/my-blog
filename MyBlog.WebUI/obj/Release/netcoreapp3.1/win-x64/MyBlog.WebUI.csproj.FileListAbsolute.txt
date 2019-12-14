@@ -513,3 +513,4 @@ C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Release\netcoreapp3.1\win-
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Release\netcoreapp3.1\win-x64\MyBlog.WebUI.csprojAssemblyReference.cache
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\libman.json
 C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\bin\Release\netcoreapp3.1\win-x64\package-lock.json
+C:\Users\omerariyurek\Desktop\MyBlog\MyBlog.WebUI\obj\Release\netcoreapp3.1\win-x64\Razor\Views\Utility\Robots.cshtml.g.cs
