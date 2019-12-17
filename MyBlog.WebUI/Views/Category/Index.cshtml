@@ -2,15 +2,23 @@
 @{
     ViewData["Title"] = "Kategoriler - Ömer ARIYÜREK";
 }
+@section metaTags
+{
+    <meta name="description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming" />
+    <meta name="keywords" content=".NET,C#,ASP.NET CORE MVC,.NET Core,ASP.NET Web Api,Entity Framework Core,Design Patterns,Solid Principles" />
+    <meta property="og:title" content="@ViewData["Title"]">
+    <meta property="og:url" content="https://www.omerariyurek.com/categories/">
+    <meta property="og:description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming" />
+}
 <section class="category-content">
     <div class="category-content__category-name">
-        <h2 class="category-content__category-name--category">Kategoriler</h2>
+        <h1 class="category-content__category-name--category">Kategoriler</h1>
     </div>
     <ul class="category-content__content-box">
         @foreach (var category in Model.Categories)
         {
             <li class="category-content__content-box--item">
-                <img src="~/assets/images/category-background.jpg" title="@category.CategoryName" alt="@category.CategoryName"/>
+                <img src="~/assets/images/category-background.jpg" title="@category.CategoryName" alt="@category.CategoryName" />
                 <a href="@Url.Action("CategoryPosts","Category",new{@seoUrl=@category.SeoUrl})" class="title" title="@category.CategoryName">@category.CategoryName</a>
             </li>
         }

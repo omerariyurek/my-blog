@@ -42,12 +42,13 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			{
 				var userOperationClaims = _authService.OperationClaims(userToLogin.Data);
 				var identity = new ClaimsIdentity(CookieAuthenticationDefaults.AuthenticationScheme);
-				identity.AddClaims(new AuthenticationHelper().SetClaims(userToLogin.Data,userOperationClaims.Data));
+				identity.AddClaims(new AuthenticationHelper().SetClaims(userToLogin.Data, userOperationClaims.Data));
 				var principal = new ClaimsPrincipal(identity);
 				await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal, new AuthenticationProperties
 				{
-					ExpiresUtc = DateTime.UtcNow.AddHours(6)
-				});
+					ExpiresUtc = DateTime.UtcNow.AddHours(6),
+					IsPersistent = true
+				}); 
 				return RedirectToAction("Index", "Home");
 			}
 			return View(userForLoginDto);

@@ -2,13 +2,23 @@
 @{
     ViewData["Title"] = "İletişim - Ömer ARIYÜREK";
 }
+@section metaTags
+{
+    <link rel="canonical" href="https://www.omerariyurek.com/" />
+    <meta name="description" content="Ömer Arıyürek İletişim,.NET Developer" />
+    <meta name="keywords" content="Ömer Arıyürek,C#,ASP.NET CORE,.NET Core,.NET,Entity Framework,C#,ASP.NET CORE MVC,.NET Core,.NET,Entity Framework,Design Patterns,ASP.NET MVC,ASP.NET Core Web Api,Solid Principles" />
+    <meta property="og:image" content="@Url.Content("~/assets/images/pp.jpg")" />
+    <meta property="og:title" content="@ViewData["Title"]">
+    <meta property="og:url" content="https://www.omerariyurek.com/contact">
+    <meta property="og:description" content="Ömer Arıyürek İletişim,.NET Developer" />
+}
 @section scripts{
     <script src="~/lib/jquery/jquery.min.js"></script>
     <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
 <section class="contact-wrapper">
-    <h2 class="contact-wrapper__contact-title">Bana Ulaşın</h2>
+    <h1 class="contact-wrapper__contact-title">Bana Ulaşın</h1>
     @if (TempData["Success"] != null)
     {
         <p style="text-align: center;">@TempData["Success"]</p>

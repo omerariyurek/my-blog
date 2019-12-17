@@ -5,19 +5,19 @@
 @section metaTags
 {
     <link rel="canonical" href="https://www.omerariyurek.com/" />
-    <meta name="description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming hakkında yazılar" />
-    <meta name="keywords" content="Ömer Arıyürek,C#,ASP.NET CORE,.NET Core,.NET,Entity Framework,C#,ASP.NET CORE MVC,.NET Core,.NET,Entity Framework,Design Patterns,ASP.NET MVC,ASP.NET Core Web Api" />
+    <meta name="description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming,Solid Principles hakkında yazılar" />
+    <meta name="keywords" content="Ömer Arıyürek,C#,ASP.NET CORE,.NET Core,.NET,Entity Framework,C#,ASP.NET CORE MVC,.NET Core,.NET,Entity Framework,Design Patterns,ASP.NET MVC,ASP.NET Core Web Api,Solid Principles" />
     <meta property="og:image" content="@Url.Content("~/assets/images/pp.jpg")"/>
     <meta property="og:title" content="@ViewData["Title"]">
     <meta property="og:url" content="https://www.omerariyurek.com">
-    <meta property="og:description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming hakkında yazılar" />
+    <meta property="og:description" content="Ömer Arıyürek .NET Developer,C#,ASP.NET Core MVC,.NET Core,.NET,ASP.NET MVC,Entity Framework,Design Patterns,ASP.NET Core Web Api,Object Oriented Programming,Solid Principles hakkında yazılar" />
 }
 <section class="homepage-content">
     <div class="homepage-content__about-me">
         <img class="homepage-content__my-photo">
         <div class="homepage-content__about-txt">
             <span class="homepage-content__about-txt--hello">Merhaba! Ben</span>
-            <span class="homepage-content__about-txt--name">Ömer Arıyürek</span>
+            <h1 class="homepage-content__about-txt--name">Ömer Arıyürek</h1>
             <p class="homepage-content__about-txt--about-content">
                 Yazılım ile lise yıllarımda bilişim teknolojileri bölümünde okurken tanıştım. Daha sonrasında üniversitede bilgisayar programcılığı bölümünü bitirdim. Yaklaşık 5 senedir kod yazmakla birlikte bilgilerime yenilerini eklemekteyim. Ağırlıklı olarak Microsoft teknolojileriyle ilgilenmekteyim. Blogumda elimden geldiğince bildiklerim ve öğrendiğim teknolojiler hakkında yazılar yazmaya çalışacağım...
             </p>
@@ -25,14 +25,14 @@
         <div class="homepage-content__about-me--background-image"></div>
     </div>
     <div class="homepage-content__recents-articles">
-        <h3 class="homepage-content__recents-articles--recents-title">Son Yazılar</h3>
+        <h2 class="homepage-content__recents-articles--recents-title">Son Yazılar</h2>
         <ul class="homepage-content__articles-list">
             @foreach (var post in Model.Posts)
             {
                 <li class="homepage-content__articles-list--item">
                     <a href="@Url.Action("Get","Post",new{@seoUrl=post.SeoUrl})" title="@post.Title">
                         <img src="@post.CoverImage" alt="@post.Title" title="@post.Title">
-                        <h5 class="homepage-content__articles-list--content-title">@post.Title</h5>
+                        <h3 class="homepage-content__articles-list--content-title">@post.Title</h3>
                     </a>
                     <span class="homepage-content__articles-list--content-date">@post.CreatedDate.ToString("dd/MM/yyyy")</span>
                 </li>

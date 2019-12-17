@@ -3,7 +3,7 @@
     ViewData["Title"] = $"{@TempData["searchPost"]} - Ömer ARIYÜREK";
 }
 <section class="load-more">
-    <h2 class="load-more--main-title">@TempData["searchPost"] için arama sonuçları</h2>
+    <h1 class="load-more--main-title">@TempData["searchPost"] için arama sonuçları</h1>
     @foreach (var post in Model.PostDetails)
     {
         <div class="load-more__other-post">
