@@ -57,7 +57,7 @@ namespace MyBlog.Business.Concrete.Managers
 		[CacheAspect(Priority = 2)]
 		public IDataResult<List<Post>> GetList()
 		{
-			return new SuccessDataResult<List<Post>>(_postDal.GetList().ToList());
+			return new SuccessDataResult<List<Post>>(_postDal.GetList().OrderByDescending(x=>x.CreatedDate).ToList());
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]
@@ -81,7 +81,7 @@ namespace MyBlog.Business.Concrete.Managers
 				IsHome = postDto.IsHome,
 				MetaDescription = postDto.MetaDescription,
 				MetaKeywords = postDto.MetaKeywords,
-				Status = postDto.CommentStatus,
+				Status = postDto.Status,
 				CoverImage = postDto.CoverImage,
 				FirstImage = postDto.FirstImage
 			};

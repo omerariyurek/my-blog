@@ -83,7 +83,7 @@ namespace MyBlog.DataAccess.Concrete.EntityFramework
 		{
 			using (var context = new BlogContext())
 			{
-				var result = context.Posts.Where(x => x.PostId == postId && x.Status).Select(x => new PostDto
+				var result = context.Posts.Where(x => x.PostId == postId).Select(x => new PostDto
 				{
 					PostId = x.PostId,
 					SeoUrl = x.SeoUrl,

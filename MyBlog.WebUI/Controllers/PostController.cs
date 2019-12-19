@@ -41,7 +41,7 @@ namespace MyBlog.WebUI.Controllers
 		public IActionResult Get(string seoUrl)
 		{
 			var post = _postService.GetByUrl(seoUrl).Data;
-			if (post == null)
+			if (post == null || post.Status==false)
 			{
 				return RedirectToAction("PageNotFound", "Error");
 			}
