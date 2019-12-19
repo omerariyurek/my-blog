@@ -886,7 +886,6 @@ body::-webkit-scrollbar-thumb {
     .post-content__related-post .img-and-tag img {
         width: 100%;
         display: block;
-        height: 300px;
     }
 
     .post-content__related-post .img-and-tag .category-tag {
