@@ -107,7 +107,6 @@ namespace MyBlog.Business.Concrete.Managers
 		}
 
 		[SecuredOperation("Admin", Priority = 1)]
-		[CacheAspect(Priority = 2)]
 		public IDataResult<List<TagsDto>> GetSelectedTags()
 		{
 			return new SuccessDataResult<List<TagsDto>>(_tagDal.GetsTags().ToList());

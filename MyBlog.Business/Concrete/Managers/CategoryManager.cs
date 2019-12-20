@@ -100,13 +100,11 @@ namespace MyBlog.Business.Concrete.Managers
 			return new SuccessDataResult<List<Category>>(_categoryDal.GetList(x=>x.Status==true).ToList());
 		}
 
-		[CacheAspect()]
 		public IDataResult<List<CategoriesDto>> GetCategories()
 		{
 			return new SuccessDataResult<List<CategoriesDto>>(_categoryDal.GetCategories());
 		}
 
-		
 		public IResult CheckIfCategoryNameExists(string categoryName)
 		{
 			var categoryToCheck = _categoryDal.Get(x => x.CategoryName == categoryName);

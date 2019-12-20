@@ -103,16 +103,22 @@ namespace MyBlog.WebUI.Areas.Administrator.Controllers
 			var postCategories = _postService.GetPostCategories(id).Data;
 			foreach (var tag in tags)// To access the selected one in the select2 plugin
 			{
-				foreach (var postTag in postTags.Where(postTag => tag.TagId == postTag.TagId))
+				foreach (var postTag in postTags)
 				{
-					tag.Selected = true;
+					if (tag.TagId == postTag.TagId)
+					{
+						tag.Selected = true;
+					}
 				}
 			}
 			foreach (var category in categories)// To access the selected one in the select2 plugin
 			{
-				foreach (var postCategory in postCategories.Where(postCategory => category.CategoryId == postCategory.CategoryId))
+				foreach (var postCategory in postCategories)
 				{
-					category.Selected = true;
+					if (category.CategoryId == postCategory.CategoryId)
+					{
+						category.Selected = true;
+					}
 				}
 			}
 			var model = new PostUpdateViewModel
