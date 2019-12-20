@@ -4,24 +4,33 @@
 }
 <section class="load-more">
     <h1 class="load-more--main-title">@TempData["searchPost"] için arama sonuçları</h1>
-    @foreach (var post in Model.PostDetails)
-    {
-        <div class="load-more__other-post">
-            <a href="@Url.Action("Get","Post",new{@seoUrl=@post.SeoUrl})" title="@post.Title">
-                <img src="@post.FirstImage" alt="@post.Title" title="@post.MetaDescription">
-                <h2 class="load-more__other-post--title">@post.Title</h2>
-            </a>
-            <ul class="load-more__other-post--date-category">
-                <li class="date">@post.CreatedDate.ToString("dd/MM/yyyy")</li>
-                <li class="hyphen">-</li>
-                <li class="category">
-                    @foreach (var category in post.PostCategories)
-                    {
-                        <a href="@Url.Action("CategoryPosts", "Category", new {@seoUrl = category.SeoUrl})" title="@category.CategoryName">@category.CategoryName</a>
-                    }
-                </li>
-            </ul>
-        </div>
-    }
+    <div class="load-more__other-post">
+        @if (Model.PostDetails.Count == 0)
+        {
+            <p style="margin-bottom: 19%;margin-top: 26px;">Aradığınız yazı bulunamadı.</p>
+        }
+        else
+        {
+            foreach (var post in Model.PostDetails)
+            {
+
+                <a href="@Url.Action("Get","Post",new{@seoUrl=@post.SeoUrl})" title="@post.Title">
+                    <img src="@post.FirstImage" alt="@post.Title" title="@post.MetaDescription">
+                    <h2 class="load-more__other-post--title">@post.Title</h2>
+                </a>
+                <ul class="load-more__other-post--date-category">
+                    <li class="date">@post.CreatedDate.ToString("dd/MM/yyyy")</li>
+                    <li class="hyphen">-</li>
+                    <li class="category">
+                        @foreach (var category in post.PostCategories)
+                        {
+                            <a href="@Url.Action("CategoryPosts", "Category", new {@seoUrl = category.SeoUrl})" title="@category.CategoryName">@category.CategoryName</a>
+                        }
+                    </li>
+                </ul>
+            
+            }
+        }
+    </div>
     <post-all-paging page-size="@Model.PageSize" page-count="@Model.PageCount" current-page="@Model.CurrentPage" search-post="@Model.SearchKey"></post-all-paging>
 </section>
